@@ -1,0 +1,30 @@
+MOBILE GITHUB PAGES UPLOAD PACKAGE
+
+Repository:
+https://github.com/3hl001/material-availability-atlas
+
+Expected public website:
+https://3hl001.github.io/material-availability-atlas/
+
+Upload the CONTENTS of this folder to the repository root:
+
+1. index.html
+2. assets folder
+3. .nojekyll
+4. nfc-links.txt (optional reference file)
+
+The correct repository structure is:
+
+material-availability-atlas/
+  index.html
+  .nojekyll
+  assets/
+    images/
+    maps/
+
+Do not upload plastic-afterlife-mobile-github as an extra outer folder. The index.html file must appear directly on the repository's main file list.
+
+GitHub Pages settings:
+Settings > Pages > Deploy from a branch > main > / (root) > Save
+
+After GitHub reports that the site is live, test the homepage and all 12 addresses in nfc-links.txt on a phone before writing the NFC tags.

@@ -1,0 +1,3638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PLASTIC AFTERLIFE — When Human Materials Enter a Bird's World</title>
+
+  <style>
+    :root{
+      --bg:#f5f5ef;
+      --paper:#ffffff;
+      --text:#333333;
+      --border:#cccccc;
+      --border-dark:#999999;
+      --map:#e9eee7;
+      --accent:#dfff19;
+    }
+
+    *{
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      margin:0;
+      font-family:Arial, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+    }
+
+    header{
+      height:70px;
+      background:white;
+      border-bottom:1px solid var(--border);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:0 50px;
+      position:sticky;
+      top:0;
+      z-index:10;
+    }
+
+    .logo{
+      font-size:22px;
+      font-weight:bold;
+    }
+
+    nav a{
+      margin-left:25px;
+      color:var(--text);
+      text-decoration:none;
+    }
+
+    nav a:hover{
+      text-decoration:underline;
+    }
+
+    section{
+      padding:50px;
+      scroll-margin-top:70px;
+    }
+
+    .hero{
+      min-height:350px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+
+    .hero h1{
+      font-size:45px;
+      line-height:1.18;
+      max-width:900px;
+      margin:0 0 28px;
+    }
+
+    .hero p{
+      max-width:650px;
+      line-height:1.6;
+      font-size:17px;
+    }
+
+
+    /* Homepage */
+    .hero-home{
+      position:relative;
+      min-height:calc(100vh - 70px);
+      padding:0;
+      display:flex;
+      align-items:center;
+      overflow:hidden;
+      background:#111;
+    }
+
+    .hero-home__background{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center;
+      transform:scale(1.001);
+    }
+
+    .hero-home__overlay{
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(15,15,15,.68) 0%,
+          rgba(15,15,15,.46) 38%,
+          rgba(15,15,15,.14) 68%,
+          rgba(15,15,15,.08) 100%
+        ),
+        linear-gradient(
+          0deg,
+          rgba(15,15,15,.42) 0%,
+          rgba(15,15,15,0) 55%
+        );
+    }
+
+    .hero-home__content{
+      position:relative;
+      z-index:1;
+      width:min(760px,calc(100% - 100px));
+      padding:40px 0 40px 64px;
+      color:#f7f6f1;
+      text-align:left;
+    }
+
+    .hero-home__eyebrow{
+      margin:0 0 26px;
+      font-size:12px;
+      font-weight:bold;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+    }
+
+    .hero-home h1{
+      max-width:820px;
+      margin:0 0 28px;
+      font-size:clamp(48px,5.2vw,82px);
+      line-height:1.02;
+      letter-spacing:-.045em;
+      text-shadow:0 2px 22px rgba(0,0,0,.22);
+    }
+
+    .hero-home__subtitle{
+      max-width:560px;
+      margin:0;
+      font-size:19px;
+      line-height:1.55;
+      color:#f0efe9;
+    }
+
+    .logo{
+      color:var(--text);
+      text-decoration:none;
+    }
+
+
+    /* Activities visual page */
+    .activities-section{
+      padding:70px 50px 76px;
+    }
+
+    .activities-heading{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:40px;
+      align-items:end;
+      margin-bottom:38px;
+      padding-bottom:24px;
+      border-bottom:1px solid var(--border-dark);
+    }
+
+    .activities-label{
+      margin:0 0 12px;
+      font-size:12px;
+      font-weight:bold;
+      letter-spacing:.16em;
+    }
+
+    .activities-heading h2{
+      margin:0;
+      font-size:38px;
+    }
+
+    .activities-intro{
+      max-width:560px;
+      margin:0 0 3px auto;
+      font-size:16px;
+      line-height:1.6;
+    }
+
+    .activities-visual-grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:26px;
+    }
+
+    .activity-visual-card{
+      display:block;
+      overflow:hidden;
+      border:1px solid var(--border);
+      background:#fff;
+      color:var(--text);
+      text-decoration:none;
+      transition:border-color .24s ease, transform .24s ease;
+    }
+
+    .activity-visual-card:hover{
+      transform:translateY(-4px);
+      border-color:#333;
+    }
+
+    .activity-image{
+      height:330px;
+      overflow:hidden;
+      background:#e7e7e2;
+      border-bottom:1px solid var(--border);
+    }
+
+    .activity-image img{
+      display:block;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform .4s ease;
+    }
+
+    .activity-visual-card:hover .activity-image img{
+      transform:scale(1.045);
+    }
+
+    .activity-image.research-logo{
+      display:grid;
+      place-items:center;
+      background:#5e91b8;
+    }
+
+    .activity-image.research-logo img{
+      width:70%;
+      height:70%;
+      object-fit:contain;
+    }
+
+    .activity-copy{
+      position:relative;
+      min-height:180px;
+      padding:24px 58px 26px 24px;
+    }
+
+    .activity-index{
+      display:block;
+      margin-bottom:20px;
+      font-size:12px;
+      letter-spacing:.14em;
+    }
+
+    .activity-copy h3{
+      margin:0 0 15px;
+      font-size:23px;
+      line-height:1.25;
+    }
+
+    .activity-copy p{
+      margin:0;
+      font-size:15px;
+      line-height:1.5;
+    }
+
+    .activity-arrow{
+      position:absolute;
+      right:24px;
+      top:24px;
+      font-size:22px;
+    }
+
+    .activity-subpage{
+      min-height:calc(100vh - 70px);
+      padding:64px 50px 32px;
+      border-top:1px solid var(--border-dark);
+      background:var(--bg);
+    }
+
+    .subpage-header{
+      padding-bottom:22px;
+      border-bottom:1px solid var(--border-dark);
+    }
+
+    .subpage-header p{
+      margin:0 0 14px;
+      font-size:12px;
+      font-weight:bold;
+      letter-spacing:.16em;
+    }
+
+    .subpage-header h2{
+      margin:0;
+      font-size:42px;
+    }
+
+    .subpage-empty{
+      min-height:560px;
+      margin-top:28px;
+      display:grid;
+      place-items:center;
+      border:1px dashed #aaa;
+      color:#888;
+      font-size:14px;
+      letter-spacing:.08em;
+    }
+
+    .subpage-nav{
+      display:flex;
+      justify-content:space-between;
+      margin-top:24px;
+      padding-top:14px;
+      border-top:1px solid var(--border);
+    }
+
+    .subpage-nav a{
+      color:var(--text);
+      text-decoration:none;
+    }
+
+    .subpage-nav a:hover{
+      text-decoration:underline;
+    }
+
+
+    /* Human Activities */
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:25px;
+    }
+
+    .card{
+      background:white;
+      border:1px solid var(--border);
+      padding:25px;
+      min-height:210px;
+    }
+
+    .icon{
+      width:45px;
+      height:45px;
+      border-radius:50%;
+      border:1px solid #555;
+      margin-bottom:20px;
+    }
+
+    /* Material Map */
+    .map{
+      height:450px;
+      border:2px solid var(--border-dark);
+      background:var(--map);
+      position:relative;
+    }
+
+    .point{
+      width:20px;
+      height:20px;
+      background:#555;
+      border-radius:50%;
+      position:absolute;
+      cursor:pointer;
+    }
+
+    .point div{
+      display:none;
+      position:absolute;
+      left:25px;
+      top:-10px;
+      background:white;
+      border:1px solid #aaa;
+      width:170px;
+      padding:10px;
+      z-index:2;
+    }
+
+    .point:hover div{
+      display:block;
+    }
+
+    .harbour{left:25%;top:25%;}
+    .town{left:60%;top:30%;}
+    .beach{left:40%;top:60%;}
+    .habitat{left:75%;top:65%;}
+
+
+
+    .study-sites{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+      margin:28px 0 34px;
+    }
+
+    .study-site-card{
+      min-height:92px;
+      border:1px solid #9f9f99;
+      background:transparent;
+      padding:18px;
+      display:flex;
+      align-items:flex-end;
+      position:relative;
+      color:var(--text);
+      text-decoration:none;
+      transition:border-color .22s ease, transform .22s ease, background .22s ease;
+    }
+
+    .study-site-card::before{
+      content:"";
+      position:absolute;
+      left:18px;
+      top:18px;
+      width:34px;
+      height:34px;
+      border:1px solid #777;
+      border-radius:50%;
+    }
+
+    .study-site-card::after{
+      content:"";
+      position:absolute;
+      left:18px;
+      right:18px;
+      top:60px;
+      border-top:1px dashed #b5b5ae;
+    }
+
+    .study-site-card span{
+      position:relative;
+      z-index:1;
+      display:block;
+      padding-top:48px;
+      padding-right:24px;
+      font-size:15px;
+      font-weight:600;
+      line-height:1.3;
+    }
+
+    .study-site-card b{
+      position:absolute;
+      right:16px;
+      bottom:14px;
+      font-size:18px;
+      font-weight:400;
+      transition:transform .22s ease;
+    }
+
+    .study-site-card:hover{
+      transform:translateY(-3px);
+      border-color:#333;
+      background:#ffffff;
+    }
+
+    .study-site-card:hover b{
+      transform:translate(2px,-2px);
+    }
+
+    .map-image-panel{
+      height:auto;
+      min-height:0;
+      border:0;
+      background:transparent;
+      overflow:hidden;
+    }
+
+    .embedded-map-image{
+      display:block;
+      width:100%;
+      height:auto;
+      object-fit:contain;
+      background:#f5f5ef;
+      transition:transform .25s ease;
+      transform-origin:center;
+    }
+
+    .embedded-map-image:hover{
+      transform:scale(1.015);
+    }
+
+
+    .map-subpage{
+      min-height:calc(100vh - 70px);
+      padding:64px 50px 32px;
+      border-top:1px solid var(--border-dark);
+      background:var(--bg);
+    }
+
+    .map-subpage__header{
+      padding-bottom:22px;
+      border-bottom:1px solid var(--border-dark);
+    }
+
+    .map-subpage__header p{
+      margin:0 0 14px;
+      font-size:12px;
+      font-weight:bold;
+      letter-spacing:.16em;
+    }
+
+    .map-subpage__header h2{
+      margin:0;
+      font-size:42px;
+    }
+
+    .interactive-map-placeholder{
+      min-height:620px;
+      margin-top:28px;
+      display:grid;
+      place-items:center;
+      border:1px dashed #999;
+      background:#eef1ec;
+      color:#777;
+      font-size:14px;
+      letter-spacing:.08em;
+      transition:border-color .2s ease, background .2s ease;
+    }
+
+    .interactive-map-placeholder:hover,
+    .interactive-map-placeholder:focus{
+      border-color:#333;
+      background:#f7f7f2;
+      outline:none;
+    }
+
+    .map-subpage__nav{
+      display:flex;
+      justify-content:space-between;
+      margin-top:24px;
+      padding-top:14px;
+      border-top:1px solid var(--border);
+    }
+
+    .map-subpage__nav a{
+      color:var(--text);
+      text-decoration:none;
+    }
+
+    .map-subpage__nav a:hover{
+      text-decoration:underline;
+    }
+
+
+
+    /* Material Passport archive */
+    .passport-section{
+      padding:70px 50px 76px;
+    }
+
+    .passport-heading{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:40px;
+      align-items:end;
+      margin-bottom:38px;
+      padding-bottom:24px;
+      border-bottom:1px solid var(--border-dark);
+    }
+
+    .passport-label{
+      margin:0 0 12px;
+      font-size:12px;
+      font-weight:bold;
+      letter-spacing:.16em;
+    }
+
+    .passport-heading h2{
+      margin:0;
+      font-size:38px;
+    }
+
+    .passport-intro{
+      max-width:520px;
+      margin:0 0 3px auto;
+      font-size:16px;
+      line-height:1.6;
+    }
+
+    .passport-category-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:26px;
+    }
+
+    .passport-category-card{
+      position:relative;
+      min-height:230px;
+      padding:24px 64px 26px 24px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      border:1px solid var(--border);
+      background:#fff;
+      color:var(--text);
+      text-decoration:none;
+      transition:transform .22s ease,border-color .22s ease,background .22s ease;
+    }
+
+    .passport-category-card:hover{
+      transform:translateY(-4px);
+      border-color:#333;
+      background:#fafaf7;
+    }
+
+    .passport-category-index{
+      font-size:12px;
+      letter-spacing:.14em;
+    }
+
+    .passport-category-card h3{
+      margin:0 0 14px;
+      font-size:28px;
+      line-height:1.2;
+    }
+
+    .passport-category-card p{
+      margin:0;
+      font-size:15px;
+      line-height:1.5;
+    }
+
+    .passport-category-card b{
+      position:absolute;
+      right:24px;
+      top:22px;
+      font-size:22px;
+      font-weight:400;
+    }
+
+    .passport-subpage{
+      min-height:calc(100vh - 70px);
+      padding:64px 50px 32px;
+      border-top:1px solid var(--border-dark);
+      background:var(--bg);
+    }
+
+    .passport-subpage__header{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:24px;
+      padding-bottom:22px;
+      border-bottom:1px solid var(--border-dark);
+    }
+
+    .passport-subpage__header p{
+      margin:0 0 14px;
+      font-size:12px;
+      font-weight:bold;
+      letter-spacing:.16em;
+    }
+
+    .passport-subpage__header h2{
+      margin:0;
+      font-size:42px;
+    }
+
+    .passport-counter{
+      font-size:14px;
+      letter-spacing:.12em;
+    }
+
+    .passport-carousel{
+      position:relative;
+      display:grid;
+      grid-template-columns:56px minmax(0,1fr) 56px;
+      align-items:center;
+      gap:16px;
+      margin-top:34px;
+    }
+
+    .passport-track-wrap{
+      overflow:hidden;
+      touch-action:pan-y;
+    }
+
+    .passport-track{
+      display:flex;
+      transition:transform .45s cubic-bezier(.22,.61,.36,1);
+      will-change:transform;
+    }
+
+    .passport-slide{
+      min-width:100%;
+      padding:8px;
+      box-sizing:border-box;
+    }
+
+    .passport-cover,
+    .material-passport-page{
+      min-height:620px;
+      border:1px solid #85857f;
+      background:#f7f4e9;
+    }
+
+    .passport-cover{
+      position:relative;
+      padding:36px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+
+    .passport-cover::after{
+      content:"N";
+      position:absolute;
+      right:34px;
+      bottom:88px;
+      font-size:180px;
+      font-weight:bold;
+      line-height:.8;
+      color:rgba(51,51,51,.06);
+    }
+
+    .passport-cover__top{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      padding-bottom:18px;
+      border-bottom:1px solid #777;
+      font-size:12px;
+      font-weight:bold;
+      letter-spacing:.16em;
+    }
+
+    .passport-cover__body{
+      position:relative;
+      z-index:1;
+      max-width:560px;
+    }
+
+    .passport-cover__body p{
+      margin:0 0 20px;
+      font-size:14px;
+      letter-spacing:.08em;
+    }
+
+    .passport-cover__body h3{
+      margin:0;
+      font-size:clamp(54px,7vw,94px);
+      line-height:.92;
+      letter-spacing:-.045em;
+    }
+
+    .passport-cover__rule{
+      width:90px;
+      height:5px;
+      margin:30px 0;
+      background:var(--accent);
+    }
+
+    .open-passport{
+      align-self:flex-start;
+      position:relative;
+      z-index:1;
+      padding:13px 17px;
+      border:1px solid #333;
+      background:transparent;
+      color:#333;
+      font:inherit;
+      font-size:13px;
+      font-weight:bold;
+      letter-spacing:.08em;
+      cursor:pointer;
+    }
+
+    .open-passport:hover{
+      background:#333;
+      color:#fff;
+    }
+
+    .material-passport-page{
+      padding:28px;
+      display:grid;
+      grid-template-rows:auto minmax(0,1fr) auto;
+      gap:20px;
+      background:#fff;
+    }
+
+    .material-passport-page__meta,
+    .material-passport-page__footer{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      font-size:12px;
+      letter-spacing:.14em;
+    }
+
+    .material-passport-page__meta{
+      padding-bottom:16px;
+      border-bottom:1px solid #999;
+    }
+
+    .material-passport-page__meta strong{
+      font-size:18px;
+      letter-spacing:.06em;
+    }
+
+    .material-passport-page__image{
+      min-height:470px;
+      display:grid;
+      place-items:center;
+      overflow:hidden;
+      background:#111;
+    }
+
+    .material-passport-page__image img{
+      display:block;
+      width:100%;
+      height:100%;
+      max-height:500px;
+      object-fit:contain;
+    }
+
+    .material-passport-page__footer{
+      padding-top:16px;
+      border-top:1px solid #999;
+    }
+
+    .passport-arrow{
+      width:52px;
+      height:52px;
+      display:grid;
+      place-items:center;
+      border:1px solid #888;
+      background:transparent;
+      color:#333;
+      font-size:20px;
+      cursor:pointer;
+      transition:background .2s ease,color .2s ease,border-color .2s ease;
+    }
+
+    .passport-arrow:hover:not(:disabled){
+      border-color:#333;
+      background:#333;
+      color:#fff;
+    }
+
+    .passport-arrow:disabled{
+      opacity:.3;
+      cursor:not-allowed;
+    }
+
+    .passport-dots{
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      margin-top:18px;
+    }
+
+    .passport-dots button{
+      width:9px;
+      height:9px;
+      padding:0;
+      border:1px solid #555;
+      border-radius:50%;
+      background:transparent;
+      cursor:pointer;
+    }
+
+    .passport-dots button.active{
+      background:#333;
+    }
+
+    .passport-subpage__nav{
+      display:flex;
+      justify-content:space-between;
+      margin-top:26px;
+      padding-top:14px;
+      border-top:1px solid var(--border);
+    }
+
+    .passport-subpage__nav a{
+      color:var(--text);
+      text-decoration:none;
+    }
+
+    .passport-subpage__nav a:hover{
+      text-decoration:underline;
+    }
+
+    .anthropogenic-placeholder{
+      min-height:620px;
+      margin-top:28px;
+      display:grid;
+      place-items:center;
+      border:1px dashed #999;
+      color:#777;
+      font-size:14px;
+      letter-spacing:.08em;
+    }
+
+
+
+    .open-passport:disabled{
+      opacity:1;
+      cursor:not-allowed;
+      background:transparent;
+      color:#333;
+    }
+
+    .open-passport:disabled:hover{
+      background:transparent;
+      color:#333;
+    }
+
+    .removed-map-image{
+      min-height:420px;
+      width:100%;
+      border:1px dashed var(--border-dark);
+      background:var(--map);
+    }
+
+
+    /* Passport archive indexes */
+    .archive-status{
+      font-size:12px;
+      font-weight:bold;
+      letter-spacing:.14em;
+      white-space:nowrap;
+    }
+
+    .archive-series-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:26px;
+      margin-top:34px;
+    }
+
+    .archive-series-grid--single{
+      grid-template-columns:minmax(0,1fr);
+      max-width:820px;
+    }
+
+    .archive-series-card{
+      position:relative;
+      min-height:430px;
+      padding:24px;
+      display:flex;
+      flex-direction:column;
+      overflow:hidden;
+      border:1px solid #92928c;
+      background:#f8f7f1;
+      color:var(--text);
+      text-decoration:none;
+      transition:transform .25s ease,border-color .25s ease,background .25s ease;
+    }
+
+    .archive-series-card:hover{
+      transform:translateX(8px);
+      border-color:#222;
+      background:#fff;
+    }
+
+    .archive-series-card::before{
+      content:"";
+      position:absolute;
+      left:0;
+      top:0;
+      bottom:0;
+      width:8px;
+      background:#333;
+    }
+
+    .archive-series-card--n::before{background:#7f8e70;}
+    .archive-series-card--d::before{background:#314f70;}
+    .archive-series-card--s::before{background:#c76d3f;}
+    .archive-series-card--r::before{background:#7d5c89;}
+    .archive-series-card--p::before{background:#c8d51f;}
+
+    .archive-series-card__top{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      padding-left:14px;
+      padding-bottom:16px;
+      border-bottom:1px solid #999;
+      font-size:11px;
+      font-weight:bold;
+      letter-spacing:.13em;
+    }
+
+    .archive-series-card__letter{
+      position:absolute;
+      right:20px;
+      top:54px;
+      font-size:150px;
+      font-weight:bold;
+      line-height:1;
+      color:rgba(51,51,51,.06);
+    }
+
+    .archive-series-card__body{
+      position:relative;
+      z-index:1;
+      padding:54px 0 34px 14px;
+    }
+
+    .archive-series-card__body > p{
+      margin:0 0 14px;
+      font-size:12px;
+      font-weight:bold;
+      letter-spacing:.16em;
+    }
+
+    .archive-series-card__body h3{
+      max-width:420px;
+      margin:0 0 44px;
+      font-size:36px;
+      line-height:1.04;
+      letter-spacing:-.03em;
+    }
+
+    .archive-series-card dl,
+    .series-passport-cover dl{
+      margin:0;
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:20px;
+    }
+
+    .archive-series-card dl div,
+    .series-passport-cover dl div{
+      padding-top:12px;
+      border-top:1px solid #999;
+    }
+
+    .archive-series-card dt,
+    .series-passport-cover dt{
+      margin-bottom:8px;
+      font-size:10px;
+      font-weight:bold;
+      letter-spacing:.14em;
+    }
+
+    .archive-series-card dd,
+    .series-passport-cover dd{
+      margin:0;
+      font-size:14px;
+    }
+
+    .archive-series-card__access{
+      margin-top:auto;
+      padding:16px 0 0 14px;
+      display:flex;
+      justify-content:space-between;
+      border-top:1px solid #999;
+      font-size:12px;
+      font-weight:bold;
+      letter-spacing:.12em;
+    }
+
+    .archive-series-card__access b{
+      font-size:18px;
+      font-weight:400;
+    }
+
+    .series-cover-page{
+      background:#f1f0ea;
+    }
+
+    .series-passport-cover{
+      position:relative;
+      min-height:650px;
+      margin-top:34px;
+      padding:38px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      overflow:hidden;
+      border:1px solid #777;
+      background:#f8f5e9;
+    }
+
+    .series-passport-cover::after{
+      content:attr(data-series);
+      position:absolute;
+      right:28px;
+      bottom:54px;
+      font-size:220px;
+      font-weight:bold;
+      line-height:.8;
+      color:rgba(51,51,51,.055);
+    }
+
+    .series-passport-cover--n{border-left:12px solid #7f8e70;}
+    .series-passport-cover--d{border-left:12px solid #314f70;}
+    .series-passport-cover--s{border-left:12px solid #c76d3f;}
+    .series-passport-cover--r{border-left:12px solid #7d5c89;}
+    .series-passport-cover--p{border-left:12px solid #c8d51f;}
+
+    .series-passport-cover__top{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      padding-bottom:18px;
+      border-bottom:1px solid #777;
+      font-size:12px;
+      font-weight:bold;
+      letter-spacing:.16em;
+    }
+
+    .series-passport-cover__body{
+      position:relative;
+      z-index:1;
+      max-width:760px;
+      padding:44px 0;
+    }
+
+    .series-passport-cover__body > p{
+      margin:0 0 20px;
+      font-size:14px;
+      letter-spacing:.08em;
+    }
+
+    .series-passport-cover__body h3{
+      margin:0;
+      font-size:clamp(54px,7vw,94px);
+      line-height:.92;
+      letter-spacing:-.045em;
+    }
+
+    .series-passport-cover__rule{
+      width:96px;
+      height:6px;
+      margin:32px 0;
+      background:#333;
+    }
+
+    .series-passport-cover .open-passport{
+      align-self:flex-start;
+    }
+
+
+
+
+    /* Future Scenarios */
+    .future-scenarios-page{
+      padding:70px 50px 76px;
+      background:var(--bg);
+    }
+
+    .future-heading{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:40px;
+      align-items:end;
+      margin-bottom:38px;
+      padding-bottom:24px;
+      border-bottom:1px solid var(--border-dark);
+    }
+
+    .future-label{
+      margin:0 0 12px;
+      font-size:12px;
+      font-weight:bold;
+      letter-spacing:.16em;
+    }
+
+    .future-heading h2{
+      margin:0;
+      font-size:42px;
+      letter-spacing:-.03em;
+    }
+
+    .future-intro{
+      max-width:620px;
+      margin:0 0 3px auto;
+      font-size:18px;
+      line-height:1.55;
+    }
+
+    .future-scenario-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:26px;
+    }
+
+    .future-scenario-card{
+      display:block;
+      overflow:hidden;
+      border:1px solid var(--border);
+      background:#fff;
+      color:var(--text);
+      text-decoration:none;
+      transition:transform .24s ease,border-color .24s ease;
+    }
+
+    .future-scenario-card:hover{
+      transform:translateY(-4px);
+      border-color:#222;
+    }
+
+    .future-scenario-image{
+      height:350px;
+      overflow:hidden;
+      background:#e8e8e2;
+      border-bottom:1px solid var(--border);
+    }
+
+    .future-scenario-image img{
+      display:block;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform .42s ease;
+    }
+
+    .future-scenario-card:hover .future-scenario-image img{
+      transform:scale(1.035);
+    }
+
+    .future-scenario-copy{
+      position:relative;
+      min-height:190px;
+      padding:24px 60px 26px 24px;
+    }
+
+    .future-scenario-copy > span{
+      display:block;
+      margin-bottom:20px;
+      font-size:11px;
+      font-weight:bold;
+      letter-spacing:.14em;
+    }
+
+    .future-scenario-copy h3{
+      margin:0 0 14px;
+      font-size:28px;
+      line-height:1.12;
+    }
+
+    .future-scenario-copy p{
+      margin:0;
+      font-size:15px;
+      line-height:1.55;
+    }
+
+    .future-scenario-copy b{
+      position:absolute;
+      right:24px;
+      top:22px;
+      font-size:22px;
+      font-weight:400;
+    }
+
+    .future-detail-page{
+      min-height:calc(100vh - 70px);
+      padding:64px 50px 32px;
+      background:var(--bg);
+    }
+
+    .future-detail-header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:30px;
+      padding-bottom:22px;
+      border-bottom:1px solid var(--border-dark);
+    }
+
+    .future-detail-header p{
+      margin:0 0 14px;
+      font-size:12px;
+      font-weight:bold;
+      letter-spacing:.16em;
+    }
+
+    .future-detail-header h2{
+      margin:0;
+      font-size:42px;
+      letter-spacing:-.03em;
+    }
+
+    .future-detail-header > span{
+      font-size:11px;
+      font-weight:bold;
+      letter-spacing:.14em;
+    }
+
+    .future-detail-hero{
+      min-height:560px;
+      margin-top:30px;
+      overflow:hidden;
+      border:1px solid var(--border-dark);
+      background:#e8e8e2;
+    }
+
+    .future-detail-hero img{
+      display:block;
+      width:100%;
+      height:100%;
+      max-height:720px;
+      object-fit:cover;
+    }
+
+    .future-detail-intro{
+      max-width:820px;
+      margin:26px 0 0;
+      font-size:20px;
+      line-height:1.55;
+    }
+
+    .future-detail-nav{
+      display:flex;
+      justify-content:space-between;
+      margin-top:34px;
+      padding-top:16px;
+      border-top:1px solid var(--border);
+    }
+
+    .future-detail-nav a{
+      color:var(--text);
+      text-decoration:none;
+    }
+
+    .future-detail-nav a:hover{
+      text-decoration:underline;
+    }
+
+
+    /* Routed page views */
+    body.spa-ready > section[data-route]{
+      display:none;
+      min-height:calc(100vh - 70px);
+    }
+
+    body.spa-ready > section[data-route].is-active{
+      display:block;
+      animation:routeFade .28s ease;
+    }
+
+    body.spa-ready > section.hero-home[data-route].is-active{
+      display:flex;
+    }
+
+    body.spa-ready footer{
+      display:none;
+    }
+
+    @keyframes routeFade{
+      from{opacity:0;transform:translateY(5px);}
+      to{opacity:1;transform:translateY(0);}
+    }
+
+    nav a.is-active{
+      border-bottom-color:var(--text);
+    }
+
+    .open-passport-link{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      color:#333;
+      text-decoration:none;
+    }
+
+    .open-passport-link:hover{
+      background:#333;
+      color:#fff;
+    }
+
+    .material-story-entry{
+      display:block;
+      margin-top:34px;
+      overflow:hidden;
+      border:1px solid #85857f;
+      background:#fff;
+      color:var(--text);
+      text-decoration:none;
+      transition:transform .24s ease,border-color .24s ease;
+    }
+
+    .material-story-entry:hover{
+      transform:translateY(-4px);
+      border-color:#222;
+    }
+
+    .material-story-entry img{
+      display:block;
+      width:100%;
+      max-height:680px;
+      object-fit:contain;
+      background:#ecece7;
+      transition:transform .4s ease;
+    }
+
+    .material-story-entry:hover img{
+      transform:scale(1.012);
+    }
+
+    .material-story-entry__caption{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:24px;
+      padding:22px 24px 24px;
+      border-top:1px solid #999;
+    }
+
+    .material-story-entry__caption span{
+      display:block;
+      margin-bottom:10px;
+      font-size:11px;
+      font-weight:bold;
+      letter-spacing:.14em;
+    }
+
+    .material-story-entry__caption h3{
+      margin:0;
+      font-size:28px;
+    }
+
+    .material-story-entry__caption b{
+      font-size:24px;
+      font-weight:400;
+    }
+
+    .story-detail-image{
+      margin-top:34px;
+      padding:20px;
+      border:1px solid #85857f;
+      background:#fff;
+    }
+
+    .story-detail-image img{
+      display:block;
+      width:100%;
+      max-height:760px;
+      object-fit:contain;
+    }
+
+
+    .material-story-stack{
+      display:flex;
+      flex-direction:column;
+      gap:28px;
+      margin-top:34px;
+    }
+
+    .material-story-image-link{
+      display:block;
+      overflow:hidden;
+      border:1px solid #85857f;
+      background:#fff;
+      color:var(--text);
+      text-decoration:none;
+      transition:transform .24s ease,border-color .24s ease;
+    }
+
+    a.material-story-image-link:hover{
+      transform:translateY(-3px);
+      border-color:#222;
+    }
+
+    .material-story-image-link img{
+      display:block;
+      width:100%;
+      height:auto;
+      object-fit:contain;
+      background:#ecece7;
+    }
+
+    .material-story-stack--detail{
+      gap:34px;
+    }
+
+    /* Material Story */
+    .story{
+      background:white;
+      border:1px solid var(--border);
+      padding:0;
+      overflow:hidden;
+    }
+
+    .story-image{
+      display:block;
+      width:100%;
+      height:auto;
+      object-fit:contain;
+      background:#f7f6f2;
+    }
+
+    /* Future Scenario */
+    .future{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:30px;
+    }
+
+    .future-box{
+      background:white;
+      border:1px dashed #777;
+      padding:30px;
+      min-height:220px;
+    }
+
+    footer{
+      padding:40px;
+      border-top:1px solid var(--border);
+      text-align:center;
+      line-height:1.6;
+    }
+
+    @media (max-width:900px){
+      .future-heading{
+        grid-template-columns:1fr;
+      }
+
+      .future-intro{
+        margin-left:0;
+      }
+
+      .future-scenario-image{
+        height:300px;
+      }
+
+
+      .archive-series-card__body h3{
+        font-size:31px;
+      }
+
+      .series-passport-cover{
+        min-height:580px;
+      }
+
+
+      .passport-heading{
+        grid-template-columns:1fr;
+      }
+
+      .passport-intro{
+        margin-left:0;
+      }
+
+      .passport-carousel{
+        grid-template-columns:44px minmax(0,1fr) 44px;
+        gap:8px;
+      }
+
+      .passport-cover,
+      .material-passport-page{
+        min-height:560px;
+      }
+
+
+      .activities-heading{
+        grid-template-columns:1fr;
+      }
+
+      .activities-intro{
+        margin-left:0;
+      }
+
+      .activity-image{
+        height:280px;
+      }
+
+
+      .hero-home{
+        min-height:760px;
+      }
+
+      .hero-home__content{
+        width:calc(100% - 48px);
+        padding:40px 24px;
+      }
+
+      .hero-home h1{
+        font-size:56px;
+      }
+
+      .hero-home__overlay{
+        background:
+          linear-gradient(90deg,rgba(15,15,15,.68),rgba(15,15,15,.20)),
+          linear-gradient(0deg,rgba(15,15,15,.48),rgba(15,15,15,0) 58%);
+      }
+
+
+      header{
+        height:auto;
+        padding:20px 24px;
+        align-items:flex-start;
+        gap:18px;
+        flex-direction:column;
+      }
+
+      nav a{
+        margin:0 18px 0 0;
+      }
+
+      section{
+        padding:36px 24px;
+      }
+.grid,
+      .future{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .hero h1{
+        font-size:38px;
+      }
+    }
+
+    @media (max-width:600px){
+      .future-scenarios-page,
+      .future-detail-page{
+        padding:44px 24px 28px;
+      }
+
+      .future-scenario-grid{
+        grid-template-columns:1fr;
+      }
+
+      .future-scenario-image{
+        height:270px;
+      }
+
+      .future-detail-header{
+        align-items:flex-start;
+        flex-direction:column;
+      }
+
+      .future-detail-header h2{
+        font-size:34px;
+      }
+
+      .future-detail-hero{
+        min-height:380px;
+      }
+
+
+      .archive-series-grid{
+        grid-template-columns:1fr;
+      }
+
+      .archive-series-card{
+        min-height:380px;
+      }
+
+      .archive-series-card__top{
+        flex-direction:column;
+      }
+
+      .archive-series-card__body h3{
+        font-size:30px;
+      }
+
+      .archive-series-card dl,
+      .series-passport-cover dl{
+        grid-template-columns:1fr;
+      }
+
+      .series-passport-cover{
+        min-height:520px;
+        padding:26px;
+      }
+
+      .series-passport-cover__body h3{
+        font-size:46px;
+      }
+
+
+      .passport-section,
+      .passport-subpage{
+        padding:44px 24px 28px;
+      }
+
+      .passport-category-grid{
+        grid-template-columns:1fr;
+      }
+
+      .passport-subpage__header{
+        align-items:flex-start;
+      }
+
+      .passport-subpage__header h2{
+        font-size:34px;
+      }
+
+      .passport-carousel{
+        grid-template-columns:1fr;
+      }
+
+      .passport-arrow{
+        position:absolute;
+        z-index:3;
+        top:50%;
+        transform:translateY(-50%);
+        background:rgba(245,245,239,.88);
+      }
+
+      .passport-arrow--prev{
+        left:10px;
+      }
+
+      .passport-arrow--next{
+        right:10px;
+      }
+
+      .passport-cover,
+      .material-passport-page{
+        min-height:500px;
+      }
+
+      .passport-cover{
+        padding:26px;
+      }
+
+      .material-passport-page{
+        padding:20px;
+      }
+
+      .material-passport-page__image{
+        min-height:350px;
+      }
+
+
+      .study-sites{
+        grid-template-columns:1fr;
+      }
+
+      .map-subpage{
+        padding:44px 24px 28px;
+      }
+
+      .map-subpage__header h2{
+        font-size:34px;
+      }
+
+      .interactive-map-placeholder{
+        min-height:460px;
+      }
+
+
+      .activities-section{
+        padding:44px 24px 56px;
+      }
+
+      .activities-visual-grid{
+        grid-template-columns:1fr;
+      }
+
+      .activity-image{
+        height:260px;
+      }
+
+      .activity-subpage{
+        padding:44px 24px 28px;
+      }
+
+      .subpage-header h2{
+        font-size:34px;
+      }
+
+
+      .hero-home{
+        min-height:680px;
+      }
+
+      .hero-home__content{
+        width:calc(100% - 32px);
+        padding:34px 16px;
+      }
+
+      .hero-home h1{
+        font-size:42px;
+      }
+
+      .hero-home__subtitle{
+        font-size:16px;
+      }
+
+
+.grid,
+      .future{
+        grid-template-columns:1fr;
+      }
+
+      .hero h1{
+        font-size:32px;
+      }
+
+      .map{
+        height:360px;
+      }
+    }
+  
+
+    /* 2026 Plastic Afterlife editorial restructure */
+    .hero-scroll-cue{display:inline-block;margin-top:34px;color:#f7f6f1;text-decoration:none;font-size:11px;font-weight:700;letter-spacing:.18em;border-bottom:1px solid rgba(255,255,255,.55);padding-bottom:5px}
+    .project-brief{padding:88px 50px 92px;background:#f5f5ef;border-bottom:1px solid var(--border-dark)}
+    .brief-kicker{font-size:11px;font-weight:700;letter-spacing:.18em;margin-bottom:28px}
+    .brief-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(280px,.55fr);gap:70px;align-items:end}
+    .brief-grid h2{font-size:clamp(36px,4.5vw,68px);line-height:1.04;letter-spacing:-.045em;margin:0;font-weight:700;max-width:1000px}
+    .brief-copy p{font-size:16px;line-height:1.65;margin:0;max-width:520px}
+    .brief-pathways{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #777;margin-top:66px}
+    .brief-pathways a{position:relative;min-height:190px;padding:20px 42px 24px 0;border-right:1px solid #bbb;color:var(--text);text-decoration:none;display:flex;flex-direction:column;justify-content:flex-end;transition:background .2s,padding .2s}
+    .brief-pathways a+ a{padding-left:24px}.brief-pathways a:last-child{border-right:0}
+    .brief-pathways span{position:absolute;top:18px;left:0;font-size:11px;letter-spacing:.12em}.brief-pathways a+a span{left:24px}
+    .brief-pathways strong{font-size:24px;line-height:1.1}.brief-pathways em{font-style:normal;margin-top:9px;font-size:13px;color:#666}.brief-pathways b{position:absolute;right:18px;top:18px;font-weight:400;font-size:20px}.brief-pathways a:hover{background:#fff}
+
+    .coastal-activities{padding-top:86px}.coastal-story-grid{display:grid;grid-template-columns:1.25fr .75fr;grid-auto-rows:minmax(360px,44vw);gap:16px}
+    .coastal-story-card{position:relative;overflow:hidden;color:#fff;text-decoration:none;background:#151515;min-height:420px}.coastal-story-card img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.22,.61,.36,1),filter .5s}.coastal-story-card:hover img{transform:scale(1.04);filter:saturate(.9) contrast(1.03)}
+    .story-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.06) 35%,rgba(0,0,0,.72) 100%)}
+    .story-meta{position:absolute;left:28px;right:60px;bottom:26px}.story-meta span{font-size:11px;font-weight:700;letter-spacing:.16em}.story-meta h3{font-size:clamp(28px,3vw,48px);line-height:.95;letter-spacing:-.04em;margin:9px 0 14px}.story-meta p{max-width:650px;margin:0;font-size:14px;line-height:1.5;color:#f5f4ef}.coastal-story-card>b{position:absolute;right:24px;top:22px;font-size:25px;font-weight:400}.story-tall{min-height:560px}.story-wide{min-height:480px}
+
+    .material-map-section{padding:78px 50px 86px}.map-heading-row{display:grid;grid-template-columns:1fr .8fr;gap:50px;align-items:end;border-bottom:1px solid #888;padding-bottom:25px}.map-heading-row p:first-child{font-size:11px;font-weight:700;letter-spacing:.16em}.map-heading-row h2{font-size:clamp(42px,5vw,72px);letter-spacing:-.05em;margin:8px 0 0}.map-heading-row>p{margin:0;font-size:15px;line-height:1.6;max-width:560px}
+    .map-filter-bar{display:flex;gap:0;margin:22px 0 18px;border:1px solid #999;width:max-content;max-width:100%}.map-filter{background:transparent;border:0;border-right:1px solid #999;padding:13px 18px;font:inherit;font-size:12px;cursor:pointer}.map-filter:last-child{border-right:0}.map-filter.is-active{background:var(--accent);color:#111}
+    .material-map-shell{display:grid;grid-template-columns:minmax(0,1fr) 330px;min-height:680px;border:1px solid #777;background:#edece5}.map-canvas{position:relative;overflow:hidden;min-height:680px;background:linear-gradient(160deg,#eff1e9,#e4e7df)}.map-caption{position:absolute;left:22px;top:20px;font-size:10px;letter-spacing:.18em;z-index:3}.coast-shape{position:absolute;background:#f7f6f0;border:1px solid #c8c8c0;filter:drop-shadow(0 12px 25px rgba(0,0,0,.04))}.coast-a{width:92%;height:43%;left:-15%;bottom:-5%;border-radius:54% 58% 0 0/80% 80% 0 0;transform:rotate(-5deg)}.coast-b{width:48%;height:31%;right:-9%;top:2%;border-radius:0 0 50% 50%/0 0 80% 80%;transform:rotate(8deg)}
+    .site-marker{position:absolute;border:0;background:transparent;cursor:pointer;z-index:5;padding:0;text-align:left}.site-marker i{display:block;width:17px;height:17px;background:#333;border:4px solid #f1f2ea;border-radius:50%;box-shadow:0 0 0 1px #333;transition:transform .2s,background .2s}.site-marker span{position:absolute;left:25px;top:-6px;display:none;width:210px;padding:10px 12px;background:#fff;border:1px solid #777;color:#222;box-shadow:0 9px 20px rgba(0,0,0,.08)}.site-marker:hover span,.site-marker.is-selected span{display:block}.site-marker strong{display:block;font-size:12px;letter-spacing:.08em}.site-marker small{display:block;margin-top:5px;line-height:1.35}.site-marker.is-selected i{background:var(--accent);transform:scale(1.25)}.m-troup{left:73%;top:22%}.m-burghead{left:30%;top:47%}.m-gardenstown{left:52%;top:37%}.m-findhorn{left:63%;top:65%}
+    .material-map-shell[data-map-state="focus"] .site-marker:not(.is-selected){opacity:.18;pointer-events:none}.material-map-shell[data-map-state="focus"] .site-marker.is-selected{transform:scale(1.08)}
+    .site-panel{border-left:1px solid #777;background:#f7f6f0;padding:28px 25px;display:flex;flex-direction:column}.site-panel-id{font-size:10px;letter-spacing:.16em;font-weight:700}.site-panel h3{font-size:30px;line-height:1.06;margin:38px 0 16px;letter-spacing:-.03em}.site-panel-desc{font-size:14px;line-height:1.5;margin:0 0 28px}.distribution-list{border-top:1px solid #999}.distribution-row{display:grid;grid-template-columns:1fr auto;gap:10px;padding:13px 0;border-bottom:1px solid #ccc;font-size:13px}.distribution-row b{font-size:20px}.site-panel-note{margin-top:auto;padding-top:22px;font-size:10px;letter-spacing:.14em;border-top:1px solid #999}
+    
+    .material-point-layer{position:absolute;inset:0;z-index:7;pointer-events:none}
+    .material-node{position:absolute;width:14px;height:14px;border:2px solid #111;background:var(--accent);border-radius:50%;pointer-events:auto;cursor:pointer}
+    .material-node::after{content:attr(data-label);position:absolute;left:18px;top:-5px;font-size:10px;white-space:nowrap;background:rgba(247,246,240,.9);padding:3px 5px;opacity:0;transition:opacity .15s}
+    .material-node:hover::after{opacity:1}
+    .material-connector{position:absolute;inset:0;width:100%;height:100%;z-index:6;pointer-events:none}
+    .material-connector line{stroke:#111;stroke-width:1.2;stroke-dasharray:5 5;opacity:0}
+
+    .material-preview{
+      position:absolute;right:22px;top:64px;width:286px;background:#f7f4e9;border:1px solid #595959;z-index:8;
+      box-shadow:8px 11px 0 rgba(0,0,0,.06);transform:translateX(125%);transition:transform .35s;
+      cursor:pointer
+    }
+    .material-preview.is-visible{transform:translateX(0)}
+    .material-preview:focus-visible{outline:2px solid #111;outline-offset:3px}
+    .archive-tab{
+      width:78%;margin-top:-24px;margin-left:-1px;padding:7px 10px;background:#f7f4e9;border:1px solid #595959;
+      border-bottom:0;font-size:8px;letter-spacing:.14em
+    }
+    .preview-copy{padding:17px 16px 15px}
+    .preview-copy>span{font-size:9px;letter-spacing:.14em;font-weight:700}
+    .preview-copy h3{font-size:21px;line-height:1.05;margin:8px 0 15px}
+    .material-record-grid{border-top:1px solid #999}
+    .material-record-row{display:grid;grid-template-columns:1fr auto;gap:12px;padding:10px 0;border-bottom:1px solid #ccc}
+    .material-record-row span{font-size:9px;line-height:1.35;letter-spacing:.1em;text-transform:uppercase;color:#5e5e58}
+    .material-record-row b{font-size:12px;line-height:1.35;text-align:right;max-width:145px}
+    .material-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px;justify-content:flex-end}
+    .material-tags i{font-style:normal;font-size:8px;border:1px solid #777;padding:3px 5px;background:#fff}
+    .risk-scale{display:flex;gap:4px;justify-content:flex-end;align-items:center}
+    .risk-scale i{width:10px;height:10px;border:1px solid #111;border-radius:50%;display:block}
+    .risk-scale i.on{background:var(--accent)}
+    .preview-open{display:flex;align-items:center;justify-content:space-between;margin-top:13px;font-size:9px;letter-spacing:.12em;font-weight:700}
+    .preview-open::after{content:'↗';font-size:14px}
+    .map-reset{position:absolute;left:18px;bottom:18px;z-index:9;border:1px solid #777;background:#f7f6f0;padding:9px 12px;display:none;cursor:pointer}
+    .material-map-shell[data-map-state="focus"] .map-reset{display:block}
+
+    .material-record-overlay{
+      position:fixed;inset:0;background:#e9e8e1;z-index:1000;display:none;overflow:auto
+    }
+    .material-record-overlay.is-open{display:block}
+    .material-record-overlay__inner{min-height:100vh;padding:34px 44px 48px;display:grid;grid-template-rows:auto 1fr}
+    .material-record-overlay__top{
+      display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #777;padding-bottom:18px
+    }
+    .material-record-overlay__top span{font-size:10px;letter-spacing:.16em;font-weight:700}
+    .material-record-overlay__close{border:1px solid #777;background:transparent;padding:8px 12px;font:inherit;font-size:11px;cursor:pointer}
+    .material-record-folder{
+      width:min(1180px,92vw);margin:auto;position:relative;background:#d8d2bf;border:1px solid #666;
+      padding:30px;box-shadow:15px 18px 0 rgba(0,0,0,.07)
+    }
+    .material-record-folder::before{
+      content:attr(data-record-label);position:absolute;left:-1px;top:-30px;background:#d8d2bf;border:1px solid #666;
+      border-bottom:0;padding:8px 28px;font-size:9px;letter-spacing:.15em
+    }
+    .material-record-sheet{background:#f7f6ef;border:1px solid #666;padding:34px}
+    .material-record-head{display:flex;justify-content:space-between;gap:30px;padding-bottom:28px;border-bottom:1px solid #999}
+    .material-record-head p{margin:0 0 9px;font-size:10px;font-weight:700;letter-spacing:.16em}
+    .material-record-head h2{margin:0;font-size:clamp(38px,5vw,74px);letter-spacing:-.055em;line-height:.94}
+    .material-record-head strong{align-self:flex-end;font-size:14px;letter-spacing:.08em}
+    .material-record-largegrid{display:grid;grid-template-columns:repeat(3,1fr);border-top:0}
+    .material-record-block{padding:30px 24px 30px 0;border-bottom:1px solid #aaa;min-height:155px}
+    .material-record-block:nth-child(3n+2),.material-record-block:nth-child(3n+3){padding-left:24px;border-left:1px solid #aaa}
+    .material-record-block label{display:block;font-size:10px;letter-spacing:.14em;font-weight:700;margin-bottom:20px}
+    .material-record-block strong{display:block;font-size:28px;line-height:1.05;letter-spacing:-.03em}
+    .material-record-block p{margin:9px 0 0;font-size:12px;line-height:1.5;color:#555}
+    .material-record-block .material-tags{justify-content:flex-start;margin-top:4px}
+    .material-record-block .material-tags i{font-size:10px;padding:6px 8px}
+    .material-record-block .risk-scale{justify-content:flex-start;margin-top:10px}
+    .material-record-block .risk-scale i{width:16px;height:16px}
+    @media(max-width:780px){
+      .material-record-largegrid{grid-template-columns:1fr}
+      .material-record-block,.material-record-block:nth-child(3n+2),.material-record-block:nth-child(3n+3){
+        padding:22px 0;border-left:0
+      }
+      .material-record-overlay__inner{padding:26px 18px 35px}
+      .material-record-folder{width:100%;padding:18px}
+      .material-record-sheet{padding:22px}
+      .material-record-head{display:block}
+      .material-record-head strong{display:block;margin-top:18px}
+    }
+    .future-two .future-heading h2{font-size:clamp(40px,5vw,70px);line-height:1.02;letter-spacing:-.045em;max-width:920px}.future-two-grid{grid-template-columns:repeat(2,1fr)}.future-placeholder{pointer-events:none}.future-placeholder .future-scenario-copy h3{font-size:clamp(26px,3vw,45px)}
+    @media(max-width:900px){.brief-grid,.map-heading-row,.material-map-shell{grid-template-columns:1fr}.brief-pathways{grid-template-columns:1fr}.brief-pathways a{border-right:0;border-bottom:1px solid #bbb;padding-left:0}.brief-pathways a+a span{left:0}.coastal-story-grid{grid-template-columns:1fr}.site-panel{border-left:0;border-top:1px solid #777}.future-two-grid{grid-template-columns:1fr}.map-filter-bar{display:grid;width:100%}.map-filter{border-right:0;border-bottom:1px solid #999}.map-filter:last-child{border-bottom:0}}
+
+  </style>
+
+  <style>
+    /* Continuous scroll layout and anchored navigation */
+    section[data-route] {
+      scroll-margin-top: 70px;
+    }
+
+    header nav a.is-active {
+      border-bottom-color: var(--text);
+    }
+
+    @media (max-width: 600px) {
+      section[data-route] {
+        scroll-margin-top: 64px;
+      }
+    }
+  </style>
+
+<style id="plastic-afterlife-type-update">
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+  :root{
+    --font-display:'Space Grotesk','Arial Narrow',Arial,sans-serif;
+    --font-body:'Inter','Helvetica Neue',Arial,sans-serif;
+  }
+
+  html,body,button,input,textarea,select{
+    font-family:var(--font-body)!important;
+  }
+
+  h1,h2,h3,h4,
+  .brand,.logo,.hero h1,.hero-home h1,
+  .section-title,.page-heading h1,.page-title-row h2,
+  .preview-copy h3,.material-record-head h2{
+    font-family:var(--font-display)!important;
+    letter-spacing:-0.035em;
+  }
+
+  .project-brief-single{
+    max-width:980px;
+    margin:18px 0 0;
+    font-size:14px;
+    line-height:1.6;
+    letter-spacing:-0.01em;
+  }
+
+  .future-subtitle{
+    margin:8px 0 0;
+    max-width:760px;
+    font-size:14px;
+    line-height:1.5;
+  }
+</style>
+
+
+<style id="homepage-about-update">
+  .hero-home h1,
+  #home h1{
+    font-size:clamp(64px,10vw,150px)!important;
+    line-height:.84!important;
+    letter-spacing:-.07em!important;
+    text-transform:uppercase;
+    margin-bottom:18px!important;
+  }
+  .home-subtitle{
+    font-family:var(--font-display,'Space Grotesk',Arial,sans-serif)!important;
+    font-size:clamp(22px,3vw,46px)!important;
+    line-height:1.02!important;
+    letter-spacing:-.04em!important;
+    max-width:900px;
+    margin:0!important;
+  }
+  .about-project-page{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    border-top:1px solid rgba(0,0,0,.35);
+    border-bottom:1px solid rgba(0,0,0,.35);
+    background:inherit;
+  }
+  .about-project-page__inner{
+    width:min(1180px,calc(100% - 80px));
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:minmax(190px,.45fr) minmax(0,1.55fr);
+    gap:70px;
+    align-items:start;
+  }
+  .about-project-page__label{
+    margin:0;
+    font-family:var(--font-display,'Space Grotesk',Arial,sans-serif);
+    font-size:13px;
+    line-height:1.2;
+    letter-spacing:.12em;
+    font-weight:600;
+  }
+  .about-project-page__text{
+    margin:0;
+    max-width:920px;
+    font-size:clamp(22px,2.4vw,38px);
+    line-height:1.18;
+    letter-spacing:-.035em;
+  }
+  @media(max-width:760px){
+    .about-project-page__inner{
+      width:min(100% - 36px,1180px);
+      grid-template-columns:1fr;
+      gap:24px;
+    }
+    .hero-home h1,#home h1{font-size:clamp(48px,18vw,88px)!important}
+    .home-subtitle{font-size:clamp(20px,7vw,32px)!important}
+    .about-project-page__text{font-size:clamp(20px,6vw,30px)}
+  }
+</style>
+
+
+<style id="homepage-title-size-fix">
+  .hero-home h1,
+  #home h1{
+    font-size:clamp(46px,6.2vw,92px)!important;
+    line-height:.94!important;
+    letter-spacing:-.055em!important;
+    text-transform:uppercase;
+    max-width:900px!important;
+    margin:0 0 16px!important;
+  }
+
+  .home-subtitle{
+    font-family:var(--font-display,'Space Grotesk',Arial,sans-serif)!important;
+    font-size:clamp(18px,2.1vw,31px)!important;
+    line-height:1.08!important;
+    letter-spacing:-.025em!important;
+    max-width:760px;
+    margin:0!important;
+  }
+
+  @media(max-width:760px){
+    .hero-home h1,
+    #home h1{
+      font-size:clamp(42px,13vw,68px)!important;
+    }
+    .home-subtitle{
+      font-size:clamp(17px,5.5vw,26px)!important;
+    }
+  }
+</style>
+
+
+<style id="coastal-editorial-update">
+  .coastal-activities{
+    padding:110px 50px 140px;
+    overflow:hidden;
+    background:var(--bg);
+  }
+  .coastal-editorial-heading{
+    display:grid;
+    grid-template-columns:minmax(0,1.05fr) minmax(280px,.65fr);
+    gap:8vw;
+    align-items:end;
+    padding-bottom:30px;
+    border-bottom:1px solid var(--border-dark);
+  }
+  .coastal-editorial-kicker{
+    margin:0 0 18px;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.16em;
+  }
+  .coastal-editorial-heading h2{
+    margin:0;
+    font-size:clamp(52px,7vw,108px);
+    line-height:.88;
+    letter-spacing:-.065em;
+    text-transform:uppercase;
+  }
+  .coastal-editorial-heading>p{
+    max-width:540px;
+    margin:0;
+    font-size:clamp(15px,1.35vw,20px);
+    line-height:1.5;
+  }
+  .coastal-visual-sequence{
+    display:grid;
+    grid-template-columns:repeat(12,minmax(0,1fr));
+    gap:22px;
+    align-items:start;
+    padding-top:72px;
+  }
+  .coastal-visual{
+    position:relative;
+    display:block;
+    overflow:hidden;
+    min-height:430px;
+    color:#fff;
+    background:#0d0d0d;
+    text-decoration:none;
+    isolation:isolate;
+  }
+  .coastal-visual::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:1;
+    background:linear-gradient(180deg,rgba(0,0,0,.05) 25%,rgba(0,0,0,.18) 52%,rgba(0,0,0,.82) 100%);
+    transition:background .55s ease;
+  }
+  .coastal-visual::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:2;
+    border:0 solid var(--accent);
+    transition:border-width .25s ease;
+    pointer-events:none;
+  }
+  .coastal-visual img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform .9s cubic-bezier(.22,.61,.36,1),filter .5s ease;
+  }
+  .coastal-visual--01{grid-column:1 / span 8;aspect-ratio:16/9}
+  .coastal-visual--02{grid-column:9 / span 4;aspect-ratio:3/4;margin-top:13vw}
+  .coastal-visual--03{grid-column:2 / span 5;aspect-ratio:4/3;margin-top:5vw}
+  .coastal-visual--04{grid-column:7 / span 6;aspect-ratio:5/4;margin-top:-4vw}
+  .coastal-visual__index{
+    position:absolute;
+    z-index:3;
+    top:20px;
+    left:22px;
+    display:grid;
+    place-items:center;
+    width:38px;
+    height:38px;
+    color:#111;
+    background:var(--accent);
+    border-radius:50%;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.08em;
+  }
+  .coastal-visual__type{
+    position:absolute;
+    z-index:3;
+    right:26px;
+    bottom:24px;
+    left:26px;
+    transition:transform .45s cubic-bezier(.22,.61,.36,1);
+  }
+  .coastal-visual__type h3{
+    max-width:880px;
+    margin:0;
+    font-size:clamp(34px,4.5vw,76px);
+    line-height:.88;
+    letter-spacing:-.055em;
+  }
+  .coastal-visual--02 .coastal-visual__type h3,
+  .coastal-visual--03 .coastal-visual__type h3{
+    font-size:clamp(30px,3.5vw,55px);
+  }
+  .coastal-visual__type>span{
+    display:inline-block;
+    margin-top:16px;
+    padding-bottom:4px;
+    border-bottom:2px solid var(--accent);
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:.15em;
+  }
+  .coastal-visual__reveal{
+    position:absolute;
+    z-index:3;
+    right:26px;
+    bottom:25px;
+    left:26px;
+    opacity:0;
+    transform:translateY(24px);
+    transition:opacity .35s ease,transform .45s cubic-bezier(.22,.61,.36,1);
+  }
+  .coastal-visual__reveal strong{
+    display:block;
+    color:var(--accent);
+    font-size:clamp(30px,4vw,68px);
+    line-height:.9;
+    letter-spacing:-.05em;
+  }
+  .coastal-visual__reveal p{
+    max-width:570px;
+    margin:17px 0 0;
+    font-size:13px;
+    line-height:1.5;
+  }
+  .coastal-visual:hover::before,
+  .coastal-visual:focus-visible::before{background:linear-gradient(180deg,rgba(0,0,0,.18),rgba(0,0,0,.9))}
+  .coastal-visual:hover::after,
+  .coastal-visual:focus-visible::after{border-width:5px}
+  .coastal-visual:hover img,
+  .coastal-visual:focus-visible img{transform:scale(1.045);filter:saturate(.82) contrast(1.06)}
+  .coastal-visual:hover .coastal-visual__type,
+  .coastal-visual:focus-visible .coastal-visual__type{transform:translateY(150%)}
+  .coastal-visual:hover .coastal-visual__reveal,
+  .coastal-visual:focus-visible .coastal-visual__reveal{opacity:1;transform:translateY(0)}
+  .coastal-visual:focus-visible{outline:3px solid var(--accent);outline-offset:5px}
+
+  @media(max-width:900px){
+    .coastal-activities{padding:82px 28px 100px}
+    .coastal-editorial-heading{grid-template-columns:1fr;gap:28px}
+    .coastal-visual-sequence{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;padding-top:45px}
+    .coastal-visual--01,.coastal-visual--02,.coastal-visual--03,.coastal-visual--04{
+      grid-column:auto;margin-top:0;aspect-ratio:4/5;min-height:520px
+    }
+  }
+  @media(max-width:620px){
+    .coastal-activities{padding:65px 18px 76px}
+    .coastal-editorial-heading h2{font-size:clamp(46px,16vw,72px)}
+    .coastal-visual-sequence{display:block}
+    .coastal-visual--01,.coastal-visual--02,.coastal-visual--03,.coastal-visual--04{
+      min-height:0;aspect-ratio:4/5;margin:0 0 18px
+    }
+    .coastal-visual__type h3,
+    .coastal-visual--02 .coastal-visual__type h3,
+    .coastal-visual--03 .coastal-visual__type h3{font-size:clamp(34px,11vw,54px)}
+  }
+  @media(hover:none){
+    .coastal-visual__type{bottom:92px}
+    .coastal-visual__type>span{display:none}
+    .coastal-visual__reveal{opacity:1;transform:none}
+    .coastal-visual__reveal strong{font-size:18px;letter-spacing:.02em}
+    .coastal-visual__reveal p{display:none}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .coastal-visual img,.coastal-visual__type,.coastal-visual__reveal{transition:none}
+  }
+</style>
+
+
+<style id="material-atlas-layout-update">
+  .map-heading-row{
+    display:block;
+    padding-bottom:28px;
+    text-align:left;
+  }
+  .map-heading-copy{
+    display:block;
+    max-width:920px;
+  }
+  .map-heading-row .map-heading-copy h2{
+    margin:0;
+    text-align:left;
+  }
+  .map-research-note{
+    max-width:690px!important;
+    margin:18px 0 0!important;
+    font-size:11px!important;
+    line-height:1.55!important;
+    letter-spacing:.015em;
+    color:#62625d;
+    text-align:left;
+  }
+
+  /* Location markers remain visible and interactive in overview and focus states. */
+  .site-marker span{
+    display:block;
+    width:max-content;
+    min-width:126px;
+    max-width:190px;
+    padding:7px 9px;
+    background:rgba(247,246,240,.9);
+    box-shadow:none;
+    backdrop-filter:blur(4px);
+  }
+  .site-marker strong{font-size:10px}
+  .site-marker small{font-size:9px;color:#666}
+  .site-marker:hover span,
+  .site-marker:focus-visible span,
+  .site-marker.is-selected span{
+    background:#fff;
+    border-color:#333;
+    box-shadow:0 9px 20px rgba(0,0,0,.08);
+  }
+  .material-map-shell[data-map-state="focus"] .site-marker:not(.is-selected){
+    opacity:.5;
+    pointer-events:auto;
+  }
+  .material-map-shell[data-map-state="focus"] .site-marker:not(.is-selected):hover,
+  .material-map-shell[data-map-state="focus"] .site-marker:not(.is-selected):focus-visible{
+    opacity:1;
+  }
+  .site-marker:focus-visible{outline:2px solid var(--accent);outline-offset:6px}
+
+  .distribution-row b{
+    align-self:center;
+    font-size:9px;
+    line-height:1;
+    letter-spacing:.12em;
+    color:#777;
+  }
+
+  @media(max-width:760px){
+    .map-research-note{font-size:10px!important}
+    .site-marker span{min-width:108px;max-width:145px;padding:6px 7px}
+    .site-marker small{display:none}
+  }
+</style>
+
+<style id="findhorn-field-map-update">
+  .location-index{display:flex;align-items:center;gap:0;margin:0 0 18px;overflow-x:auto;border:1px solid #999;background:#f7f6f0}
+  .location-index__label,.location-chip{flex:0 0 auto;padding:11px 15px;border:0;border-right:1px solid #aaa;background:transparent;color:#222;font:inherit;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+  .location-index__label{font-weight:700;color:#666}.location-chip{cursor:pointer}.location-chip:hover,.location-chip:focus-visible,.location-chip.is-selected{background:var(--accent);outline:0}
+  .map-canvas.has-field-map{background:#f7f7f3}
+  .field-map-stage{position:absolute;top:18px;bottom:18px;left:50%;aspect-ratio:1332 / 1565;transform:translateX(-50%);display:none}
+  .material-map-shell[data-map-state="focus"] .field-map-stage{display:block}
+  .field-map-base{display:block;width:100%;height:100%;object-fit:contain}
+  .material-map-shell[data-map-state="focus"] .coast-shape,.material-map-shell[data-map-state="focus"] .site-marker,.material-map-shell[data-map-state="focus"] .map-caption{display:none}
+  .material-map-shell[data-map-state="focus"] .material-point-layer{inset:0;z-index:7}
+  .material-node{width:18px;height:18px;transform:translate(-50%,-50%);background:#555;border:2px solid #111;box-shadow:none}
+  .material-node[data-kind="human-made"]{width:21px;height:21px;background:var(--accent);border-color:#111;box-shadow:none}
+  .material-node.is-panel-hovered,.material-node.is-panel-selected{transform:translate(-50%,-50%) scale(1.5);border-width:4px;z-index:12}
+  .material-node::after{left:22px;top:-7px;padding:5px 7px;font-size:9px;letter-spacing:.04em;border:1px solid #777;background:rgba(247,246,240,.96)}
+  .material-node:hover::after,.material-node:focus-visible::after{opacity:1}.material-node:focus-visible{outline:2px solid #111;outline-offset:5px}
+  .human-made-legend{position:absolute;left:18px;bottom:18px;z-index:9;display:none;align-items:center;gap:9px;padding:8px 10px;border:1px solid #777;background:rgba(247,246,240,.94);font-size:9px;letter-spacing:.1em}
+  .material-map-shell[data-map-state="focus"] .human-made-legend{display:flex}.human-made-legend i{width:13px;height:13px;border:2px solid #111;border-radius:50%;background:var(--accent)}
+  .site-panel-material-count{margin:0 0 18px;font-size:11px;letter-spacing:.1em;color:#666}
+  .material-map-shell[data-map-state="focus"] .distribution-row{grid-template-columns:16px minmax(0,1fr);align-items:center;cursor:pointer}
+  .material-map-shell[data-map-state="focus"] .distribution-row:hover,.material-map-shell[data-map-state="focus"] .distribution-row:focus-visible,.material-map-shell[data-map-state="focus"] .distribution-row.is-panel-selected{background:#fff;outline:0}
+  .distribution-dot{width:13px;height:13px;border:1.5px solid #111;border-radius:50%;background:#555}
+  .distribution-row.is-emphasis .distribution-dot{background:var(--accent)}
+  .fauna-panel{display:none;margin-top:24px;border-top:1px solid #999;padding-top:18px}.fauna-panel.is-visible{display:block}.fauna-panel h4{margin:0 0 13px;font-size:10px;letter-spacing:.14em}
+  .fauna-list{display:flex;flex-wrap:wrap;gap:7px}.fauna-name{padding:7px 9px;border:1px solid #aaa;background:#fff;font-size:9px;line-height:1.2;letter-spacing:.08em;text-transform:uppercase}
+  .fauna-name{padding:2px 12px 2px 0;border:0;background:transparent}
+  .material-stats{position:absolute;left:22px;top:20px;z-index:10;display:none;font-size:10px;line-height:1.65;letter-spacing:.1em;text-transform:uppercase}
+  .material-map-shell[data-map-state="focus"] .material-stats{display:block}
+  .material-stats p{margin:0}.material-stats b{display:inline-block;min-width:1.4em;font-size:16px;color:#111}
+  .bird-habitat-marker{position:absolute;left:46.84%;top:49.49%;z-index:11;padding:4px 0;border:0;background:transparent;color:rgba(0,0,0,.5);font:inherit;font-size:18px;font-weight:700;line-height:1;letter-spacing:.08em;white-space:nowrap;cursor:pointer;transform:translate(-50%,-50%)}
+  .bird-habitat-marker:hover{color:rgba(0,0,0,.72)}
+  .bird-habitat-marker:focus-visible{color:#000;outline:1px solid rgba(0,0,0,.5);outline-offset:5px}
+  .bird-habitat-marker[aria-expanded="true"]{color:#000}
+  .field-index-value{display:inline-block;padding:5px 8px;background:var(--accent);font-size:12px;letter-spacing:.08em}.material-status-human{color:#111;background:var(--accent);padding:4px 7px}
+  @media(max-width:900px){.field-map-stage{top:12px;bottom:auto;left:12px;width:calc(100% - 24px);height:auto;transform:none}.map-canvas.has-field-map{min-height:760px}.material-preview{right:12px;top:52px;width:min(286px,calc(100% - 24px))}}
+</style>
+
+<style id="future-editorial-reports">
+  .future-entry-link{display:block;color:inherit;text-decoration:none;pointer-events:auto}
+  .future-entry-link:focus-visible{outline:3px solid var(--accent);outline-offset:5px}
+  .future-entry-link .future-scenario-copy::after{content:'OPEN REPORTS →';display:block;margin-top:24px;font-size:10px;font-weight:700;letter-spacing:.14em}
+  .future-report-overlay{position:fixed;inset:0;z-index:1200;display:none;overflow:auto;background:#f3f2ec;color:#171717}
+  .future-report-overlay.is-open{display:block}
+  .future-report-toolbar{position:sticky;top:0;z-index:4;display:flex;align-items:center;justify-content:space-between;padding:16px 30px;border-bottom:1px solid #777;background:rgba(243,242,236,.96);backdrop-filter:blur(8px)}
+  .future-report-toolbar span{font-size:10px;font-weight:700;letter-spacing:.16em}
+  .future-report-toolbar a{color:inherit;text-decoration:none;border:1px solid #777;padding:8px 12px;font-size:10px;letter-spacing:.1em}
+  .future-report-view{display:none;min-height:100vh}
+  .future-report-view.is-active{display:block}
+  .future-index-hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr);min-height:66vh;border-bottom:1px solid #777}
+  .future-index-hero__image{min-height:620px;overflow:hidden;background:#2683cf}
+  .future-index-hero__image img{width:100%;height:100%;display:block;object-fit:cover;object-position:center 48%}
+  .future-index-hero__copy{display:flex;flex-direction:column;justify-content:space-between;padding:54px 50px 44px}
+  .future-index-hero__copy>span,.report-kicker{font-size:10px;font-weight:700;letter-spacing:.18em}
+  .future-index-hero h1{max-width:760px;margin:70px 0 30px;font-size:clamp(46px,6vw,88px);line-height:.9;letter-spacing:-.055em}
+  .future-index-hero p{max-width:520px;margin:0;font-size:14px;line-height:1.6}
+  .future-report-directory{padding:76px 50px 96px}
+  .future-report-directory__head{display:flex;justify-content:space-between;gap:30px;padding-bottom:22px;border-bottom:1px solid #777}
+  .future-report-directory__head h2{margin:0;font-size:clamp(32px,4vw,56px);letter-spacing:-.04em}
+  .future-report-directory__head span{font-size:10px;letter-spacing:.14em}
+  .future-report-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-bottom:1px solid #777}
+  .future-report-card{position:relative;display:flex;min-height:390px;flex-direction:column;justify-content:space-between;padding:28px 54px 34px 0;color:inherit;text-decoration:none;border-right:1px solid #999}
+  .future-report-card+ .future-report-card{padding-left:34px;border-right:0}
+  .future-report-card:hover{background:#fff}.future-report-card:focus-visible{outline:3px solid var(--accent);outline-offset:-3px}
+  .future-report-card__meta{display:flex;justify-content:space-between;font-size:10px;font-weight:700;letter-spacing:.14em}
+  .future-report-card h3{max-width:620px;margin:80px 0 20px;font-size:clamp(36px,4vw,62px);line-height:.95;letter-spacing:-.045em}
+  .future-report-card p{max-width:520px;margin:0;font-size:13px;line-height:1.55;color:#565650}
+  .future-report-card b{position:absolute;right:25px;bottom:27px;font-size:24px;font-weight:400}
+  .future-article{width:min(1240px,calc(100% - 80px));margin:0 auto;padding:70px 0 110px}
+  .future-article__nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:70px}
+  .future-article__nav a{color:inherit;text-decoration:none;font-size:10px;font-weight:700;letter-spacing:.14em}
+  .future-article__header{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(230px,.45fr);gap:70px;padding-bottom:52px;border-bottom:1px solid #777}
+  .future-article__header h1{max-width:900px;margin:18px 0 0;font-size:clamp(52px,7vw,104px);line-height:.88;letter-spacing:-.06em}
+  .future-article__date{align-self:end;padding-top:24px;border-top:1px solid #999;font-size:12px;letter-spacing:.12em}
+  .future-article__body{display:grid;grid-template-columns:minmax(180px,.38fr) minmax(0,.82fr) minmax(180px,.3fr);gap:46px;padding-top:70px}
+  .future-article__body-label{font-size:10px;font-weight:700;line-height:1.5;letter-spacing:.15em}
+  .future-article__prose{font-family:Georgia,'Times New Roman',serif;font-size:clamp(20px,2.1vw,30px);line-height:1.55}
+  .future-article__prose p{margin:0 0 1.4em}.future-article__prose strong{background:var(--accent);font-family:Arial,sans-serif;font-size:.82em;padding:0 .12em}
+  .future-article__aside{font-size:11px;line-height:1.6;color:#60605a;border-top:1px solid #999;padding-top:15px}
+  @media(max-width:850px){
+    .future-index-hero,.future-report-cards,.future-article__header,.future-article__body{grid-template-columns:1fr}
+    .future-index-hero__image{min-height:58vh}.future-index-hero__copy{padding:38px 24px}.future-index-hero h1{margin:42px 0 24px}
+    .future-report-directory{padding:56px 24px 70px}.future-report-card,.future-report-card+ .future-report-card{padding:26px 24px;min-height:330px;border-right:0;border-bottom:1px solid #999}
+    .future-article{width:calc(100% - 40px);padding-top:45px}.future-article__header{gap:25px}.future-article__body{gap:30px;padding-top:45px}.future-report-toolbar{padding:13px 18px}
+  }
+</style>
+
+<style id="future-report-layout-fix">
+  .future-article{width:min(1180px,calc(100% - 96px));padding:64px 0 120px}
+  .future-article__nav{margin-bottom:56px;padding-bottom:16px;border-bottom:1px solid #aaa}
+  .future-article__header{display:block;padding:0 0 56px;border-bottom:1px solid #777}
+  .future-article__header h1{width:100%;max-width:1050px;margin:22px 0 0;font-size:clamp(44px,6.2vw,88px);line-height:.98;letter-spacing:-.052em;overflow-wrap:break-word;word-break:normal}
+  .future-article__date{width:min(360px,100%);margin-top:42px;padding-top:15px;border-top:1px solid #999;line-height:1.65}
+  .future-article__body{display:grid;grid-template-columns:180px minmax(0,720px);justify-content:center;align-items:start;column-gap:58px;row-gap:38px;padding-top:64px}
+  .future-article__body-label{grid-column:1;max-width:180px}
+  .future-article__prose{grid-column:2;min-width:0;font-size:clamp(20px,1.8vw,27px);line-height:1.62;overflow-wrap:break-word}
+  .future-article__aside{grid-column:2;max-width:620px;margin-top:4px;padding:18px 0 0;border-top:1px solid #999}
+  .future-index-hero h1{overflow-wrap:break-word}
+  @media(max-width:900px){
+    .future-article{width:calc(100% - 40px);padding:38px 0 80px}
+    .future-article__nav{margin-bottom:42px}
+    .future-article__header{padding-bottom:42px}
+    .future-article__header h1{font-size:clamp(38px,12vw,64px);line-height:1}
+    .future-article__date{margin-top:30px}
+    .future-article__body{grid-template-columns:1fr;gap:28px;padding-top:42px}
+    .future-article__body-label,.future-article__prose,.future-article__aside{grid-column:1;max-width:none}
+    .future-article__body-label{padding-bottom:18px;border-bottom:1px solid #aaa}
+  }
+</style>
+
+<style id="future-02-report-layout">
+  .future02-index .future-index-hero__image img{object-position:center}
+  .future02-index .future-index-hero__copy{background:var(--accent)}
+  .f02-report{background:#f3f2ec;color:#111}
+  .f02-report .future-article{width:min(1320px,calc(100% - 72px))}
+  .f02-report .future-article__header h1{max-width:1120px}
+  .f02-lede,.f02-closing-copy{display:grid;grid-template-columns:180px minmax(0,760px);justify-content:center;gap:58px;padding:62px 0}
+  .f02-lede>span,.f02-closing-copy>span{font-size:10px;font-weight:700;line-height:1.55;letter-spacing:.15em}
+  .f02-lede p,.f02-closing-copy p,.f02-removal-copy p,.f02-redirection-intro p{margin:0;font-family:Georgia,'Times New Roman',serif;font-size:clamp(18px,1.65vw,25px);line-height:1.58}
+  .f02-lede strong,.f02-closing-copy strong,.f02-removal-copy strong{background:var(--accent);font-family:Arial,sans-serif;font-size:.83em;padding:0 .12em}
+  .f02-evidence-layout{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(290px,.72fr);gap:18px;padding:18px 0;border-top:1px solid #777;border-bottom:1px solid #777}
+  .f02-evidence-layout figure{margin:0}.f02-evidence-layout img{width:100%;height:100%;display:block;object-fit:cover}
+  .f02-colony-image{display:grid;grid-template-rows:minmax(640px,72vh) auto;min-height:0}
+  .f02-colony-image img{object-position:center}
+  .f02-evidence-column{display:grid;grid-template-rows:minmax(260px,1fr) minmax(230px,.9fr) auto;gap:18px}
+  .f02-evidence-column figure{display:grid;grid-template-rows:minmax(0,1fr) auto;min-height:0;overflow:hidden;background:#ddd}
+  .f02-evidence-column figure:first-child img{object-position:center 42%}
+  .f02-evidence-column figure:nth-child(2) img{object-position:center}
+  .f02-evidence-layout figcaption{display:flex;justify-content:space-between;gap:24px;padding:12px 0 0;font-size:9px;line-height:1.45;letter-spacing:.12em}
+  .f02-evidence-column figcaption{padding:12px 12px;background:#fff;letter-spacing:.08em}
+  .f02-evidence-column figcaption span{max-width:230px;letter-spacing:0;text-transform:none}
+  .f02-evidence-note{display:grid;grid-template-columns:auto 1fr;gap:20px;padding:18px;background:var(--accent);font-size:10px;line-height:1.45;letter-spacing:.08em}
+  .f02-closing-copy{padding-bottom:88px}
+  .f02-section-label{display:flex;align-items:baseline;gap:22px;padding-bottom:18px;border-bottom:1px solid #777}
+  .f02-section-label span{font-size:11px;font-weight:700;letter-spacing:.12em}
+  .f02-section-label h2{margin:0;font-size:clamp(28px,4vw,54px);line-height:1;letter-spacing:-.045em}
+  .f02-removal-section{padding:70px 0 90px}
+  .f02-removal-grid{display:grid;grid-template-columns:minmax(340px,.75fr) minmax(0,1.25fr);gap:70px;padding:42px 0 64px}
+  .f02-removal-grid figure{margin:0}.f02-removal-grid figure img{width:100%;height:min(720px,72vh);display:block;object-fit:cover}
+  .f02-removal-grid figcaption{padding-top:10px;font-size:9px;letter-spacing:.13em}
+  .f02-removal-copy{display:flex;flex-direction:column;justify-content:space-between;gap:70px;padding:14px 0}
+  .f02-stat{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;padding-top:28px;border-top:1px solid #777}
+  .f02-stat strong{grid-column:1 / -1;background:none;font-family:Arial,sans-serif;font-size:clamp(90px,14vw,200px);font-weight:400;line-height:.75;letter-spacing:-.075em;color:#111}
+  .f02-stat span{font-size:clamp(20px,2.5vw,34px);font-weight:700;letter-spacing:-.02em}
+  .f02-stat small{max-width:180px;text-align:right;font-size:9px;line-height:1.45;letter-spacing:.13em}
+  .f02-turn{margin:0;padding:30px 0;border-top:1px solid #777;border-bottom:1px solid #777;font-family:Georgia,'Times New Roman',serif;font-size:clamp(28px,4.2vw,60px);font-style:italic;line-height:1.05}
+  .f02-redirection-section{margin:0 calc(50% - 50vw);padding:82px max(36px,calc((100vw - 1320px)/2)) 110px;background:#111;color:#f3f2ec}
+  .f02-redirection-section .f02-section-label{border-color:#666}
+  .f02-redirection-intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,.48fr);gap:80px;padding:50px 0 70px}
+  .f02-redirection-intro strong{align-self:end;color:var(--accent);font-size:clamp(34px,5vw,76px);font-weight:400;line-height:.84;letter-spacing:-.055em}
+  .f02-concept-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+  .f02-concept-grid figure{margin:0;min-width:0}.f02-concept-image{height:520px;overflow:hidden;background:#292929}
+  .f02-concept-image img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .55s ease,filter .55s ease}
+  .f02-concept-grid figure:nth-child(1) img{object-position:center}.f02-concept-grid figure:nth-child(2) img{object-position:center}.f02-concept-grid figure:nth-child(3) img{object-position:center}
+  .f02-concept-grid figure:hover img{transform:scale(1.035);filter:saturate(1.08)}
+  .f02-concept-grid figcaption{display:flex;justify-content:space-between;gap:18px;padding:16px 0;border-top:1px solid #666;font-size:9px;line-height:1.4;letter-spacing:.1em}
+  .f02-concept-grid figcaption span{max-width:145px;text-align:right;color:#aaa;letter-spacing:0}
+  @media(max-width:900px){
+    .f02-report .future-article{width:calc(100% - 40px)}
+    .f02-lede,.f02-closing-copy,.f02-evidence-layout,.f02-removal-grid,.f02-redirection-intro{grid-template-columns:1fr}
+    .f02-lede,.f02-closing-copy{gap:26px;padding:42px 0}.f02-colony-image{grid-template-rows:minmax(420px,62vh) auto}
+    .f02-evidence-column{grid-template-columns:1fr 1fr;grid-template-rows:auto auto}.f02-evidence-note{grid-column:1 / -1}
+    .f02-removal-grid{gap:34px}.f02-removal-grid figure img{height:62vh}.f02-removal-copy{gap:50px}
+    .f02-redirection-intro{gap:46px}.f02-concept-grid{grid-template-columns:1fr}.f02-concept-image{height:min(72vh,650px)}
+  }
+  @media(max-width:580px){
+    .f02-evidence-column{grid-template-columns:1fr}.f02-evidence-note{grid-column:1}.f02-evidence-column figure{min-height:390px}
+    .f02-stat{grid-template-columns:1fr}.f02-stat strong{font-size:30vw}.f02-stat small{text-align:left;margin-top:16px}
+    .f02-redirection-section{padding-left:20px;padding-right:20px}.f02-concept-image{height:58vh}
+  }
+</style>
+
+<style id="future-scroll-reading-fix">
+  .future-index-hero{grid-template-columns:1fr;min-height:0}
+  .future-index-hero__image{min-height:0;height:auto;background:#ddd}
+  .future-index-hero__image img{height:auto;max-height:none;object-fit:contain;object-position:center}
+  .future-index-hero__copy{display:block;padding:52px 50px 62px}
+  .future-index-hero h1{max-width:1080px;margin:34px 0 24px;font-size:clamp(44px,7vw,96px);line-height:.96}
+  .future-scroll-previews{padding-top:64px}
+  .future-report-preview-list{display:block;border-bottom:0}
+  .future-report-preview{display:grid;grid-template-columns:170px minmax(0,760px);justify-content:center;gap:58px;min-height:0;padding:70px 0;border-right:0;border-bottom:1px solid #777}
+  .future-report-preview+.future-report-preview{border-left:0}
+  .future-report-preview .future-report-card__meta{display:block;line-height:2}.future-report-preview .future-report-card__meta span{display:block}
+  .future-report-preview h3{margin:0 0 30px;font-size:clamp(38px,5vw,72px);line-height:.98}
+  .future-preview-copy p{max-width:720px;margin:0 0 1.35em;font-family:Georgia,'Times New Roman',serif;font-size:clamp(18px,1.55vw,24px);line-height:1.6;color:#222}
+  .future-preview-copy>span{display:inline-block;margin-top:22px;padding:10px 14px;border:1px solid #777;font-size:9px;font-weight:700;letter-spacing:.13em}
+  .f02-report .future-article__header{display:block}.f02-report .future-article__date{margin-top:38px}
+  .f02-lede{grid-template-columns:180px minmax(0,760px)}
+  .f02-evidence-layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(320px,.65fr);align-items:start;gap:54px;padding:60px 0 90px}
+  .f02-evidence-column{display:flex;flex-direction:column;gap:20px}
+  .f02-evidence-column figure{display:block;margin:0;min-height:0;overflow:visible;background:transparent}
+  .f02-evidence-layout .f02-evidence-column img{width:100%;height:auto;max-height:none;display:block;object-fit:contain}
+  .f02-evidence-layout figcaption,.f02-evidence-note{display:none}
+  .f02-evidence-layout .f02-closing-copy{position:sticky;top:90px;display:block;padding:0}
+  .f02-evidence-layout .f02-closing-copy span{display:block;margin-bottom:28px;padding-bottom:14px;border-bottom:1px solid #777}
+  .f02-evidence-layout .f02-closing-copy p{font-size:clamp(18px,1.55vw,24px)}
+  .f02-removal-grid figure img{width:100%;height:auto;max-height:none;object-fit:contain}
+  .f02-concept-image{height:auto;min-height:0;overflow:visible;background:transparent}
+  .f02-concept-image img{width:100%;height:auto;max-height:none;object-fit:contain}
+  .f02-concept-grid figure:hover img{transform:none}
+  @media(max-width:900px){
+    .future-index-hero__copy{padding:38px 24px 48px}.future-scroll-previews{padding:50px 24px 70px}
+    .future-report-preview{grid-template-columns:1fr;gap:24px;padding:52px 0}
+    .f02-lede,.f02-evidence-layout{grid-template-columns:1fr}.f02-evidence-layout{gap:42px}
+    .f02-evidence-layout .f02-closing-copy{position:static}
+  }
+</style>
+
+<style id="report-flow-and-caption-fix">
+  .future-report-view,.future-article{overflow:visible}
+  .future-article__nav{position:relative;top:auto}
+  .future-article__header,.f02-report .future-article__header{position:relative!important;inset:auto!important;display:block!important;float:none!important;height:auto!important;min-height:0!important;margin:0!important;padding:0 0 52px!important;background:#f3f2ec;z-index:auto}
+  .future-article__header>div{position:relative!important;inset:auto!important;display:block!important}
+  .future-article__header h1{position:relative!important;inset:auto!important;display:block!important;width:100%;max-width:1080px;margin:22px 0 0!important;transform:none!important}
+  .future-article__date{position:relative!important;inset:auto!important;display:block!important;float:none!important;margin:38px 0 0!important;transform:none!important}
+  .future-article__body,.f02-lede,.f02-evidence-layout,.f02-removal-section{position:relative!important;inset:auto!important;clear:both;margin-top:0!important;transform:none!important}
+  .future01-opening-image{margin:20px auto 90px;max-width:980px}.future01-opening-image img{width:100%;height:auto;display:block;object-fit:contain}
+  .future01-analysis-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:28px 0 100px;padding-top:40px;border-top:1px solid #777}
+  .future01-analysis-gallery figure{margin:0}.future01-analysis-gallery img{width:100%;height:auto;display:block;object-fit:contain}
+  .future01-analysis-caption{grid-column:1/-1;max-width:760px;margin-top:10px}
+  .image-caption{display:block!important;margin:0;padding:12px 0 0!important;border:0!important;background:transparent!important;color:rgba(17,17,17,.48)!important;font-family:Arial,sans-serif!important;font-size:10px!important;font-weight:400!important;font-style:normal!important;line-height:1.5!important;letter-spacing:.04em!important;text-align:left!important;text-transform:none!important}
+  .image-caption strong,.image-caption em,.image-caption span{display:block;font:inherit}.image-caption strong{font-weight:700}.image-caption em{font-style:italic}
+  .f02-redirection-section .image-caption{color:rgba(243,242,236,.5)!important;border-top:0!important}
+  .f02-evidence-layout .f02-evidence-column figcaption.image-caption{display:block!important;padding-top:12px!important}
+  .map-reset{display:none!important}
+  @media(max-width:900px){.future01-analysis-gallery{grid-template-columns:1fr}.future01-analysis-caption{grid-column:1}}
+</style>
+
+<style id="report-direct-start-fix">
+  [data-future-view="report-01"],
+  [data-future-view="report-02"],
+  [data-future-view="future-02-report-01"],
+  [data-future-view="future-02-report-02"]{padding-top:0;background:#f3f2ec}
+  [data-future-view="report-01"] .future-article,
+  [data-future-view="report-02"] .future-article,
+  [data-future-view="future-02-report-01"] .future-article,
+  [data-future-view="future-02-report-02"] .future-article{padding-top:42px}
+  .f02-concept-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:30px}
+  .f02-concept-grid figure{align-self:start}
+  @media(max-width:760px){.f02-concept-grid{grid-template-columns:1fr}}
+</style>
+
+<style id="future-index-without-cover-fix">
+  [data-future-view="index"] .future-index-hero,
+  [data-future-view="future-02-index"] .future-index-hero{display:block;min-height:0;border-bottom:1px solid #777;background:#f3f2ec}
+  [data-future-view="future-02-index"] .future-index-hero{background:var(--accent)}
+  [data-future-view="index"] .future-index-hero__copy,
+  [data-future-view="future-02-index"] .future-index-hero__copy{display:block;min-height:0;padding:72px 50px 82px}
+  [data-future-view="index"] .future-index-hero h1,
+  [data-future-view="future-02-index"] .future-index-hero h1{max-width:1120px;margin:36px 0 28px}
+  [data-future-view="index"] .future-index-hero p,
+  [data-future-view="future-02-index"] .future-index-hero p{max-width:620px}
+  @media(max-width:850px){
+    [data-future-view="index"] .future-index-hero__copy,
+    [data-future-view="future-02-index"] .future-index-hero__copy{padding:50px 24px 58px}
+  }
+</style>
+
+<style id="final-typography-and-layout-update">
+  .hero-home__content{max-width:min(1180px,calc(100% - 48px))}
+  .hero-home__content h1{margin-bottom:22px}
+  .home-subtitle{max-width:1100px;font-size:clamp(19px,2vw,31px);line-height:1.25}
+  .home-subtitle strong{font-weight:700}.home-subtitle em{font-weight:400;font-style:italic}
+  .hero-scroll-cue{font-weight:700;letter-spacing:.12em}
+  .coastal-editorial-heading{display:block}
+  .coastal-editorial-title{max-width:900px}
+  .coastal-sites-subtitle{max-width:780px;margin:26px 0 0;font-size:clamp(17px,1.45vw,22px);line-height:1.5}
+  .coastal-selection-note{margin:16px 0 0;font-size:14px;line-height:1.5}
+  .about-project-page__text .project-pathway{font-weight:800;color:var(--accent);background:none;padding:0}
+  .map-heading-row{display:block}
+  .map-heading-copy{width:100%}
+  .map-research-note{width:100%;max-width:none!important;white-space:normal;overflow-wrap:normal;text-wrap:pretty}
+  .material-map-shell,.map-canvas,.map-canvas.has-field-map,.field-map-stage,.field-map-base,.site-panel{background:#fff!important}
+  .material-stats{font-size:clamp(14px,1.15vw,18px);font-weight:700;line-height:1.7;letter-spacing:.035em;text-transform:none}
+  .material-stats b{min-width:1.4em;font-size:clamp(22px,2vw,31px);color:#111}
+  [data-future-view="index"] .future-index-hero p,
+  [data-future-view="future-02-index"] .future-index-hero p{width:max-content;max-width:none;white-space:nowrap;font-size:clamp(11px,1.05vw,15px)}
+  .future01-image-note{max-width:980px;margin:-68px auto 90px;padding:14px 0 0;border-top:1px solid #999;color:rgba(17,17,17,.52);font-size:10px;line-height:1.55;letter-spacing:.035em}
+  .f02-lede a,.f02-removal-copy a{color:inherit;text-decoration-color:var(--accent);text-decoration-thickness:3px;text-underline-offset:3px}
+  .f02-stat{display:grid;grid-template-columns:1fr;align-items:start;gap:8px;min-width:0;padding-top:28px}
+  .f02-stat strong{grid-column:auto;display:block;font-size:clamp(68px,9vw,132px);line-height:.82;letter-spacing:-.06em;white-space:nowrap}
+  .f02-stat span{display:block;font-size:clamp(21px,2.2vw,32px);line-height:1;letter-spacing:-.02em;white-space:nowrap}
+  .f02-stat small{display:block;max-width:none;text-align:left;font-size:10px;line-height:1.4;letter-spacing:.12em;white-space:normal}
+  @media(max-width:900px){
+    .map-research-note{text-wrap:wrap}
+    [data-future-view="index"] .future-index-hero p,
+    [data-future-view="future-02-index"] .future-index-hero p{width:auto;max-width:100%;white-space:normal;font-size:13px}
+    .future01-image-note{margin:-58px auto 70px}
+  }
+  @media(max-width:580px){
+    .hero-home__content{max-width:calc(100% - 32px)}
+    .home-subtitle{font-size:18px}
+    .material-stats{font-size:13px}.material-stats b{font-size:22px}
+    .f02-stat strong{font-size:clamp(62px,21vw,96px)}
+  }
+</style>
+
+<style id="atlas-white-panel-fix">
+  .material-map-shell{background:#fff!important}
+  .material-map-shell>.map-canvas,
+  .material-map-shell>.site-panel{background-color:#fff!important;background-image:none!important}
+  .material-map-shell .field-map-stage{background:#fff!important}
+  .material-map-shell .field-map-base{background:#fff!important}
+  .material-map-shell .material-preview{background:#fff}
+  .material-map-shell .distribution-row:hover,
+  .material-map-shell .distribution-row:focus-visible{background:#fff}
+</style>
+
+<style id="header-and-map-stats-update">
+  .header-brand-group{display:flex;align-items:center;gap:24px;min-width:0}
+  .header-manifesto{max-width:310px;margin:0;padding-left:24px;border-left:1px solid #aaa;font-size:10px;line-height:1.35;letter-spacing:.045em;color:#555}
+  .material-stats{left:auto!important;right:28px!important;top:auto!important;bottom:28px!important;text-align:right;font-size:clamp(19px,1.65vw,26px)!important;font-weight:700!important;line-height:1.45!important;letter-spacing:-.015em!important}
+  .material-stats p{margin:0!important;white-space:nowrap}
+  .material-stats b{min-width:1.2em!important;font-size:clamp(34px,3.2vw,52px)!important;font-weight:700!important;line-height:1!important}
+  @media(max-width:900px){
+    .header-brand-group{align-items:flex-start;flex-direction:column;gap:6px}
+    .header-manifesto{max-width:290px;padding:0;border-left:0;font-size:9px}
+    .material-stats{right:18px!important;bottom:18px!important;font-size:16px!important}.material-stats b{font-size:30px!important}
+  }
+  @media(max-width:560px){.header-manifesto{display:none}.material-stats{font-size:14px!important}.material-stats b{font-size:26px!important}}
+</style>
+
+<style id="atlas-location-detail-update">
+  .header-manifesto{max-width:none!important;font-size:12px!important;line-height:1.2!important;white-space:nowrap}
+  .about-project-page__text .project-pathway{display:inline;font-weight:800;color:#111;background:var(--accent);padding:0 .1em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+  .field-location-name{position:absolute;left:24px;top:22px;z-index:13;font-size:clamp(18px,1.8vw,28px);font-weight:700;line-height:1;letter-spacing:-.025em;color:#111;pointer-events:none}
+  .material-stats b{font-size:clamp(25px,2.35vw,37px)!important}
+  @media(max-width:900px){
+    .header-manifesto{font-size:11px!important;white-space:nowrap}
+    .field-location-name{left:18px;top:18px;font-size:20px}
+    .material-stats b{font-size:25px!important}
+  }
+  @media(max-width:560px){.header-manifesto{display:none}.field-location-name{font-size:18px}}
+</style>
+
+<style id="final-interaction-and-report-frame">
+  header nav a{position:relative;border-bottom:0!important;text-decoration:none}
+  header nav a::after{content:'';position:absolute;left:0;right:0;bottom:-7px;height:3px;background:var(--accent);transform:scaleX(0);transform-origin:left center;opacity:0;transition:transform .25s ease,opacity .2s ease}
+  header nav a:hover::after,header nav a:focus-visible::after,header nav a.is-active::after{transform:scaleX(1);opacity:1}
+  .future-preview-copy>span{transition:background-color .22s ease,border-color .22s ease,color .22s ease}
+  .future-report-card:hover .future-preview-copy>span,.future-report-card:focus-visible .future-preview-copy>span{background:var(--accent);border-color:var(--accent);color:#111}
+  [data-future-view="report-01"] .future-article,
+  [data-future-view="report-02"] .future-article,
+  [data-future-view="future-02-report-01"] .future-article,
+  [data-future-view="future-02-report-02"] .future-article{border:2px solid var(--accent);padding-left:clamp(22px,3.5vw,52px);padding-right:clamp(22px,3.5vw,52px)}
+  [data-future-view="report-01"] .future-article__nav,
+  [data-future-view="report-02"] .future-article__nav,
+  [data-future-view="future-02-report-01"] .future-article__nav,
+  [data-future-view="future-02-report-02"] .future-article__nav{border-bottom-color:var(--accent)}
+  [data-future-view="report-01"] .future-article__header,
+  [data-future-view="report-02"] .future-article__header,
+  [data-future-view="future-02-report-01"] .future-article__header,
+  [data-future-view="future-02-report-02"] .future-article__header{border-bottom:2px solid var(--accent)!important}
+  .future-article__body-label,.f02-section-label{padding-top:10px;border-top:1px solid var(--accent)}
+  @media(max-width:900px){
+    [data-future-view="report-01"] .future-article,[data-future-view="report-02"] .future-article,[data-future-view="future-02-report-01"] .future-article,[data-future-view="future-02-report-02"] .future-article{width:calc(100% - 24px);padding-left:18px;padding-right:18px}
+  }
+</style>
+
+<style id="editorial-map-and-report-story-update">
+  .map-filter-bar{display:flex;align-items:flex-end;gap:clamp(24px,5vw,76px);width:100%;max-width:none;margin:30px 0 28px;padding:0 0 14px;border:0;border-bottom:1px solid #aaa;background:transparent}
+  .map-filter{position:relative;padding:7px 0 10px;border:0!important;background:transparent!important;color:#111;font:inherit;font-size:11px;font-weight:700;letter-spacing:.1em;text-align:left;white-space:nowrap;cursor:pointer}
+  .map-filter span{display:inline-block;margin-right:9px;color:#777;transition:color .2s ease}
+  .map-filter::after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .22s ease}
+  .map-filter:hover::after,.map-filter:focus-visible::after,.map-filter.is-active::after{transform:scaleX(1)}
+  .map-filter.is-active span{color:var(--accent);text-shadow:0 1px 1px rgba(0,0,0,.28)}
+  .map-filter:focus-visible{outline:0}
+  .material-connector line{stroke:#111;stroke-width:.8;stroke-dasharray:none;transition:opacity .18s ease}
+  .material-preview{border:0;border-top:1px solid #111;box-shadow:none;background:rgba(255,255,255,.97);transform:translateX(118%);transition:transform .32s ease,opacity .2s ease;opacity:0}
+  .material-preview.is-visible{transform:translateX(0);opacity:1}
+  .archive-tab{width:100%;margin:0;padding:8px 0;border:0;border-bottom:1px solid #aaa;background:transparent}
+  [data-future-view="report-01"] .future-article,
+  [data-future-view="report-02"] .future-article,
+  [data-future-view="future-02-report-01"] .future-article,
+  [data-future-view="future-02-report-02"] .future-article{border:0!important}
+  [data-future-view="report-01"] .future-article__header,
+  [data-future-view="report-02"] .future-article__header,
+  [data-future-view="future-02-report-01"] .future-article__header,
+  [data-future-view="future-02-report-02"] .future-article__header{border-bottom:1px solid var(--accent)!important}
+  .report-kicker,.future-article__date{color:var(--accent);text-shadow:0 1px 1px rgba(0,0,0,.3)}
+  .future01-analysis-gallery .image-caption,.future01-analysis-gallery strong,.future01-analysis-gallery em,.future01-analysis-gallery span{color:var(--accent)!important;text-shadow:0 1px 2px rgba(0,0,0,.5)}
+  .report-story-block{opacity:0;transform:translateY(34px);transition:opacity .7s ease,transform .7s cubic-bezier(.22,.61,.36,1)}
+  .report-story-block.is-visible{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.report-story-block{opacity:1;transform:none;transition:none}}
+  @media(max-width:900px){.map-filter-bar{gap:20px;overflow-x:auto}.map-filter{flex:0 0 auto;font-size:10px}}
+</style>
+
+
+<style id="mobile-channel-overrides">
+  html{overflow-x:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  body{overflow-x:hidden}
+  button,a{-webkit-tap-highlight-color:rgba(223,255,25,.28);touch-action:manipulation}
+  @media(max-width:760px){
+    header{position:sticky;top:0;z-index:100;height:auto!important;display:block!important;padding:12px 0 0!important;background:rgba(255,255,255,.97);backdrop-filter:blur(10px)}
+    .header-brand-group{display:flex!important;align-items:center!important;flex-direction:row!important;justify-content:space-between;gap:12px;padding:0 16px 11px}
+    .logo{font-size:18px!important;line-height:1;white-space:nowrap}
+    .header-manifesto{display:none!important}
+    header nav{display:flex;width:100%;gap:0;margin:0!important;padding:0 10px;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;border-top:1px solid #d7d7d0}
+    header nav::-webkit-scrollbar{display:none}
+    header nav a{flex:1 0 auto;min-height:44px;display:flex;align-items:center;justify-content:center;margin:0!important;padding:0 12px;font-size:11px;line-height:1.1;white-space:nowrap}
+    header nav a::after{bottom:4px;height:3px}
+    header nav a:active{background:rgba(223,255,25,.2)}
+    section[data-route]{scroll-margin-top:104px}
+    .hero-scroll-cue,.future-report-toolbar a,.future-article__nav a,.map-filter,.location-chip,.material-record-overlay__close{min-height:44px;display:inline-flex;align-items:center}
+    .coastal-activities{padding:58px 16px 72px!important}
+    .coastal-editorial-heading{padding-bottom:24px}
+    .coastal-editorial-heading h2{font-size:clamp(42px,14vw,64px);line-height:.92}
+    .coastal-sites-subtitle{margin-top:22px;font-size:17px;line-height:1.5}
+    .coastal-selection-note{font-size:14px;line-height:1.5}
+    .coastal-visual-sequence{display:grid!important;grid-template-columns:1fr!important;gap:16px!important;padding-top:34px!important}
+    .coastal-visual--01,.coastal-visual--02,.coastal-visual--03,.coastal-visual--04{grid-column:1!important;min-height:0!important;width:100%!important;aspect-ratio:4/5!important;margin:0!important}
+    .coastal-visual__type{left:16px;right:16px;bottom:16px}
+    .coastal-visual__type h3{font-size:clamp(28px,9vw,40px)}
+    .coastal-visual__place{font-size:12px;opacity:1;transform:none}
+    .material-map-section{padding:58px 12px 72px!important}
+    .map-heading-row{padding:0 4px 22px!important}
+    .map-heading-row h2{font-size:clamp(40px,13vw,58px)!important;line-height:.95}
+    .map-research-note{font-size:13px!important;line-height:1.55!important}
+    .map-filter-bar{display:flex!important;width:100%;overflow-x:auto;margin:16px 0 12px;scrollbar-width:none}
+    .map-filter-bar::-webkit-scrollbar{display:none}
+    .map-filter{flex:1 0 auto;justify-content:center;min-width:max-content;padding:0 14px!important;font-size:11px!important;border-right:1px solid #999!important;border-bottom:0!important}
+    .location-index{margin-bottom:12px}
+    .location-index__label,.location-chip{min-height:44px;padding:0 14px;font-size:11px}
+    .material-map-shell{display:flex!important;flex-direction:column;min-height:0!important;border:1px solid #777}
+    .map-canvas.has-field-map{order:1;min-height:0!important;height:auto!important;overflow:visible;padding:54px 8px 12px}
+    .field-location-name{position:absolute;left:16px;top:16px;font-size:22px;line-height:1.1}
+    .field-map-stage{position:relative!important;top:auto!important;bottom:auto!important;left:auto!important;width:100%!important;height:auto!important;aspect-ratio:1332/1563;transform:none!important;margin:0 auto}
+    .field-map-base{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+    .material-point-layer{position:absolute!important;inset:0!important}
+    .bird-habitat-marker{font-size:13px;padding:8px;min-height:36px}
+    .material-node,.material-node[data-kind="human-made"]{width:18px;height:18px}
+    .material-node::before{content:'';position:absolute;left:50%;top:50%;width:44px;height:44px;transform:translate(-50%,-50%);border-radius:50%}
+    .material-node::after{display:none}
+    .material-stats{position:relative!important;order:2;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;display:grid!important;grid-template-columns:1fr 1fr;gap:8px;width:100%;padding:14px 12px!important;text-align:left!important;border-top:1px solid #aaa;background:#fff}
+    .material-stats p{white-space:normal!important;font-size:13px!important;line-height:1.35!important}
+    .material-stats b{display:block!important;margin-top:4px;font-size:24px!important}
+    .human-made-legend{position:relative!important;order:3;left:auto!important;bottom:auto!important;display:flex!important;width:100%;min-height:44px;border:0!important;border-top:1px solid #aaa!important;background:#fff!important}
+    .material-preview{position:relative!important;order:4;right:auto!important;top:auto!important;bottom:auto!important;width:100%!important;margin:0!important;border:0!important;border-top:1px solid #777!important;box-shadow:none!important}
+    .material-preview:not(.is-visible){display:none}
+    .site-panel{order:5;min-height:0!important;padding:28px 18px!important;border-left:0!important;border-top:1px solid #777!important}
+    .site-panel-id,.site-panel-note,.fauna-panel h4{font-size:12px!important}
+    .site-panel h3{margin:20px 0 14px;font-size:30px}
+    .site-panel-desc,.distribution-row{font-size:15px!important;line-height:1.5}
+    .distribution-row{min-height:48px;padding:12px 4px!important}
+    .distribution-dot{width:16px;height:16px}
+    .fauna-name{font-size:12px!important;line-height:1.4}
+    .future-scenarios-page{padding:58px 16px 72px!important}
+    .future-heading h2{font-size:clamp(40px,13vw,60px)!important;line-height:.95}
+    .future-subtitle{font-size:15px!important;line-height:1.5}
+    .future-two-grid{grid-template-columns:1fr!important;gap:16px}
+    .future-scenario-card{min-height:0}
+    .future-scenario-image{height:auto!important;aspect-ratio:1/1}
+    .future-scenario-copy{padding:20px 18px 24px}
+    .future-scenario-copy span{font-size:12px!important}.future-scenario-copy h3{font-size:clamp(28px,9vw,40px)!important;line-height:.98}.future-scenario-copy p{font-size:14px!important;line-height:1.5}
+    .future-report-toolbar{min-height:52px;padding:8px 12px!important;gap:10px}
+    .future-report-toolbar span{font-size:10px;line-height:1.3;letter-spacing:.08em}
+    .future-report-toolbar a{flex:0 0 auto;min-height:40px;padding:0 10px}
+    [data-future-view="index"] .future-index-hero__copy,[data-future-view="future-02-index"] .future-index-hero__copy{padding:42px 18px 50px!important}
+    [data-future-view="index"] .future-index-hero h1,[data-future-view="future-02-index"] .future-index-hero h1{font-size:clamp(38px,12vw,58px);line-height:.98;margin:28px 0 24px}
+    [data-future-view="index"] .future-index-hero p,[data-future-view="future-02-index"] .future-index-hero p{font-size:15px!important;line-height:1.55}
+    .future-scroll-previews{padding:42px 18px 62px!important}
+    .future-report-directory__head{display:block}.future-report-directory__head span{display:block;margin-top:10px;font-size:12px}
+    .future-report-preview{display:block!important;padding:44px 0!important}
+    .future-report-card__meta{font-size:12px!important}.future-report-preview h3{font-size:clamp(34px,10vw,50px);line-height:1;margin:22px 0 26px}
+    .future-preview-copy p{font-size:17px;line-height:1.6}
+    .future-preview-copy>span{min-height:44px;display:inline-flex;align-items:center;padding:0 15px;font-size:12px}
+    .future-article{width:calc(100% - 16px)!important;padding:28px 16px 64px!important}
+    .future-article__nav{gap:12px;margin-bottom:38px!important;padding-bottom:12px}.future-article__nav a{min-height:44px;font-size:11px;line-height:1.25}
+    .future-article__header{padding-bottom:34px!important}.report-kicker{font-size:12px!important}.future-article__header h1{font-size:clamp(36px,11.5vw,56px)!important;line-height:1!important;margin-top:18px!important}
+    .future-article__date{font-size:12px;margin-top:28px!important}
+    .future-article__body{display:block!important;padding-top:36px!important}.future-article__body-label{max-width:none!important;margin-bottom:26px;font-size:12px!important;line-height:1.45}
+    .future-article__prose,.f02-lede p,.f02-closing-copy p,.f02-removal-copy p,.f02-redirection-intro p{font-size:18px!important;line-height:1.62!important}
+    .future-article__aside,.future01-image-note,.image-caption,.f02-removal-grid figcaption{font-size:12px!important;line-height:1.55!important;color:rgba(17,17,17,.68)!important}
+    .future01-opening-image{margin:30px 0 70px}.future01-image-note{margin:-52px 0 70px}
+    .future01-analysis-gallery{display:block;margin-bottom:70px}.future01-analysis-gallery figure{margin-bottom:18px}.future01-analysis-caption{margin-top:20px}
+    .f02-lede,.f02-evidence-layout,.f02-removal-grid,.f02-redirection-intro{display:block!important;padding:36px 0!important}
+    .f02-lede>span,.f02-closing-copy>span{display:block;margin-bottom:24px;font-size:12px!important}
+    .f02-evidence-column figure{margin-bottom:30px}.f02-evidence-layout .f02-closing-copy{margin-top:42px}
+    .f02-removal-grid figure{margin:0 0 30px}.f02-removal-copy{padding:0;gap:40px}
+    .f02-stat strong{font-size:clamp(58px,19vw,86px)!important}.f02-stat span{font-size:24px}.f02-stat small{font-size:12px}
+    .f02-redirection-section{margin:0 -16px;padding:56px 16px 70px!important}.f02-redirection-intro strong{display:block;margin-top:36px;font-size:clamp(38px,13vw,60px)}
+    .f02-concept-grid{display:block}.f02-concept-grid figure{margin-bottom:42px}
+  }
+  @media(max-width:360px){
+    header nav a{padding:0 9px;font-size:10px}
+    .future-report-toolbar span{max-width:190px}
+    .future-article__nav{align-items:stretch;flex-direction:column}.future-article__nav a{justify-content:flex-start}
+  }
+  }
+</style>
+</head>
+
+<body>
+
+  <header>
+    <div class="header-brand-group"><a class="logo" href="#home">PLASTIC AFTERLIFE</a><p class="header-manifesto">Every material has a past. Every encounter shapes a future</p></div>
+
+    <nav>
+      <a href="#activities">Coastal Sites</a>
+      <a href="#map">Material Distribution</a>
+      <a href="#future">Future Scenarios</a>
+    </nav>
+  </header>
+
+  
+  
+  <section class="hero hero-home" id="home" data-route="home">
+    <img
+      class="hero-home__background"
+      src="assets/images/home-hero.webp"
+      fetchpriority="high"
+      alt="Plastic fragments beside a bird nest containing blue eggs" width="2048" height="1447" decoding="async">
+
+    <div class="hero-home__overlay" aria-hidden="true"></div>
+
+    <div class="hero-home__content">
+      <h1>PLASTIC AFTERLIFE</h1>
+      <p class="home-subtitle">What happens when a material continues beyond its intended life?</p>
+      <a class="hero-scroll-cue" href="#about-project">TRACE WHAT HAPPENS NEXT &#8595;</a>
+    </div>
+  </section>
+<section class="about-project-page" id="about-project">
+  <div class="about-project-page__inner">
+    <p class="about-project-page__label">ABOUT THIS PROJECT</p>
+    <p class="about-project-page__text">This is a project about how changing material availability becomes part of seabird behaviour in coastal environments. <span class="project-pathway">The Coastal Sites</span>, <span class="project-pathway">Material Atlas</span>, and <span class="project-pathway">Speculative Scenarios</span> are three ways of tracing that relationship: what materials become available, why birds may incorporate them, and what happens when those materials persist within bird habitats across Scotland's coastal areas.</p>
+  </div>
+</section>
+
+<section id="activities" class="activities-section coastal-activities" data-route="activities">
+  <div class="coastal-editorial-heading">
+    <div class="coastal-editorial-title">
+      <h2>COASTAL SITES</h2>
+      <p class="coastal-sites-subtitle">Four coastal sites reveal how different human activities and habitat conditions shape the materials birds may encounter.</p>
+      <p class="coastal-selection-note">Select a coastal site to continue into the Material Atlas.</p>
+    </div>
+  </div>
+
+  <div class="coastal-visual-sequence" aria-label="Four coastal environments">
+    <a class="coastal-visual coastal-visual--01" href="#map/troup-head" data-site-link="troup-head">
+      <img src="assets/images/coastal-01-bird-habitat.webp" alt="Seabirds resting on coastal rocks at Troup Head" width="2400" height="1600" loading="lazy" decoding="async">
+      <span class="coastal-visual__index">01</span>
+      <div class="coastal-visual__type">
+        <h3>BIRD HABITAT</h3>
+        <span>ENTER MATERIAL ATLAS ↗</span>
+      </div>
+      <div class="coastal-visual__reveal">
+        <strong>TROUP HEAD</strong>
+        <p>Natural nesting materials remain dominant while marine debris arrives through tide, wind and coastal deposition.</p>
+      </div>
+    </a>
+
+    <a class="coastal-visual coastal-visual--02" href="#map/burghead" data-site-link="burghead">
+      <img src="assets/images/coastal-02-fishing-harbour.webp" alt="Fishing vessels and working harbour infrastructure" width="736" height="1111" loading="lazy" decoding="async">
+      <span class="coastal-visual__index">02</span>
+      <div class="coastal-visual__type">
+        <h3>FISHING HARBOUR</h3>
+        <span>ENTER MATERIAL ATLAS ↗</span>
+      </div>
+      <div class="coastal-visual__reveal">
+        <strong>BURGHEAD</strong>
+        <p>Rope, twine, nets and durable working materials move directly from harbour activity into the coastal system.</p>
+      </div>
+    </a>
+
+    <a class="coastal-visual coastal-visual--03" href="#map/gardenstown" data-site-link="gardenstown">
+      <img src="assets/images/coastal-03-coastal-town.webp" alt="Coastal settlement between a green hillside and the sea" width="2400" height="1607" loading="lazy" decoding="async">
+      <span class="coastal-visual__index">03</span>
+      <div class="coastal-visual__type">
+        <h3>COASTAL TOWN</h3>
+        <span>ENTER MATERIAL ATLAS ↗</span>
+      </div>
+      <div class="coastal-visual__reveal">
+        <strong>GARDENSTOWN</strong>
+        <p>Household waste, tourism and harbour activity overlap to form a complex material environment.</p>
+      </div>
+    </a>
+
+    <a class="coastal-visual coastal-visual--04" href="#map/findhorn" data-site-link="findhorn">
+      <img src="assets/images/coastal-04-hybrid-coastal-habitat.webp" alt="Colourful beach huts beside a coastal landscape" width="1200" height="1200" loading="lazy" decoding="async">
+      <span class="coastal-visual__index">04</span>
+      <div class="coastal-visual__type">
+        <h3>HYBRID COASTAL HABITAT</h3>
+        <span>ENTER MATERIAL ATLAS ↗</span>
+      </div>
+      <div class="coastal-visual__reveal">
+        <strong>FINDHORN</strong>
+        <p>Residential life, recreation and natural landscapes bring different material flows into one bird habitat.</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section id="map" class="material-map-section" data-route="map">
+  <div class="map-heading-row">
+    <div class="map-heading-copy">
+      <h2>Material Atlas</h2>
+      <p class="map-research-note">This Material Distribution Map is built from samples collected by Hailun during field research from June to August. It reflects the materials encountered during that fieldwork and does not represent the actual or complete material conditions of Scotland’s coastal environments.</p>
+    </div>
+  </div>
+
+  <div class="map-filter-bar" role="tablist" aria-label="Material map layers">
+    <button class="map-filter is-active" data-layer="distribution"><span>01</span> MATERIAL DISTRIBUTION</button>
+    <button class="map-filter" data-layer="accessible"><span>02</span> BIRD INTERACTION</button>
+    <button class="map-filter" data-layer="impact"><span>03</span> HABITAT HAZARD</button>
+  </div>
+
+  <div class="location-index" aria-label="Field locations">
+    <span class="location-index__label">Location</span>
+    <button class="location-chip" data-site="troup-head">Troup Head</button>
+    <button class="location-chip" data-site="burghead">Burghead</button>
+    <button class="location-chip" data-site="gardenstown">Gardenstown</button>
+    <button class="location-chip" data-site="findhorn">Findhorn</button>
+  </div>
+
+  <div class="material-map-shell" data-map-state="focus" data-site="troup-head">
+    <div class="map-canvas has-field-map" id="materialMapCanvas">
+      <div class="coast-shape coast-a"></div><div class="coast-shape coast-b"></div>
+      <div class="map-caption">MORAY COAST / FIELD SITES</div>
+      <button class="site-marker m-troup" data-site="troup-head"><i></i><span><strong>TROUP HEAD</strong><small>Bird Habitat</small></span></button>
+      <button class="site-marker m-burghead" data-site="burghead"><i></i><span><strong>BURGHEAD</strong><small>Fishing Harbour</small></span></button>
+      <button class="site-marker m-gardenstown" data-site="gardenstown"><i></i><span><strong>GARDENSTOWN</strong><small>Coastal Town</small></span></button>
+      <button class="site-marker m-findhorn" data-site="findhorn"><i></i><span><strong>FINDHORN</strong><small>Hybrid Coastal Habitat</small></span></button>
+
+      <div class="field-map-stage" id="fieldMapStage">
+        <img class="field-map-base" id="fieldMapImage" src="assets/maps/troup-head-map.svg" alt="Troup Head field map with concentric distance zones" width="1332" height="1563" loading="lazy" decoding="async">
+        <button class="bird-habitat-marker" id="birdHabitatMarker" type="button" aria-label="Toggle species observed at the bird habitat" aria-expanded="false">BIRD HABITAT</button>
+        <div class="material-point-layer" id="materialPointLayer"></div>
+      </div>
+      <div class="field-location-name" id="fieldLocationName">Troup Head RSPB</div>
+
+      <div class="material-stats" aria-label="Selected field site material counts">
+        <p>Human-made materials: <b id="humanMaterialCount">0</b></p>
+        <p>Natural materials: <b id="naturalMaterialCount">0</b></p>
+      </div>
+
+      <svg class="material-connector" viewBox="0 0 1000 650" preserveAspectRatio="none" aria-hidden="true"><line id="materialLine" x1="0" y1="0" x2="0" y2="0"></line></svg>
+      <div class="human-made-legend"><i></i><span>Highlighted / human-made material</span></div>
+      
+      <div class="material-preview" id="materialPreview" aria-live="polite" role="button" tabindex="0" aria-label="Open material field record">
+        <div class="archive-tab">FIELD MATERIAL / HOVER TO TRACE</div>
+        <div class="preview-copy">
+          <span id="previewCode">—</span>
+          <h3 id="previewTitle">Hover over a material point</h3>
+          <div class="material-record-grid" id="previewRecord">
+            <div class="material-record-row"><span>DISTANCE FROM SEABIRD HABITAT</span><b id="previewDistance">—</b></div>
+            <div class="material-record-row"><span>ORIGIN / SOURCE</span><b id="previewSource">—</b></div>
+            <div class="material-record-row"><span>POTENTIAL NESTING MATERIAL</span><b id="previewProperties">—</b></div>
+            <div class="material-record-row"><span>USAGE LEVEL</span><b id="previewUsage">—</b></div>
+            <div class="material-record-row"><span>POTENTIAL HAZARD INDEX</span><b><span class="risk-scale" id="previewRisk"></span></b></div>
+          </div>
+          <div class="preview-open">CLICK TO OPEN FULL RECORD</div>
+        </div>
+      </div>
+      <button class="map-reset" id="mapReset">← All sites</button>
+    </div>
+
+    <aside class="site-panel" id="sitePanel">
+      <div class="site-panel-id">SELECT A FIELD SITE</div>
+      <h3>Four coastal settings.<br>Four material conditions.</h3>
+      <p class="site-panel-desc">Choose a site to move from the coastal overview into its material distribution.</p>
+      <p class="site-panel-material-count" id="sitePanelCount"></p>
+      <div class="distribution-list" id="distributionList"></div>
+      <div class="fauna-panel" id="faunaPanel"></div>
+      <div class="site-panel-note" id="sitePanelNote">STATE 01 — OVERVIEW</div>
+    </aside>
+  </div>
+</section>
+
+
+<div class="material-record-overlay" id="materialRecordOverlay" aria-hidden="true">
+  <div class="material-record-overlay__inner">
+    <div class="material-record-overlay__top">
+      <span>NFC MATERIAL TRACE / FIELD RECORD</span>
+      <button class="material-record-overlay__close" id="materialRecordClose">CLOSE ×</button>
+    </div>
+
+    <div class="material-record-folder" data-record-label="D.01 / FINDHORN">
+      <div class="material-record-sheet">
+        <div class="material-record-head">
+          <div>
+            <p id="recordCode">D.01 / DURABLE PLASTIC</p>
+            <h2 id="recordTitle">Sunscreen Bottle Cap</h2>
+          </div>
+          <strong id="recordSite">FINDHORN / SCOTLAND</strong>
+        </div>
+
+        <div class="material-record-largegrid">
+          <div class="material-record-block">
+            <label>DISTANCE FROM SEABIRD HABITAT</label>
+            <strong id="recordDistance">2.8 km</strong>
+            <p>Recorded distance between the material and the nearest observed seabird habitat zone.</p>
+          </div>
+          <div class="material-record-block">
+            <label>ORIGIN / SOURCE</label>
+            <strong id="recordSource">Coastal visitor / personal-care waste</strong>
+            <p>Material entering the coast after human use and remaining within the local material environment.</p>
+          </div>
+          <div class="material-record-block">
+            <label>POTENTIAL HAZARD INDEX</label>
+            <div class="risk-scale" id="recordRisk"><span class="field-index-value">Low</span></div>
+            <p id="recordHazardLabel">Potential hazard index</p>
+          </div>
+          <div class="material-record-block">
+            <label>POTENTIAL NESTING MATERIAL</label>
+            <div class="material-tags" id="recordProperties">
+              <i>Small</i><i>Rigid</i><i>Lightweight</i><i>Durable</i>
+            </div>
+          </div>
+          <div class="material-record-block">
+            <label>USAGE LEVEL</label>
+            <strong id="recordUsage">No</strong>
+            <p>Indicative interaction level within the bird-accessible material environment.</p>
+          </div>
+          <div class="material-record-block">
+            <label>MATERIAL STATUS</label>
+            <strong>Persistent anthropogenic object</strong>
+            <p>Remains in the habitat beyond its original human use.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="future" class="future-scenarios-page future-two" data-route="future">
+  <div class="future-heading">
+    <div><h2>Speculative future</h2>
+<p class="future-subtitle">What Might Happen As The Material Environment Changes in the Future?</p></div>
+    
+  </div>
+  <div class="future-scenario-grid future-two-grid">
+    <a class="future-scenario-card future-entry-link" href="#future/01">
+      <div class="future-scenario-image"><img src="assets/images/future-01-artificial-habitat.webp" alt="A bird form composed of colourful plastic fragments in a coastal habitat" width="2200" height="1325" loading="lazy" decoding="async"></div>
+      <div class="future-scenario-copy"><span>FUTURE 01</span><h3>MORE PLASTIC BECOMES AVAILABLE</h3><p>Gull / Gannet — image and species information to be added.</p></div>
+    </a>
+    <a class="future-scenario-card future-entry-link future-02-entry-link" href="#future/02">
+      <div class="future-scenario-image"><img src="assets/images/future-02-community-action.webp" alt="Community volunteers collecting material waste from a beach" width="736" height="736" loading="lazy" decoding="async"></div>
+      <div class="future-scenario-copy"><span>FUTURE 02</span><h3>MATERIAL PATHWAYS ARE REDIRECTED</h3><p>Two reports move from plastic exposure to community removal and alternative nesting structures.</p></div>
+    </a>
+  </div>
+</section>
+
+<div class="future-report-overlay" id="futureReportOverlay" aria-hidden="true">
+  <div class="future-report-toolbar">
+    <span>PLASTIC AFTERLIFE / SPECULATIVE FUTURE / JULY 2036</span>
+    <a href="#future">CLOSE ×</a>
+  </div>
+
+  <div class="future-report-view" data-future-view="index">
+    <div class="future-index-hero">
+      <div class="future-index-hero__copy">
+        <span>FUTURE 01 / REPORT SERIES</span>
+        <h1>A NEST MADE OF PLASTIC IS NO LONGER AN EXCEPTION</h1>
+        <p>Two reports examine how repeated access to human-made materials may reshape what birds recognise, collect, and build with.</p>
+      </div>
+    </div>
+    <div class="future-report-directory future-scroll-previews">
+      <div class="future-report-directory__head"><h2>Field Reports</h2><span>JULY 2036 / COASTAL SCOTLAND</span></div>
+      <div class="future-report-cards future-report-preview-list">
+        <a class="future-report-card" href="#future/01/report-01">
+          <div class="future-report-card__meta"><span>REPORT 01</span><span>JULY 2036</span></div>
+          <div class="future-preview-copy"><h3>Plastic appears in nests</h3><p>Plastic enters the nest not as a deliberate invention, but as an available material already circulating through the environments birds inhabit. Nets, ropes, twine and plastic fragments arrive through fishing activity, household waste, tidal movement and everyday coastal life.</p><p>What once appeared as an unusual trace is now increasingly visible across coastal nesting sites. In this changing material landscape, plastic is no longer simply debris on the shore. It becomes part of what a bird can find, pick up, and potentially build with.</p><span>READ FULL REPORT →</span></div>
+        </a>
+        <a class="future-report-card" href="#future/01/report-02">
+          <div class="future-report-card__meta"><span>REPORT 02</span><span>JULY 2036</span></div>
+          <div class="future-preview-copy"><h3>Repeated encounters turn debris into familiar material</h3><p>Field observations recorded in <strong>Findhorn</strong> and <strong>Burghead</strong> show nests composed almost entirely of plastic-based materials. Human-made materials now make up a significant part of the surrounding nesting environment.</p><p>By contrast, a comparative nest documented near the residential edge of <strong>Troup Head RSPB</strong> still contains a noticeably lower proportion of plastic, where natural cliff-based materials remain more available.</p><span>READ FULL REPORT →</span></div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <article class="future-report-view" data-future-view="report-01">
+    <div class="future-article">
+      <nav class="future-article__nav"><a href="#future">&#8592; ALL REPORTS</a><a href="#future/01/report-02">NEXT REPORT &#8594;</a></nav>
+      <header class="future-article__header">
+        <div><span class="report-kicker">REPORT 01</span><h1>Plastic appears in nests</h1></div>
+        <div class="future-article__date">JULY 2036<br>COASTAL SCOTLAND</div>
+      </header>
+      <div class="future-article__body">
+        <div class="future-article__body-label">A NEST MADE OF PLASTIC IS NO LONGER AN EXCEPTION</div>
+        <div class="future-article__prose">
+          <p>Plastic enters the nest not as a deliberate invention, but as an available material already circulating through the environments birds inhabit. Nets, ropes, twine and plastic fragments arrive through fishing activity, household waste, tidal movement and everyday coastal life.</p>
+          <p>What once appeared as an unusual trace is now increasingly visible across coastal nesting sites. In this changing material landscape, plastic is no longer simply debris on the shore. It becomes part of what a bird can find, pick up, and potentially build with.</p>
+        </div>
+      </div>
+      <figure class="future01-opening-image"><img src="assets/images/future01-opening.webp" alt="Plastic accumulation beneath the sea and a speculative coastal bird habitat" width="1500" height="2065" loading="lazy" decoding="async"></figure>
+      <aside class="future-article__aside future01-image-note">This speculative report projects existing material pathways into a possible near future. It is not a prediction of complete coastal conditions.</aside>
+    </div>
+  </article>
+
+  <article class="future-report-view" data-future-view="report-02">
+    <div class="future-article">
+      <nav class="future-article__nav"><a href="#future">&#8592; ALL REPORTS</a><a href="#future/01/report-01">&#8592; PREVIOUS REPORT</a></nav>
+      <header class="future-article__header">
+        <div><span class="report-kicker">REPORT 02</span><h1>Repeated encounters turn debris into familiar material</h1></div>
+        <div class="future-article__date">JULY 2036<br>FINDHORN / BURGHEAD / TROUP HEAD</div>
+      </header>
+      <div class="future-article__body">
+        <div class="future-article__body-label">MATERIAL FAMILIARITY ACROSS THREE COASTAL SITES</div>
+        <div class="future-article__prose">
+          <p>Field observations recorded in <strong>Findhorn</strong> and <strong>Burghead</strong> show nests composed almost entirely of plastic-based materials. In both locations, human-made materials now make up a significant part of the surrounding nesting environment, shaped by proximity to settlement, harbour activity, and long-term coexistence between birds and human infrastructure.</p>
+          <p>By contrast, a comparative nest documented near the residential edge of <strong>Troup Head RSPB</strong> still contains a noticeably lower proportion of plastic, where natural cliff-based materials remain more available.</p>
+        </div>
+        <aside class="future-article__aside">The comparison links material availability to repeated encounters. Site names refer to the project’s field-research locations.</aside>
+      </div>
+      <section class="future01-analysis-gallery" aria-label="Mixed material nest grid analysis">
+        <figure><img src="assets/images/future01-findhorn-analysis.webp" alt="Findhorn nest material grid analysis" width="1400" height="1596" loading="lazy" decoding="async"></figure>
+        <figure><img src="assets/images/future01-burghead-analysis.webp" alt="Burghead nest material grid analysis" width="1400" height="1596" loading="lazy" decoding="async"></figure>
+        <figure><img src="assets/images/future01-troup-head-analysis.webp" alt="Troup Head nest material grid analysis" width="1400" height="1574" loading="lazy" decoding="async"></figure>
+        <div class="image-caption future01-analysis-caption"><strong>Mixed Material Nest</strong><em>Natural fibres and plastic strands are woven into the same nest,</em><span>Grid analysis of visible nest materials compares the proportion of natural and synthetic components within the nesting structure.</span></div>
+      </section>
+    </div>
+  </article>
+
+  <div class="future-report-view future02-index" data-future-view="future-02-index">
+    <div class="future-index-hero">
+      <div class="future-index-hero__copy">
+        <span>FUTURE 02 / REPORT SERIES</span>
+        <h1>MATERIAL PATHWAYS ARE REDIRECTED</h1>
+        <p>Two reports follow a material pathway from its growing presence in seabird colonies to community removal and speculative nesting alternatives.</p>
+      </div>
+    </div>
+    <div class="future-report-directory future-scroll-previews">
+      <div class="future-report-directory__head"><h2>Coastal Reports</h2><span>JULY 2036 / COASTAL SCOTLAND</span></div>
+      <div class="future-report-cards future-report-preview-list">
+        <a class="future-report-card" href="#future/02/report-01">
+          <div class="future-report-card__meta"><span>REPORT 01</span><span>JULY 2036</span></div>
+          <div class="future-preview-copy"><h3>Gannets Are Becoming Plastic Birds</h3><p>As increasing amounts of plastic continue to enter seabird habitats, northern gannets are being observed interacting with and selecting anthropogenic materials more frequently. Plastic is becoming embedded in nesting behaviour, feeding environments and the material conditions in which young birds develop.</p><p>Researchers have also reported growing concern around long-term plastic exposure and plastic-related disease. Plastic fragments around the surfaces of some eggs are now under investigation.</p><span>READ FULL REPORT →</span></div>
+        </a>
+        <a class="future-report-card" href="#future/02/report-02">
+          <div class="future-report-card__meta"><span>REPORT 02</span><span>JULY 2036</span></div>
+          <div class="future-preview-copy"><h3>Cleaning the Coast Is No Longer Enough</h3><p>Community collection events now remove more than <strong>2,000 pieces of marine litter each year</strong>, redirecting waste before it can re-enter beaches, nesting areas and coastal food webs.</p><p>New coastal infrastructure is being proposed to redirect material availability, including communal nesting structures made from recovered plastic and biodegradable one-piece nests produced through PLA 3D printing.</p><span>READ FULL REPORT →</span></div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <article class="future-report-view f02-report f02-gannet-report" data-future-view="future-02-report-01">
+    <div class="future-article">
+      <nav class="future-article__nav"><a href="#future">&#8592; ALL REPORTS</a><a href="#future/02/report-02">NEXT REPORT &#8594;</a></nav>
+      <header class="future-article__header">
+        <div><span class="report-kicker">REPORT 01</span><h1>Gannets Are Becoming Plastic Birds</h1></div>
+        <div class="future-article__date">JULY 2036<br>TROUP HEAD / SCOTLAND</div>
+      </header>
+      <div class="f02-lede">
+        <span>FUTURE 02 — MATERIAL PATHWAYS ARE REDIRECTED</span>
+        <p>As increasing amounts of plastic continue to enter seabird habitats, northern gannets are being observed interacting with and selecting anthropogenic materials more frequently. A team from the <strong><a href="https://www.seabird.org/threats" target="_blank" rel="noopener noreferrer">Scottish Seabird Centre</a></strong> has warned that plastic is no longer only present around colonies — it is becoming embedded in nesting behaviour, feeding environments and the material conditions in which young birds develop.</p>
+      </div>
+      <section class="f02-evidence-layout" aria-label="Troup Head colony and evidence">
+        <div class="f02-evidence-column">
+          <figure><img src="assets/images/future02-colony.webp" alt="Northern gannet colony at Troup Head" width="1900" height="1267" loading="lazy" decoding="async"></figure>
+          <figure><img src="assets/images/future02-evidence-plastic-nest.webp" alt="Fishing line and synthetic fibres present in a gannet nest" width="1300" height="1665" loading="lazy" decoding="async"><figcaption class="image-caption">Plastic is increasingly visible within gannet nesting environments</figcaption></figure>
+          <figure><img src="assets/images/future02-evidence-eggs.webp" alt="Plastic fragments shown beside bird eggs" width="1500" height="1060" loading="lazy" decoding="async"><figcaption class="image-caption">Plastic fragments observed around the surface of seabird eggs become a speculative warning of how persistent plastic exposure may extend beyond the nest itself.</figcaption></figure>
+        </div>
+        <div class="f02-closing-copy">
+          <span>PLASTIC-RELATED EXPOSURE</span>
+          <p>Researchers have also reported growing concern around long-term plastic exposure and plastic-related disease. One of the most visually striking signs documented in recent breeding seasons is the presence of plastic fragments attached to or embedded around the surfaces of some eggs. The exact mechanism remains under investigation, but researchers are examining whether this may be associated with persistent microplastic exposure within adult birds and their nesting environments.</p>
+        </div>
+      </section>
+    </div>
+  </article>
+
+  <article class="future-report-view f02-report f02-pathways-report" data-future-view="future-02-report-02">
+    <div class="future-article">
+      <nav class="future-article__nav"><a href="#future">&#8592; ALL REPORTS</a><a href="#future/02/report-01">&#8592; PREVIOUS REPORT</a></nav>
+      <header class="future-article__header">
+        <div><span class="report-kicker">REPORT 02</span><h1>Cleaning the Coast Is No Longer Enough</h1></div>
+        <div class="future-article__date">JULY 2036<br>MORAY COAST / SCOTLAND</div>
+      </header>
+      <section class="f02-removal-section">
+        <div class="f02-section-label"><span>01</span><h2>BEACH CLEANING / REMOVAL</h2></div>
+        <div class="f02-removal-grid">
+          <figure><img src="assets/images/future02-beach-cleaning.webp" alt="Marine litter collected during a beach clean" width="736" height="1104" loading="lazy" decoding="async"><figcaption>COMMUNITY COLLECTION / MORAY COAST</figcaption></figure>
+          <div class="f02-removal-copy">
+            <p>In response to the growing presence of plastic in coastal habitats, <strong><a href="https://www.morayoceancommunity.co.uk/active-projects" target="_blank" rel="noopener noreferrer">Moray Ocean Community</a></strong> is calling on residents to move beyond observation and take part in regular beach-cleaning programmes. Community collection events now remove more than <strong>2,000 pieces of marine litter each year</strong>, redirecting waste before it can re-enter beaches, nesting areas and coastal food webs.</p>
+            <div class="f02-stat"><strong>2,000+</strong><span>ITEMS / YEAR</span><small>REMOVED FROM COASTAL MATERIAL PATHWAYS</small></div>
+          </div>
+        </div>
+      </section>
+      <section class="f02-redirection-section">
+        <div class="f02-section-label"><span>02</span><h2>REDIRECTION</h2></div>
+        <div class="f02-redirection-intro"><p>As seabirds continue to select lightweight, flexible and durable materials, new forms of coastal infrastructure are being proposed to change what becomes available to them. Plans include large communal nesting structures made from recovered plastic, as well as biodegradable one-piece nests produced through PLA 3D printing. These interventions are designed not to force birds away from anthropogenic materials, but to redirect material availability while allowing birds to retain their own nesting choices.</p><strong>ALTERNATIVE<br>NESTING<br>STRUCTURES</strong></div>
+        <div class="f02-concept-grid">
+          <figure><div class="f02-concept-image"><img src="assets/images/future02-communal-structure.webp" alt="Speculative communal nesting structure beside the coast" width="1300" height="1815" loading="lazy" decoding="async"></div><figcaption class="image-caption"><strong>Recycled Plastic Bird Structure</strong><em>Proposed nesting structures made from recovered plastic redirect existing waste into controlled forms rather than leaving fragmented material loose within the habitat.</em></figcaption></figure>
+          <figure><div class="f02-concept-image"><img src="assets/images/future02-pla-nest.webp" alt="Biodegradable one-piece nest produced through PLA 3D printing" width="1500" height="1000" loading="lazy" decoding="async"></div><figcaption class="image-caption"><strong>PLA 3D-Printed Nest</strong><em>A biodegradable 3D-printed nesting structure explores whether material availability can be redirected without removing birds’ ability to choose where and how they nest.</em></figcaption></figure>
+        </div>
+      </section>
+    </div>
+  </article>
+</div>
+
+<footer>Every material has a past. Every encounter shapes a future</footer>
+
+    <script>
+    (function () {
+      const sections = Array.from(document.querySelectorAll('section[data-route]'));
+      const routeMap = new Map(sections.map(section => [section.dataset.route, section]));
+      ['map/troup-head','map/burghead','map/gardenstown','map/findhorn',
+       'map/troup-head/n03','map/troup-head/p03','map/burghead/p02',
+       'map/gardenstown/s03','map/gardenstown/r01','map/gardenstown/r02',
+       'map/findhorn/d01','map/findhorn/s01','map/findhorn/s02',
+       'map/findhorn/n01','map/findhorn/n02','map/findhorn/p01']
+        .forEach(r=>routeMap.set(r, document.getElementById('map')));
+      ['future/01','future/01/report-01','future/01/report-02','future/02','future/02/report-01','future/02/report-02']
+        .forEach(r=>routeMap.set(r, document.getElementById('future')));
+      const navLinks = Array.from(document.querySelectorAll('header nav a[href^="#"]'));
+      const header = document.querySelector('header');
+      const futureEntrySummary=document.querySelector('.future-entry-link .future-scenario-copy p');
+      if(futureEntrySummary)futureEntrySummary.textContent='Two field reports trace how plastic shifts from coastal debris to familiar nesting material.';
+      const future02EntrySummary=document.querySelector('.future-02-entry-link .future-scenario-copy p');
+      if(future02EntrySummary)future02EntrySummary.textContent='Two reports move from plastic exposure to community removal and alternative nesting structures.';
+      let scrollFrame = 0;
+
+      function cleanRoute(value) {
+        return decodeURIComponent(value || '')
+          .replace(/^#\/?/, '')
+          .replace(/^\/+|\/+$/g, '');
+      }
+
+      function setActiveNavigation(route) {
+        navLinks.forEach(link => {
+          const linkRoute = cleanRoute(link.getAttribute('href'));
+          const active = route === linkRoute || route.startsWith(linkRoute + '/');
+          link.classList.toggle('is-active', active);
+          if (active) link.setAttribute('aria-current', 'location');
+          else link.removeAttribute('aria-current');
+        });
+      }
+
+      function scrollToRoute(route, behavior) {
+        const target = routeMap.get(route);
+        if (!target) return false;
+        target.scrollIntoView({ behavior, block: 'start' });
+        setActiveNavigation(route);
+        return true;
+      }
+
+      function currentRouteFromScroll() {
+        const marker = window.scrollY + (header ? header.offsetHeight : 0) + 28;
+        let current = sections[0]?.dataset.route || '';
+        for (const section of sections) {
+          if (section.offsetTop <= marker) current = section.dataset.route;
+          else break;
+        }
+        return current;
+      }
+
+      document.addEventListener('click', event => {
+        const link = event.target.closest('a[href^="#"]');
+        if (!link) return;
+        const route = cleanRoute(link.getAttribute('href'));
+        if (!routeMap.has(route)) return;
+
+        event.preventDefault();
+        history.pushState(null, '', '#' + route);
+        scrollToRoute(route, 'smooth');
+        syncMapRoute(route);
+      });
+
+      window.addEventListener('hashchange', () => {
+        const route = cleanRoute(window.location.hash);
+        if (routeMap.has(route)) { scrollToRoute(route, 'smooth'); syncMapRoute(route); }
+      });
+
+      window.addEventListener('popstate', () => {
+        const route = cleanRoute(window.location.hash);
+        if (routeMap.has(route)) { scrollToRoute(route, 'auto'); syncMapRoute(route); }
+      });
+
+      window.addEventListener('scroll', () => {
+        if (scrollFrame) return;
+        scrollFrame = requestAnimationFrame(() => {
+          scrollFrame = 0;
+          setActiveNavigation(currentRouteFromScroll());
+        });
+      }, { passive: true });
+
+      window.addEventListener('load', () => {
+        const route = cleanRoute(window.location.hash);
+        if (routeMap.has(route)) {
+          requestAnimationFrame(() => { scrollToRoute(route, 'auto'); syncMapRoute(route); });
+        } else {
+          setActiveNavigation(currentRouteFromScroll());
+        }
+      });
+
+
+      const siteData = {
+        'troup-head': {name:'TROUP HEAD', type:'Bird Habitat', desc:'Natural nesting materials still dominate, while marine debris arrives through tides, wind and coastal deposition.',map:'assets/maps/troup-head-map.svg',habitat:[49.87,47.26],fauna:['Northern Gannet','Herring Gull','Black-legged Kittiwake','Atlantic Puffin']},
+        'burghead': {name:'BURGHEAD', type:'Fishing Harbour', desc:'Fishing activity creates direct material pathways between working gear, the shoreline and the spaces birds occupy.',map:'assets/maps/burghead-map.svg',habitat:[22.38,78.81],fauna:['Herring Gull','Black-legged Kittiwake','Shag','Dolphins']},
+        'gardenstown': {name:'GARDENSTOWN', type:'Coastal Town', desc:'Household waste, tourism and harbour activity overlap, producing a mixed material environment.',map:'assets/maps/gardenstown-map.svg',habitat:[44.07,42.96],fauna:['Herring Gull','Pigeon','Shag']},
+        'findhorn': {name:'FINDHORN', type:'Hybrid Coastal Habitat', desc:'Residential life, recreation and natural landscapes intersect, bringing different material flows into the same bird habitat.',map:'assets/maps/findhorn-map.svg',habitat:[46.84,49.49],fauna:['Curlew','Goose','Herring Gull','Grey Seal','Atlantic Grey Dolphin']}
+      };
+      const findhornMaterials = [
+        {code:'D.01',slug:'d01',title:'Sunscreen Bottle Cap',category:'Durable plastic',kind:'human-made',x:53.83,y:29.15,distance:'2.8 km',source:'Coastal visitor',nesting:'No',properties:['Small','Lightweight','Durable'],indexType:'Potential hazard index',index:'Low',interaction:false,hazard:true},
+        {code:'S.01',slug:'s01',title:'PS Plastic Spoon',category:'Polystyrene object',kind:'human-made',x:52.20,y:25.11,distance:'3 km',source:'Coastal visitor',nesting:'No',properties:['Smooth','Durable','Lightweight'],indexType:'Potential hazard index',index:'Low',interaction:false,hazard:true},
+        {code:'S.02',slug:'s02',title:'Digestive Biscuit Packaging',category:'Flexible consumer packaging',kind:'human-made',x:49.31,y:45.46,distance:'800 m',source:'Coastal visitor',nesting:'Yes',properties:['Blue','White printed graphics','Lightweight','Bendable'],indexType:'Potential hazard index',index:'Moderate',interaction:true,hazard:true},
+        {code:'N.01',slug:'n01',title:'Brown Seaweed',category:'Natural coastal material',kind:'natural',x:22.38,y:29.97,distance:'3.3 km',source:'Nature coastal system',nesting:'Yes',properties:['Flexible','Fibrous','Lightweight','Biodegradable'],indexType:'Potential usage index',index:'High',interaction:true,hazard:false},
+        {code:'N.02',slug:'n02',title:'Whelk Egg Case',category:'Natural coastal material',kind:'natural',x:72.92,y:64.53,distance:'3.1 km',source:'Nature coastal system',nesting:'Yes',properties:['Hollow','Papery','Slightly fibrous','Lightweight'],indexType:'Potential usage index',index:'Low',interaction:false,hazard:false},
+        {code:'P.01',slug:'p01',title:'Fishing Rope',category:'Fishing gear',kind:'human-made',x:38.18,y:32.13,distance:'2.5 km',source:'Fishing harbour',nesting:'Yes',properties:['Long','Flexible','Lightweight','Durable'],indexType:'Potential usage index',index:'Moderate',interaction:true,hazard:false}
+      ].map(m=>({...m,route:'map/findhorn/'+m.slug}));
+      const troupHeadMaterials = [
+        {code:'N.03',slug:'n03',title:'Twigs',category:'Natural material',kind:'natural',x:65.93,y:42.83,distance:'3.8 km',source:'Nature Environment',nesting:'Yes',properties:['Branched','Lightweight','Biodegradable'],indexType:'Potential nesting index',index:'High',interaction:true,hazard:false,detail:true},
+        {code:'P.03',slug:'p03',title:'White Plastic Film',category:'Flexible plastic film',kind:'human-made',x:69.57,y:63.02,distance:'3.8 km',source:'Logistics',nesting:'Yes',properties:['Thin','Flexible','Lightweight','Durable'],indexType:'Potential hazard index',index:'Moderate-High',interaction:true,hazard:true,detail:true},
+        {code:'N.01',slug:'n01',title:'Brown Seaweed',category:'Natural coastal material',kind:'natural',x:64.88,y:39.95,distance:null,source:'Nature coastal system',nesting:'Yes',properties:['Flexible','Fibrous','Lightweight','Biodegradable'],indexType:'Potential usage index',index:'High',interaction:false,hazard:false,detail:false}
+      ].map(m=>({...m,route:m.detail?'map/troup-head/'+m.slug:null}));
+      const burgheadMaterials = [
+        {code:'P.02',slug:'p02',title:'Plastic Twine',category:'Fishing-related plastic',kind:'human-made',x:27.99,y:54.45,distance:'1.4 km',source:'Fishing harbour',nesting:'Yes',properties:['Thin','Long','Flexible','Lightweight'],indexType:'Potential hazard index',index:'High',interaction:true,hazard:true,detail:true},
+        {code:'N.01',slug:'n01',title:'Brown Seaweed',category:'Natural coastal material',kind:'natural',x:30.17,y:63.03,distance:null,source:'Nature coastal system',nesting:'Yes',properties:['Flexible','Fibrous','Lightweight','Biodegradable'],indexType:'Potential nesting index',index:'High',interaction:false,hazard:false,detail:false}
+      ].map(m=>({...m,route:m.detail?'map/burghead/'+m.slug:null}));
+      const gardenstownMaterials = [
+        {code:'S.03',slug:'s03',title:'Plastic Food Packaging',category:'Flexible consumer packaging',kind:'human-made',x:45.98,y:55.78,distance:'1.8 km',source:'Coastal visitor',nesting:'Yes',properties:['Thin','Flexible','Lightweight','Durable'],indexType:'Potential hazard index',index:'Low',interaction:true,hazard:true,detail:true},
+        {code:'R.01',slug:'r01',title:'Delivery Packaging',category:'Delivery packaging',kind:'human-made',x:67.23,y:41.44,distance:'2.5 km',source:'Logistics',nesting:'Yes',properties:['Thin','Flexible','Lightweight','Durable'],indexType:'Potential hazard index',index:'Moderate-High',interaction:true,hazard:true,detail:true},
+        {code:'R.02',slug:'r02',title:'Plastic Bag',category:'Flexible plastic bag',kind:'human-made',x:52.67,y:35.69,distance:'1.2 km',source:'Coastal visitor',nesting:'Yes',properties:['Thin','Flexible','Crinkled','Durable'],indexType:'Potential hazard index',index:'Moderate-High',interaction:true,hazard:true,detail:true}
+      ].map(m=>({...m,route:'map/gardenstown/'+m.slug}));
+      const siteMaterials={
+        'troup-head':troupHeadMaterials,
+        'burghead':burgheadMaterials,
+        'gardenstown':gardenstownMaterials,
+        'findhorn':findhornMaterials
+      };
+      const siteLayerCodes={
+        'troup-head':{distribution:troupHeadMaterials.map(m=>m.code),accessible:['N.03','P.03'],impact:['P.03']},
+        'burghead':{distribution:burgheadMaterials.map(m=>m.code),accessible:['P.02'],impact:['P.02']},
+        'gardenstown':{distribution:gardenstownMaterials.map(m=>m.code),accessible:['S.03','R.01','R.02'],impact:['S.03','R.01','R.02']},
+        'findhorn':{distribution:findhornMaterials.map(m=>m.code),accessible:['S.02','N.01','P.01'],impact:['D.01','S.01','S.02']}
+      };
+      let activeLayer='distribution', activeSite='troup-head';
+      const mapShell=document.querySelector('.material-map-shell');
+      const sitePanel=document.getElementById('sitePanel');
+      const distributionList=document.getElementById('distributionList');
+      const pointLayer=document.getElementById('materialPointLayer');
+      const preview=document.getElementById('materialPreview');
+      const previewTitle=document.getElementById('previewTitle');
+      const previewCode=document.getElementById('previewCode');
+      const previewDistance=document.getElementById('previewDistance');
+      const previewSource=document.getElementById('previewSource');
+      const previewProperties=document.getElementById('previewProperties');
+      const previewUsage=document.getElementById('previewUsage');
+      const previewRisk=document.getElementById('previewRisk');
+      previewProperties.closest('.material-record-row').querySelector('span').textContent='MATERIAL PROPERTIES';
+      previewUsage.closest('.material-record-row').querySelector('span').textContent='POTENTIAL NESTING MATERIAL';
+      previewRisk.closest('.material-record-row').querySelector('span').textContent='POTENTIAL FIELD INDEX';
+      const overlay=document.getElementById('materialRecordOverlay');
+      const line=document.getElementById('materialLine');
+      let activeMaterial=null;
+
+      function riskDots(level){
+        const n=Math.max(0,Math.min(5,Number(level)||0));
+        return Array.from({length:5},(_,i)=>'<i class="'+(i<n?'on':'')+'"></i>').join('');
+      }
+
+      function fillMaterialRecord(m){
+        activeMaterial=m;
+        previewCode.textContent=m.code || '—';
+        previewTitle.textContent=m.title || 'Material';
+        previewDistance.textContent=m.distance || 'Field distance pending';
+        previewSource.textContent=m.source || m.meta || 'Source pending';
+        previewProperties.textContent=(m.properties || []).join(' / ') || 'Material properties pending';
+        previewUsage.textContent=m.usage || '—';
+        previewRisk.innerHTML=riskDots(m.risk || 0);
+
+        document.getElementById('recordCode').textContent=(m.code || '—')+' / MATERIAL TRACE';
+        document.getElementById('recordTitle').textContent=m.title || 'Material';
+        document.getElementById('recordDistance').textContent=m.distance || 'Pending';
+        document.getElementById('recordSource').textContent=m.source || m.meta || 'Pending';
+        document.getElementById('recordUsage').textContent=m.usage || '—';
+        document.getElementById('recordRisk').innerHTML=riskDots(m.risk || 0);
+        document.getElementById('recordHazardLabel').textContent=(m.risk>=4?'HIGH':m.risk>=3?'MODERATE':m.risk>=2?'LOW–MODERATE':'LOW');
+        document.getElementById('recordProperties').innerHTML=(m.properties || []).map(x=>'<i>'+x+'</i>').join('') || '<i>Pending</i>';
+      }
+
+      function openMaterialRecord(m, updateHash=true){
+        if(!m)return;
+        fillMaterialRecord(m);
+        overlay.classList.add('is-open');
+        overlay.setAttribute('aria-hidden','false');
+        document.body.style.overflow='hidden';
+        if(updateHash && m.route) history.pushState(null,'','#'+m.route);
+      }
+
+      function closeMaterialRecord(){
+        overlay.classList.remove('is-open');
+        overlay.setAttribute('aria-hidden','true');
+        document.body.style.overflow='';
+        if(/^map\/(troup-head|burghead|gardenstown|findhorn)\/[a-z]\d{2}$/.test(cleanRoute(window.location.hash))){
+          history.pushState(null,'','#map/'+activeSite);
+          selectSite(activeSite);
+        }
+      }
+
+      document.getElementById('materialRecordClose')?.addEventListener('click',closeMaterialRecord);
+      overlay?.addEventListener('click',e=>{ if(e.target===overlay) closeMaterialRecord(); });
+      document.addEventListener('keydown',e=>{ if(e.key==='Escape' && overlay?.classList.contains('is-open')) closeMaterialRecord(); });
+      preview?.addEventListener('click',()=>{ if(activeMaterial?.route) openMaterialRecord(activeMaterial,true); });
+      preview?.addEventListener('keydown',e=>{ if((e.key==='Enter'||e.key===' ') && activeMaterial?.route){e.preventDefault();openMaterialRecord(activeMaterial,true);} });
+      const mapCanvas=document.getElementById('materialMapCanvas');
+
+      function renderSitePanel(siteKey){
+        const d=siteData[siteKey]; if(!d||!sitePanel)return;
+        sitePanel.querySelector('.site-panel-id').textContent='STATE 02 — '+d.type.toUpperCase();
+        sitePanel.querySelector('h3').innerHTML=d.name+'<br>'+d.type;
+        sitePanel.querySelector('.site-panel-desc').textContent=d.desc;
+        distributionList.innerHTML=d.distribution.map(label=>'<div class="distribution-row"><span>'+label+'</span><b>DATA PENDING</b></div>').join('');
+        document.getElementById('sitePanelNote').textContent='CLICK / HOVER MATERIAL POINTS TO TRACE';
+      }
+      function renderMaterials(){
+        if(!pointLayer)return; pointLayer.innerHTML='';
+        if(!activeSite){ preview?.classList.remove('is-visible'); if(line)line.style.opacity=0; return; }
+        layerMaterials[activeLayer].forEach((m,i)=>{
+          const b=document.createElement('button'); b.className='material-node'; b.style.left=m.x+'%'; b.style.top=m.y+'%'; b.dataset.label=m.title; b.setAttribute('aria-label',m.title);
+          const show=()=>{
+            fillMaterialRecord(m);
+            preview.classList.add('is-visible');
+            const br=b.getBoundingClientRect(), cr=mapCanvas.getBoundingClientRect(), pr=preview.getBoundingClientRect();
+            line.setAttribute('x1',((br.left+br.width/2-cr.left)/cr.width)*1000); line.setAttribute('y1',((br.top+br.height/2-cr.top)/cr.height)*650); line.setAttribute('x2',((pr.left-cr.left)/cr.width)*1000); line.setAttribute('y2',((pr.top+70-cr.top)/cr.height)*650); line.style.opacity=1;
+          };
+          b.addEventListener('mouseenter',show); b.addEventListener('focus',show); b.addEventListener('mouseleave',()=>{line.style.opacity=0});
+          if(m.route)b.addEventListener('click',()=>openMaterialRecord(m,true));
+          pointLayer.appendChild(b);
+        });
+      }
+      function fillMaterialRecord(m){
+        activeMaterial=m;
+        previewCode.textContent=m.code || '—';
+        previewTitle.textContent=m.title || 'Material';
+        previewDistance.textContent=m.distance || '';
+        previewDistance.closest('.material-record-row').hidden=!m.distance;
+        previewSource.textContent=m.source || m.meta || 'Source pending';
+        previewProperties.textContent=(m.properties || []).join(' / ') || 'Material properties pending';
+        previewUsage.textContent='Nesting: '+(m.nesting || 'Pending');
+        previewRisk.innerHTML='<span class="field-index-value">'+(m.index || 'Pending')+'</span>';
+        document.getElementById('recordCode').textContent=(m.code || '—')+' / '+(m.category || 'MATERIAL TRACE').toUpperCase();
+        document.getElementById('recordTitle').textContent=m.title || 'Material';
+        document.getElementById('recordDistance').textContent=m.distance || 'Pending';
+        document.getElementById('recordSite').textContent=(siteData[activeSite]?.name || 'FIELD SITE')+' / SCOTLAND';
+        document.querySelector('.material-record-folder').dataset.recordLabel=(m.code || 'MATERIAL')+' / '+(siteData[activeSite]?.name || 'FIELD SITE');
+        document.getElementById('recordSource').textContent=m.source || m.meta || 'Pending';
+        document.getElementById('recordUsage').textContent=m.nesting || 'Pending';
+        document.getElementById('recordRisk').innerHTML='<span class="field-index-value">'+(m.index || 'Pending')+'</span>';
+        document.getElementById('recordHazardLabel').textContent=m.indexType || 'Potential index';
+        document.getElementById('recordUsage').closest('.material-record-block').querySelector('label').textContent='POTENTIAL NESTING MATERIAL';
+        document.getElementById('recordRisk').closest('.material-record-block').querySelector('label').textContent='POTENTIAL FIELD INDEX';
+        document.getElementById('recordProperties').innerHTML=(m.properties || []).map(x=>'<i>'+x+'</i>').join('') || '<i>Pending</i>';
+        const status=document.querySelector('.material-record-largegrid .material-record-block:last-child strong');
+        if(status){status.textContent=m.kind==='human-made'?'Human-made material':'Natural coastal material';status.className=m.kind==='human-made'?'material-status-human':'';}
+      }
+
+      function renderFauna(){
+        const panel=document.getElementById('faunaPanel');if(!panel)return;
+        document.getElementById('birdHabitatMarker')?.setAttribute('aria-expanded','false');
+        const fauna=siteData[activeSite]?.fauna || [];
+        panel.innerHTML='<h4>SPECIES OBSERVED IN THE HABITAT</h4><div class="fauna-list">'+fauna.map(name=>'<span class="fauna-name">'+name+'</span>').join('')+'</div>';
+        panel.classList.remove('is-visible');
+      }
+
+      function renderSitePanel(siteKey){
+        const d=siteData[siteKey];if(!d||!sitePanel)return;
+        sitePanel.querySelector('.site-panel-id').textContent='STATE 02 / '+d.type.toUpperCase();
+        sitePanel.querySelector('h3').innerHTML=d.name+'<br>'+d.type;
+        sitePanel.querySelector('.site-panel-desc').textContent=d.desc;
+        const count=document.getElementById('sitePanelCount');
+        const materials=siteMaterials[siteKey] || [];
+        const humanCount=materials.filter(m=>m.kind==='human-made').length;
+        count.textContent=materials.length+' FIELD MATERIALS / '+humanCount+' HUMAN-MADE HIGHLIGHTED';
+        distributionList.innerHTML=materials.map(m=>'<div class="distribution-row '+(m.kind==='human-made'?'is-emphasis':'')+'" data-material-code="'+m.code+'" role="button" tabindex="0"><i class="distribution-dot" aria-hidden="true"></i><span>'+m.code+' / '+m.title+'</span></div>').join('');
+          distributionList.querySelectorAll('[data-material-code]').forEach(row=>{
+            const sync=on=>{
+              const material=materials.find(item=>item.code===row.dataset.materialCode);
+              const node=pointLayer.querySelector('[data-code="'+row.dataset.materialCode+'"]');
+              node?.classList.toggle('is-panel-hovered',on);
+              if(on&&material&&node){fillMaterialRecord(material);preview.querySelector('.preview-open').hidden=!material.route;preview.tabIndex=material.route?0:-1;preview.classList.add('is-visible');requestAnimationFrame(()=>drawMaterialConnector(node));}
+              else if(line)line.style.opacity=0;
+            };
+            row.addEventListener('mouseenter',()=>sync(true));row.addEventListener('mouseleave',()=>sync(false));row.addEventListener('focus',()=>sync(true));row.addEventListener('blur',()=>sync(false));
+            row.addEventListener('click',()=>{
+              activeLayer='distribution';
+              document.querySelectorAll('.map-filter').forEach(button=>button.classList.toggle('is-active',button.dataset.layer==='distribution'));
+              renderMaterials();
+              distributionList.querySelectorAll('[data-material-code]').forEach(item=>item.classList.remove('is-panel-selected'));
+              row.classList.add('is-panel-selected');
+              const node=pointLayer.querySelector('[data-code="'+row.dataset.materialCode+'"]');
+              if(node){node.classList.add('is-panel-selected');node.focus({preventScroll:true});}
+            });
+            row.addEventListener('keydown',event=>{if(event.key==='Enter'||event.key===' '){event.preventDefault();row.click();}});
+          });
+        document.getElementById('sitePanelNote').textContent='CLICK / HOVER MATERIAL POINTS TO TRACE';renderFauna();
+      }
+
+      function renderMaterials(){
+        if(!pointLayer)return;pointLayer.innerHTML='';preview?.classList.remove('is-visible');if(line)line.style.opacity=0;
+        if(!activeSite||!siteMaterials[activeSite])return;
+        const layerSet=siteLayerCodes[activeSite];
+        const codes=layerSet[activeLayer]||layerSet.distribution;
+        siteMaterials[activeSite].filter(m=>codes.includes(m.code)).forEach(m=>{
+          const b=document.createElement('button');b.className='material-node';b.style.left=m.x+'%';b.style.top=m.y+'%';b.dataset.label=m.code+' / '+m.title;b.dataset.kind=m.kind;b.dataset.code=m.code;b.setAttribute('aria-label','Open '+m.code+' '+m.title);
+          const show=()=>{fillMaterialRecord(m);preview.querySelector('.preview-open').hidden=!m.route;preview.tabIndex=m.route?0:-1;preview.classList.add('is-visible');requestAnimationFrame(()=>drawMaterialConnector(b));};
+          b.addEventListener('mouseenter',show);b.addEventListener('focus',show);b.addEventListener('mouseleave',()=>{if(line)line.style.opacity=0});
+          if(m.route)b.addEventListener('click',()=>openMaterialRecord(m,true));
+          pointLayer.appendChild(b);
+        });
+      }
+
+      function drawMaterialConnector(node){
+        if(!node||!line||!mapCanvas||!preview?.classList.contains('is-visible'))return;
+        const br=node.getBoundingClientRect(),cr=mapCanvas.getBoundingClientRect(),pr=preview.getBoundingClientRect();
+        line.setAttribute('x1',((br.left+br.width/2-cr.left)/cr.width)*1000);
+        line.setAttribute('y1',((br.top+br.height/2-cr.top)/cr.height)*650);
+        line.setAttribute('x2',((pr.left-cr.left)/cr.width)*1000);
+        line.setAttribute('y2',((pr.top+44-cr.top)/cr.height)*650);
+        line.style.opacity=1;
+      }
+
+      function setFaunaVisible(visible){
+        const panel=document.getElementById('faunaPanel');
+        if(panel&&activeSite)panel.classList.toggle('is-visible',visible);
+        habitatMarker?.setAttribute('aria-expanded',String(Boolean(visible&&activeSite)));
+      }
+      const habitatMarker=document.getElementById('birdHabitatMarker');
+      habitatMarker?.addEventListener('click',event=>{
+        event.stopPropagation();
+        setFaunaVisible(habitatMarker.getAttribute('aria-expanded')!=='true');
+      });
+      document.getElementById('fieldMapStage')?.addEventListener('click',event=>{
+        if(!event.target.closest('#birdHabitatMarker'))setFaunaVisible(false);
+      });
+
+      function animateMaterialStats(){
+        const human=document.getElementById('humanMaterialCount');
+        const natural=document.getElementById('naturalMaterialCount');
+        const stats=human?.closest('.material-stats');
+        if(!human||!natural||!stats)return;
+        const materials=siteMaterials[activeSite]||[];
+        const humanTarget=materials.filter(m=>m.kind==='human-made').length;
+        const naturalTarget=materials.filter(m=>m.kind==='natural').length;
+        if(stats.dataset.site===activeSite)return;stats.dataset.site=activeSite;
+        const animationSite=activeSite;
+        if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){human.textContent=String(humanTarget);natural.textContent=String(naturalTarget);return;}
+        const start=performance.now(),duration=720;
+        const tick=now=>{if(activeSite!==animationSite)return;const p=Math.min(1,(now-start)/duration);const eased=1-Math.pow(1-p,3);human.textContent=String(Math.round(humanTarget*eased));natural.textContent=String(Math.round(naturalTarget*eased));if(p<1)requestAnimationFrame(tick);};
+        requestAnimationFrame(tick);
+      }
+
+      function selectSite(siteKey){
+        if(!siteData[siteKey])return; activeSite=siteKey; mapShell.dataset.mapState='focus';
+        mapShell.dataset.site=siteKey;
+        const d=siteData[siteKey];
+        const mapImage=document.getElementById('fieldMapImage');
+        mapImage.src=d.map;mapImage.alt=d.name+' field map with concentric distance zones';
+        const locationName=document.getElementById('fieldLocationName');
+        if(locationName)locationName.textContent=siteKey==='troup-head'?'Troup Head RSPB':d.name.replace(/\b\w/g,char=>char.toUpperCase()).toLowerCase().replace(/^\w/,char=>char.toUpperCase());
+        habitatMarker.style.left=d.habitat[0]+'%';habitatMarker.style.top=d.habitat[1]+'%';
+        document.querySelectorAll('.site-marker,.location-chip').forEach(el=>el.classList.toggle('is-selected',el.dataset.site===siteKey)); renderSitePanel(siteKey); renderMaterials(); animateMaterialStats();
+      }
+      document.querySelectorAll('.site-marker,.location-chip').forEach(el=>el.addEventListener('click',()=>{
+        const route='map/'+el.dataset.site;
+        history.pushState(null,'','#'+route);
+        selectSite(el.dataset.site);
+      }));
+      document.querySelectorAll('.map-filter').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.map-filter').forEach(b=>b.classList.remove('is-active'));btn.classList.add('is-active');activeLayer=btn.dataset.layer;renderMaterials()}));
+      document.getElementById('mapReset')?.addEventListener('click',()=>{history.pushState(null,'','#map/troup-head');selectSite('troup-head')});
+      document.querySelectorAll('.location-chip').forEach(el=>el.addEventListener('click',()=>{
+        const route='map/'+el.dataset.site;history.pushState(null,'','#'+route);selectSite(el.dataset.site);
+      }));
+      selectSite('troup-head');
+      const futureReportOverlay=document.getElementById('futureReportOverlay');
+      const reportStoryBlocks=Array.from(document.querySelectorAll(
+        '.future-report-view article .future-article__body,'+
+        '.future-report-view article .future01-opening-image,'+
+        '.future-report-view article .future01-image-note,'+
+        '.future-report-view article .future01-analysis-gallery,'+
+        '.future-report-view article .f02-lede,'+
+        '.future-report-view article .f02-evidence-layout,'+
+        '.future-report-view article .f02-removal-section,'+
+        '.future-report-view article .f02-redirection-section'
+      ));
+      reportStoryBlocks.forEach(block=>block.classList.add('report-story-block'));
+      if('IntersectionObserver' in window){
+        const storyObserver=new IntersectionObserver(entries=>entries.forEach(entry=>{
+          if(entry.isIntersecting){entry.target.classList.add('is-visible');storyObserver.unobserve(entry.target);}
+        }),{root:futureReportOverlay,threshold:.12,rootMargin:'0px 0px -8% 0px'});
+        reportStoryBlocks.forEach(block=>storyObserver.observe(block));
+      }else reportStoryBlocks.forEach(block=>block.classList.add('is-visible'));
+      function syncFutureRoute(route){
+        const viewByRoute={'future/01':'index','future/01/report-01':'report-01','future/01/report-02':'report-02','future/02':'future-02-index','future/02/report-01':'future-02-report-01','future/02/report-02':'future-02-report-02'};
+        const view=viewByRoute[route];
+        if(!view){
+          if(futureReportOverlay?.classList.contains('is-open')){
+            futureReportOverlay.classList.remove('is-open');futureReportOverlay.setAttribute('aria-hidden','true');document.body.style.overflow='';
+          }
+          return false;
+        }
+        futureReportOverlay.classList.add('is-open');futureReportOverlay.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';
+        futureReportOverlay.querySelectorAll('[data-future-view]').forEach(el=>el.classList.toggle('is-active',el.dataset.futureView===view));
+        futureReportOverlay.scrollTop=0;
+        return true;
+      }
+      document.addEventListener('keydown',event=>{
+        if(event.key==='Escape'&&futureReportOverlay?.classList.contains('is-open')){
+          history.pushState(null,'','#future');scrollToRoute('future','auto');syncFutureRoute('future');
+        }
+      });
+      function syncMapRoute(route){
+        if(syncFutureRoute(route))return;
+        if(route==='map'){selectSite('troup-head');return;}
+        const m=route.match(/^map\/(troup-head|burghead|gardenstown|findhorn)$/);
+        if(m){ selectSite(m[1]); return; }
+        const materialRoute=route.match(/^map\/(troup-head|burghead|gardenstown|findhorn)\/([a-z]\d{2})$/);
+        if(materialRoute){
+          selectSite(materialRoute[1]);
+          activeLayer='distribution';
+          document.querySelectorAll('.map-filter').forEach(b=>b.classList.toggle('is-active',b.dataset.layer==='distribution'));
+          renderMaterials();
+          const material=(siteMaterials[materialRoute[1]]||[]).find(x=>x.slug===materialRoute[2]&&x.route);
+          if(material) setTimeout(()=>openMaterialRecord(material,false),60);
+        }
+      }
+
+    })();
+  </script>
+
+</body>
+
+</html>
