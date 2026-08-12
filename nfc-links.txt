@@ -1,0 +1,92 @@
+MATERIAL AVAILABILITY ATLAS — NFC LINKS
+
+Public site root:
+https://3hl001.github.io/material-availability-atlas/
+
+IMPORTANT
+These HTTPS links are ready for NFC writing after GitHub Pages is enabled and the site is live.
+Do not write GitHub repository upload links or local file:/// links to NFC tags.
+
+TROUP HEAD RSPB
+
+N.03 / Twigs
+https://3hl001.github.io/material-availability-atlas/#map/troup-head/n03
+
+P.03 / White Plastic Film
+https://3hl001.github.io/material-availability-atlas/#map/troup-head/p03
+
+N.01 / Brown Seaweed
+Map marker and material count only. No material page or NFC link.
+
+BURGHEAD
+
+P.02 / Plastic Twine
+https://3hl001.github.io/material-availability-atlas/#map/burghead/p02
+
+N.01 / Brown Seaweed
+Map marker and material count only. No material page or NFC link.
+
+GARDENSTOWN
+
+S.03 / Plastic Food Packaging
+https://3hl001.github.io/material-availability-atlas/#map/gardenstown/s03
+
+R.01 / Delivery Packaging
+https://3hl001.github.io/material-availability-atlas/#map/gardenstown/r01
+
+R.02 / Plastic Bag
+https://3hl001.github.io/material-availability-atlas/#map/gardenstown/r02
+
+FINDHORN
+
+D.01 / Sunscreen Bottle Cap
+https://3hl001.github.io/material-availability-atlas/#map/findhorn/d01
+
+S.01 / PS Plastic Spoon
+https://3hl001.github.io/material-availability-atlas/#map/findhorn/s01
+
+S.02 / Digestive Biscuit Packaging
+https://3hl001.github.io/material-availability-atlas/#map/findhorn/s02
+
+N.01 / Brown Seaweed
+https://3hl001.github.io/material-availability-atlas/#map/findhorn/n01
+
+N.02 / Whelk Egg Case
+https://3hl001.github.io/material-availability-atlas/#map/findhorn/n02
+
+P.01 / Fishing Rope
+https://3hl001.github.io/material-availability-atlas/#map/findhorn/p01
+
+OPTIONAL LOCATION LINKS
+
+Troup Head RSPB
+https://3hl001.github.io/material-availability-atlas/#map/troup-head
+
+Burghead
+https://3hl001.github.io/material-availability-atlas/#map/burghead
+
+Gardenstown
+https://3hl001.github.io/material-availability-atlas/#map/gardenstown
+
+Findhorn
+https://3hl001.github.io/material-availability-atlas/#map/findhorn
+
+OPTIONAL FUTURE LINKS
+
+Future 01
+https://3hl001.github.io/material-availability-atlas/#future/01
+
+Future 01 / Report 01
+https://3hl001.github.io/material-availability-atlas/#future/01/report-01
+
+Future 01 / Report 02
+https://3hl001.github.io/material-availability-atlas/#future/01/report-02
+
+Future 02
+https://3hl001.github.io/material-availability-atlas/#future/02
+
+Future 02 / Report 01
+https://3hl001.github.io/material-availability-atlas/#future/02/report-01
+
+Future 02 / Report 02
+https://3hl001.github.io/material-availability-atlas/#future/02/report-02
