@@ -2691,271 +2691,14 @@
   [data-future-view="report-02"] .future-article__header,
   [data-future-view="future-02-report-01"] .future-article__header,
   [data-future-view="future-02-report-02"] .future-article__header{border-bottom:1px solid var(--accent)!important}
-  .report-kicker,.future-article__date{color:var(--accent);text-shadow:0 1px 1px rgba(0,0,0,.3)}
-  .future01-analysis-gallery .image-caption,.future01-analysis-gallery strong,.future01-analysis-gallery em,.future01-analysis-gallery span{color:var(--accent)!important;text-shadow:0 1px 2px rgba(0,0,0,.5)}
+  .report-kicker,.future-article__date{color:#111;text-shadow:none}
+  .future01-analysis-gallery .image-caption,.future01-analysis-gallery strong,.future01-analysis-gallery em,.future01-analysis-gallery span{color:#111!important;text-shadow:none}
   .report-story-block{opacity:0;transform:translateY(34px);transition:opacity .7s ease,transform .7s cubic-bezier(.22,.61,.36,1)}
   .report-story-block.is-visible{opacity:1;transform:none}
   @media(prefers-reduced-motion:reduce){.report-story-block{opacity:1;transform:none;transition:none}}
   @media(max-width:900px){.map-filter-bar{gap:20px;overflow-x:auto}.map-filter{flex:0 0 auto;font-size:10px}}
 </style>
 
-
-<style id="mobile-channel-overrides">
-  html{overflow-x:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%}
-  body{overflow-x:hidden}
-  button,a{-webkit-tap-highlight-color:rgba(223,255,25,.28);touch-action:manipulation}
-  @media(max-width:760px){
-    header{position:sticky;top:0;z-index:100;height:auto!important;display:block!important;padding:12px 0 0!important;background:rgba(255,255,255,.97);backdrop-filter:blur(10px)}
-    .header-brand-group{display:flex!important;align-items:center!important;flex-direction:row!important;justify-content:space-between;gap:12px;padding:0 16px 11px}
-    .logo{font-size:18px!important;line-height:1;white-space:nowrap}
-    .header-manifesto{display:none!important}
-    header nav{display:flex;width:100%;gap:0;margin:0!important;padding:0 10px;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;border-top:1px solid #d7d7d0}
-    header nav::-webkit-scrollbar{display:none}
-    header nav a{flex:1 0 auto;min-height:44px;display:flex;align-items:center;justify-content:center;margin:0!important;padding:0 12px;font-size:11px;line-height:1.1;white-space:nowrap}
-    header nav a::after{bottom:4px;height:3px}
-    header nav a:active{background:rgba(223,255,25,.2)}
-    section[data-route]{scroll-margin-top:104px}
-    .hero-scroll-cue,.future-report-toolbar a,.future-article__nav a,.map-filter,.location-chip,.material-record-overlay__close{min-height:44px;display:inline-flex;align-items:center}
-    .coastal-activities{padding:58px 16px 72px!important}
-    .coastal-editorial-heading{padding-bottom:24px}
-    .coastal-editorial-heading h2{font-size:clamp(42px,14vw,64px);line-height:.92}
-    .coastal-sites-subtitle{margin-top:22px;font-size:17px;line-height:1.5}
-    .coastal-selection-note{font-size:14px;line-height:1.5}
-    .coastal-visual-sequence{display:grid!important;grid-template-columns:1fr!important;gap:16px!important;padding-top:34px!important}
-    .coastal-visual--01,.coastal-visual--02,.coastal-visual--03,.coastal-visual--04{grid-column:1!important;min-height:0!important;width:100%!important;aspect-ratio:4/5!important;margin:0!important}
-    .coastal-visual__type{left:16px;right:16px;bottom:16px}
-    .coastal-visual__type h3{font-size:clamp(28px,9vw,40px)}
-    .coastal-visual__place{font-size:12px;opacity:1;transform:none}
-    .material-map-section{padding:58px 12px 72px!important}
-    .map-heading-row{padding:0 4px 22px!important}
-    .map-heading-row h2{font-size:clamp(40px,13vw,58px)!important;line-height:.95}
-    .map-research-note{font-size:13px!important;line-height:1.55!important}
-    .map-filter-bar{display:flex!important;width:100%;overflow-x:auto;margin:16px 0 12px;scrollbar-width:none}
-    .map-filter-bar::-webkit-scrollbar{display:none}
-    .map-filter{flex:1 0 auto;justify-content:center;min-width:max-content;padding:0 14px!important;font-size:11px!important;border-right:1px solid #999!important;border-bottom:0!important}
-    .location-index{margin-bottom:12px}
-    .location-index__label,.location-chip{min-height:44px;padding:0 14px;font-size:11px}
-    .material-map-shell{display:flex!important;flex-direction:column;min-height:0!important;border:1px solid #777}
-    .map-canvas.has-field-map{order:1;min-height:0!important;height:auto!important;overflow:visible;padding:54px 8px 12px}
-    .field-location-name{position:absolute;left:16px;top:16px;font-size:22px;line-height:1.1}
-    .field-map-stage{position:relative!important;top:auto!important;bottom:auto!important;left:auto!important;width:100%!important;height:auto!important;aspect-ratio:1332/1563;transform:none!important;margin:0 auto}
-    .field-map-base{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
-    .material-point-layer{position:absolute!important;inset:0!important}
-    .bird-habitat-marker{font-size:13px;padding:8px;min-height:36px}
-    .material-node,.material-node[data-kind="human-made"]{width:18px;height:18px}
-    .material-node::before{content:'';position:absolute;left:50%;top:50%;width:44px;height:44px;transform:translate(-50%,-50%);border-radius:50%}
-    .material-node::after{display:none}
-    .material-stats{position:relative!important;order:2;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;display:grid!important;grid-template-columns:1fr 1fr;gap:8px;width:100%;padding:14px 12px!important;text-align:left!important;border-top:1px solid #aaa;background:#fff}
-    .material-stats p{white-space:normal!important;font-size:13px!important;line-height:1.35!important}
-    .material-stats b{display:block!important;margin-top:4px;font-size:24px!important}
-    .human-made-legend{position:relative!important;order:3;left:auto!important;bottom:auto!important;display:flex!important;width:100%;min-height:44px;border:0!important;border-top:1px solid #aaa!important;background:#fff!important}
-    .material-preview{position:relative!important;order:4;right:auto!important;top:auto!important;bottom:auto!important;width:100%!important;margin:0!important;border:0!important;border-top:1px solid #777!important;box-shadow:none!important}
-    .material-preview:not(.is-visible){display:none}
-    .site-panel{order:5;min-height:0!important;padding:28px 18px!important;border-left:0!important;border-top:1px solid #777!important}
-    .site-panel-id,.site-panel-note,.fauna-panel h4{font-size:12px!important}
-    .site-panel h3{margin:20px 0 14px;font-size:30px}
-    .site-panel-desc,.distribution-row{font-size:15px!important;line-height:1.5}
-    .distribution-row{min-height:48px;padding:12px 4px!important}
-    .distribution-dot{width:16px;height:16px}
-    .fauna-name{font-size:12px!important;line-height:1.4}
-    .future-scenarios-page{padding:58px 16px 72px!important}
-    .future-heading h2{font-size:clamp(40px,13vw,60px)!important;line-height:.95}
-    .future-subtitle{font-size:15px!important;line-height:1.5}
-    .future-two-grid{grid-template-columns:1fr!important;gap:16px}
-    .future-scenario-card{min-height:0}
-    .future-scenario-image{height:auto!important;aspect-ratio:1/1}
-    .future-scenario-copy{padding:20px 18px 24px}
-    .future-scenario-copy span{font-size:12px!important}.future-scenario-copy h3{font-size:clamp(28px,9vw,40px)!important;line-height:.98}.future-scenario-copy p{font-size:14px!important;line-height:1.5}
-    .future-report-toolbar{min-height:52px;padding:8px 12px!important;gap:10px}
-    .future-report-toolbar span{font-size:10px;line-height:1.3;letter-spacing:.08em}
-    .future-report-toolbar a{flex:0 0 auto;min-height:40px;padding:0 10px}
-    [data-future-view="index"] .future-index-hero__copy,[data-future-view="future-02-index"] .future-index-hero__copy{padding:42px 18px 50px!important}
-    [data-future-view="index"] .future-index-hero h1,[data-future-view="future-02-index"] .future-index-hero h1{font-size:clamp(38px,12vw,58px);line-height:.98;margin:28px 0 24px}
-    [data-future-view="index"] .future-index-hero p,[data-future-view="future-02-index"] .future-index-hero p{font-size:15px!important;line-height:1.55}
-    .future-scroll-previews{padding:42px 18px 62px!important}
-    .future-report-directory__head{display:block}.future-report-directory__head span{display:block;margin-top:10px;font-size:12px}
-    .future-report-preview{display:block!important;padding:44px 0!important}
-    .future-report-card__meta{font-size:12px!important}.future-report-preview h3{font-size:clamp(34px,10vw,50px);line-height:1;margin:22px 0 26px}
-    .future-preview-copy p{font-size:17px;line-height:1.6}
-    .future-preview-copy>span{min-height:44px;display:inline-flex;align-items:center;padding:0 15px;font-size:12px}
-    .future-article{width:calc(100% - 16px)!important;padding:28px 16px 64px!important}
-    .future-article__nav{gap:12px;margin-bottom:38px!important;padding-bottom:12px}.future-article__nav a{min-height:44px;font-size:11px;line-height:1.25}
-    .future-article__header{padding-bottom:34px!important}.report-kicker{font-size:12px!important}.future-article__header h1{font-size:clamp(36px,11.5vw,56px)!important;line-height:1!important;margin-top:18px!important}
-    .future-article__date{font-size:12px;margin-top:28px!important}
-    .future-article__body{display:block!important;padding-top:36px!important}.future-article__body-label{max-width:none!important;margin-bottom:26px;font-size:12px!important;line-height:1.45}
-    .future-article__prose,.f02-lede p,.f02-closing-copy p,.f02-removal-copy p,.f02-redirection-intro p{font-size:18px!important;line-height:1.62!important}
-    .future-article__aside,.future01-image-note,.image-caption,.f02-removal-grid figcaption{font-size:12px!important;line-height:1.55!important;color:rgba(17,17,17,.68)!important}
-    .future01-opening-image{margin:30px 0 70px}.future01-image-note{margin:-52px 0 70px}
-    .future01-analysis-gallery{display:block;margin-bottom:70px}.future01-analysis-gallery figure{margin-bottom:18px}.future01-analysis-caption{margin-top:20px}
-    .f02-lede,.f02-evidence-layout,.f02-removal-grid,.f02-redirection-intro{display:block!important;padding:36px 0!important}
-    .f02-lede>span,.f02-closing-copy>span{display:block;margin-bottom:24px;font-size:12px!important}
-    .f02-evidence-column figure{margin-bottom:30px}.f02-evidence-layout .f02-closing-copy{margin-top:42px}
-    .f02-removal-grid figure{margin:0 0 30px}.f02-removal-copy{padding:0;gap:40px}
-    .f02-stat strong{font-size:clamp(58px,19vw,86px)!important}.f02-stat span{font-size:24px}.f02-stat small{font-size:12px}
-    .f02-redirection-section{margin:0 -16px;padding:56px 16px 70px!important}.f02-redirection-intro strong{display:block;margin-top:36px;font-size:clamp(38px,13vw,60px)}
-    .f02-concept-grid{display:block}.f02-concept-grid figure{margin-bottom:42px}
-  }
-  @media(max-width:360px){
-    header nav a{padding:0 9px;font-size:10px}
-    .future-report-toolbar span{max-width:190px}
-    .future-article__nav{align-items:stretch;flex-direction:column}.future-article__nav a{justify-content:flex-start}
-  }
-</style>
-
-<style id="mobile-overflow-repair">
-  @media(max-width:760px){
-    html,body{width:100%;max-width:100%;margin:0;overflow-x:clip!important}
-    *,*::before,*::after{box-sizing:border-box}
-    header,nav,main,section,article,footer,figure,
-    .hero-home,.coastal-activities,.material-map-section,.future-scenarios-page,
-    .future-report-overlay,.future-report-view,.future-article,
-    .material-record-overlay,.material-record-overlay__inner,.material-record-folder,
-    .material-record-sheet,.material-map-shell,.map-canvas,.site-panel,
-    .future-index-hero,.future-index-hero__copy,.future-scroll-previews,
-    .future-report-preview,.future-preview-copy,.future-article__header,
-    .future-article__body,.future-article__prose,.f02-report,
-    .f02-lede,.f02-evidence-layout,.f02-evidence-column,.f02-closing-copy,
-    .f02-removal-section,.f02-removal-grid,.f02-removal-copy,
-    .f02-redirection-section,.f02-redirection-intro,.f02-concept-grid,
-    .future01-opening-image,.future01-analysis-gallery{
-      min-width:0!important;
-      max-width:100%!important;
-    }
-
-    p,h1,h2,h3,h4,strong,span,figcaption,a,button{
-      overflow-wrap:anywhere;
-      word-break:normal;
-    }
-
-    /* Keep the header arrangement, but fit it inside the phone viewport. */
-    header nav{
-      flex-wrap:wrap!important;
-      overflow-x:visible!important;
-      padding:0 8px!important;
-    }
-    header nav a{
-      flex:1 1 31%!important;
-      min-width:0!important;
-      padding:8px 6px!important;
-      white-space:normal!important;
-      text-align:center;
-    }
-
-    /* Filters and locations remain horizontal groups and wrap when needed. */
-    .map-filter-bar,.location-index{
-      width:100%!important;
-      max-width:100%!important;
-      flex-wrap:wrap!important;
-      overflow-x:visible!important;
-    }
-    .map-filter{
-      flex:1 1 30%!important;
-      min-width:0!important;
-      padding:8px 6px!important;
-      white-space:normal!important;
-      text-align:center;
-    }
-    .location-index__label,.location-chip{
-      flex:1 1 auto!important;
-      min-width:0!important;
-      padding:8px 9px!important;
-      white-space:normal!important;
-      text-align:center;
-    }
-
-    .hero-home__content,.coastal-editorial-heading,.map-heading-row,
-    .future-heading,.future-scenario-copy{
-      width:100%!important;
-      min-width:0!important;
-      max-width:100%!important;
-    }
-    .hero-home__content{left:16px!important;right:16px!important}
-    .hero-home__content h1,.coastal-editorial-heading h2,.map-heading-row h2,
-    .future-heading h2,.future-article__header h1,.future-report-preview h3{
-      max-width:100%!important;
-      overflow-wrap:anywhere!important;
-    }
-
-    .map-canvas.has-field-map{width:100%!important;max-width:100%!important;overflow:hidden!important}
-    .field-map-stage{max-width:100%!important}
-    .field-location-name{max-width:calc(100% - 32px)!important;overflow-wrap:anywhere}
-    .bird-habitat-marker{max-width:44%!important;white-space:normal!important;line-height:1.2!important}
-    .material-preview,.site-panel,.material-stats,.human-made-legend{max-width:100%!important}
-    .material-stats{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important}
-    .material-stats p{min-width:0!important;overflow-wrap:anywhere!important}
-    .distribution-row{grid-template-columns:18px minmax(0,1fr)!important}
-
-    .material-record-overlay{overflow-x:hidden!important}
-    .material-record-overlay__inner{width:100%!important;padding:24px 12px 34px!important}
-    .material-record-overlay__top{gap:10px;flex-wrap:wrap}
-    .material-record-overlay__top span{flex:1 1 180px;min-width:0}
-    .material-record-folder{width:100%!important;margin:28px 0 0!important;padding:14px!important;box-shadow:7px 8px 0 rgba(0,0,0,.07)!important}
-    .material-record-sheet{width:100%!important;padding:18px 14px!important}
-    .material-record-row{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important}
-    .material-record-row b{max-width:none!important;min-width:0;text-align:right;overflow-wrap:anywhere}
-    .material-record-largegrid{grid-template-columns:minmax(0,1fr)!important}
-
-    .future-report-toolbar{width:100%;max-width:100%;flex-wrap:wrap!important}
-    .future-report-toolbar span{flex:1 1 180px;max-width:none!important;min-width:0}
-    .future-report-toolbar a{flex:0 1 auto!important;white-space:normal!important;text-align:center}
-    .future-article{width:100%!important;margin:0!important;padding:28px 16px 64px!important}
-    .future-article__nav{width:100%;max-width:100%;flex-wrap:wrap!important}
-    .future-article__nav a{flex:1 1 42%;min-width:0;white-space:normal}
-    .future-index-hero p,.future-preview-copy p,.future-article__prose,
-    .f02-lede p,.f02-closing-copy p,.f02-removal-copy p,.f02-redirection-intro p{
-      width:auto!important;
-      max-width:100%!important;
-      white-space:normal!important;
-    }
-
-    /* Preserve the established report layout while showing every image in full. */
-    .future-index-hero__image,.future01-opening-image,.future01-analysis-gallery figure,
-    .f02-colony-image,.f02-evidence-column figure,.f02-removal-grid figure,
-    .f02-concept-image{
-      width:100%!important;
-      max-width:100%!important;
-      height:auto!important;
-      min-height:0!important;
-      overflow:visible!important;
-    }
-    .future-index-hero__image img,.future01-opening-image img,
-    .future01-analysis-gallery img,.f02-evidence-layout img,
-    .f02-removal-grid figure img,.f02-concept-image img{
-      display:block!important;
-      width:100%!important;
-      max-width:100%!important;
-      height:auto!important;
-      max-height:none!important;
-      object-fit:contain!important;
-      object-position:center!important;
-    }
-    .f02-evidence-layout figcaption,.f02-concept-grid figcaption{
-      max-width:100%!important;
-      flex-wrap:wrap!important;
-    }
-    .f02-evidence-layout figcaption span,.f02-concept-grid figcaption span{
-      max-width:100%!important;
-      text-align:left!important;
-    }
-    .f02-stat{min-width:0!important;max-width:100%!important}
-    .f02-stat strong{max-width:100%;font-size:clamp(52px,18vw,78px)!important;overflow-wrap:normal!important}
-    .f02-stat span{white-space:normal!important;overflow-wrap:anywhere}
-    .f02-redirection-section{width:auto!important;max-width:none!important;margin-left:-16px!important;margin-right:-16px!important}
-  }
-
-  @media(max-width:390px){
-    header nav a{font-size:9.5px!important}
-    .material-map-section{padding-left:8px!important;padding-right:8px!important}
-    .future-article{padding-left:12px!important;padding-right:12px!important}
-    .future-article__header h1{font-size:clamp(32px,10.5vw,46px)!important}
-  }
-
-  @media(max-width:360px){
-    header nav a{padding-left:4px!important;padding-right:4px!important;font-size:9px!important}
-    .map-filter{padding-left:4px!important;padding-right:4px!important;font-size:9px!important}
-    .location-index__label,.location-chip{padding-left:6px!important;padding-right:6px!important;font-size:9px!important}
-  }
-</style>
 </head>
 
 <body>
@@ -2976,8 +2719,10 @@
     <img
       class="hero-home__background"
       src="assets/images/home-hero.webp"
+      decoding="async"
       fetchpriority="high"
-      alt="Plastic fragments beside a bird nest containing blue eggs" width="2048" height="1447" decoding="async">
+      alt="Plastic fragments beside a bird nest containing blue eggs"
+    >
 
     <div class="hero-home__overlay" aria-hidden="true"></div>
 
@@ -3005,7 +2750,7 @@
 
   <div class="coastal-visual-sequence" aria-label="Four coastal environments">
     <a class="coastal-visual coastal-visual--01" href="#map/troup-head" data-site-link="troup-head">
-      <img src="assets/images/coastal-01-bird-habitat.webp" alt="Seabirds resting on coastal rocks at Troup Head" width="2400" height="1600" loading="lazy" decoding="async">
+      <img src="assets/images/coastal-01-bird-habitat.webp" alt="Seabirds resting on coastal rocks at Troup Head" loading="lazy" decoding="async">
       <span class="coastal-visual__index">01</span>
       <div class="coastal-visual__type">
         <h3>BIRD HABITAT</h3>
@@ -3018,7 +2763,7 @@
     </a>
 
     <a class="coastal-visual coastal-visual--02" href="#map/burghead" data-site-link="burghead">
-      <img src="assets/images/coastal-02-fishing-harbour.webp" alt="Fishing vessels and working harbour infrastructure" width="736" height="1111" loading="lazy" decoding="async">
+      <img src="assets/images/coastal-02-fishing-harbour.webp" alt="Fishing vessels and working harbour infrastructure" loading="lazy" decoding="async">
       <span class="coastal-visual__index">02</span>
       <div class="coastal-visual__type">
         <h3>FISHING HARBOUR</h3>
@@ -3031,7 +2776,7 @@
     </a>
 
     <a class="coastal-visual coastal-visual--03" href="#map/gardenstown" data-site-link="gardenstown">
-      <img src="assets/images/coastal-03-coastal-town.webp" alt="Coastal settlement between a green hillside and the sea" width="2400" height="1607" loading="lazy" decoding="async">
+      <img src="assets/images/coastal-03-coastal-town.webp" alt="Coastal settlement between a green hillside and the sea" loading="lazy" decoding="async">
       <span class="coastal-visual__index">03</span>
       <div class="coastal-visual__type">
         <h3>COASTAL TOWN</h3>
@@ -3044,7 +2789,7 @@
     </a>
 
     <a class="coastal-visual coastal-visual--04" href="#map/findhorn" data-site-link="findhorn">
-      <img src="assets/images/coastal-04-hybrid-coastal-habitat.webp" alt="Colourful beach huts beside a coastal landscape" width="1200" height="1200" loading="lazy" decoding="async">
+      <img src="assets/images/coastal-04-hybrid-coastal-habitat.webp" alt="Colourful beach huts beside a coastal landscape" loading="lazy" decoding="async">
       <span class="coastal-visual__index">04</span>
       <div class="coastal-visual__type">
         <h3>HYBRID COASTAL HABITAT</h3>
@@ -3090,7 +2835,7 @@
       <button class="site-marker m-findhorn" data-site="findhorn"><i></i><span><strong>FINDHORN</strong><small>Hybrid Coastal Habitat</small></span></button>
 
       <div class="field-map-stage" id="fieldMapStage">
-        <img class="field-map-base" id="fieldMapImage" src="assets/maps/troup-head-map.svg" alt="Troup Head field map with concentric distance zones" width="1332" height="1563" loading="lazy" decoding="async">
+        <img class="field-map-base" id="fieldMapImage" src="assets/maps/troup-head-map.svg" alt="Troup Head field map with concentric distance zones" loading="lazy" decoding="async">
         <button class="bird-habitat-marker" id="birdHabitatMarker" type="button" aria-label="Toggle species observed at the bird habitat" aria-expanded="false">BIRD HABITAT</button>
         <div class="material-point-layer" id="materialPointLayer"></div>
       </div>
@@ -3198,11 +2943,11 @@
   </div>
   <div class="future-scenario-grid future-two-grid">
     <a class="future-scenario-card future-entry-link" href="#future/01">
-      <div class="future-scenario-image"><img src="assets/images/future-01-artificial-habitat.webp" alt="A bird form composed of colourful plastic fragments in a coastal habitat" width="2200" height="1325" loading="lazy" decoding="async"></div>
+      <div class="future-scenario-image"><img src="assets/images/future-01-artificial-habitat.webp" loading="lazy" decoding="async" alt="A bird form composed of colourful plastic fragments in a coastal habitat"></div>
       <div class="future-scenario-copy"><span>FUTURE 01</span><h3>MORE PLASTIC BECOMES AVAILABLE</h3><p>Gull / Gannet — image and species information to be added.</p></div>
     </a>
     <a class="future-scenario-card future-entry-link future-02-entry-link" href="#future/02">
-      <div class="future-scenario-image"><img src="assets/images/future-02-community-action.webp" alt="Community volunteers collecting material waste from a beach" width="736" height="736" loading="lazy" decoding="async"></div>
+      <div class="future-scenario-image"><img src="assets/images/future-02-community-action.webp" loading="lazy" decoding="async" alt="Community volunteers collecting material waste from a beach"></div>
       <div class="future-scenario-copy"><span>FUTURE 02</span><h3>MATERIAL PATHWAYS ARE REDIRECTED</h3><p>Two reports move from plastic exposure to community removal and alternative nesting structures.</p></div>
     </a>
   </div>
@@ -3251,7 +2996,7 @@
           <p>What once appeared as an unusual trace is now increasingly visible across coastal nesting sites. In this changing material landscape, plastic is no longer simply debris on the shore. It becomes part of what a bird can find, pick up, and potentially build with.</p>
         </div>
       </div>
-      <figure class="future01-opening-image"><img src="assets/images/future01-opening.webp" alt="Plastic accumulation beneath the sea and a speculative coastal bird habitat" width="1500" height="2065" loading="lazy" decoding="async"></figure>
+      <figure class="future01-opening-image"><img src="assets/images/future01-opening.webp" alt="Plastic accumulation beneath the sea and a speculative coastal bird habitat"></figure>
       <aside class="future-article__aside future01-image-note">This speculative report projects existing material pathways into a possible near future. It is not a prediction of complete coastal conditions.</aside>
     </div>
   </article>
@@ -3272,9 +3017,9 @@
         <aside class="future-article__aside">The comparison links material availability to repeated encounters. Site names refer to the project’s field-research locations.</aside>
       </div>
       <section class="future01-analysis-gallery" aria-label="Mixed material nest grid analysis">
-        <figure><img src="assets/images/future01-findhorn-analysis.webp" alt="Findhorn nest material grid analysis" width="1400" height="1596" loading="lazy" decoding="async"></figure>
-        <figure><img src="assets/images/future01-burghead-analysis.webp" alt="Burghead nest material grid analysis" width="1400" height="1596" loading="lazy" decoding="async"></figure>
-        <figure><img src="assets/images/future01-troup-head-analysis.webp" alt="Troup Head nest material grid analysis" width="1400" height="1574" loading="lazy" decoding="async"></figure>
+        <figure><img src="assets/images/future01-findhorn-analysis.webp" alt="Findhorn nest material grid analysis"></figure>
+        <figure><img src="assets/images/future01-burghead-analysis.webp" alt="Burghead nest material grid analysis"></figure>
+        <figure><img src="assets/images/future01-troup-head-analysis.webp" alt="Troup Head nest material grid analysis"></figure>
         <div class="image-caption future01-analysis-caption"><strong>Mixed Material Nest</strong><em>Natural fibres and plastic strands are woven into the same nest,</em><span>Grid analysis of visible nest materials compares the proportion of natural and synthetic components within the nesting structure.</span></div>
       </section>
     </div>
@@ -3316,9 +3061,9 @@
       </div>
       <section class="f02-evidence-layout" aria-label="Troup Head colony and evidence">
         <div class="f02-evidence-column">
-          <figure><img src="assets/images/future02-colony.webp" alt="Northern gannet colony at Troup Head" width="1900" height="1267" loading="lazy" decoding="async"></figure>
-          <figure><img src="assets/images/future02-evidence-plastic-nest.webp" alt="Fishing line and synthetic fibres present in a gannet nest" width="1300" height="1665" loading="lazy" decoding="async"><figcaption class="image-caption">Plastic is increasingly visible within gannet nesting environments</figcaption></figure>
-          <figure><img src="assets/images/future02-evidence-eggs.webp" alt="Plastic fragments shown beside bird eggs" width="1500" height="1060" loading="lazy" decoding="async"><figcaption class="image-caption">Plastic fragments observed around the surface of seabird eggs become a speculative warning of how persistent plastic exposure may extend beyond the nest itself.</figcaption></figure>
+          <figure><img src="assets/images/future02-colony.webp" alt="Northern gannet colony at Troup Head"></figure>
+          <figure><img src="assets/images/future02-evidence-plastic-nest.webp" alt="Fishing line and synthetic fibres present in a gannet nest"><figcaption class="image-caption">Plastic is increasingly visible within gannet nesting environments</figcaption></figure>
+          <figure><img src="assets/images/future02-evidence-eggs.webp" alt="Plastic fragments shown beside bird eggs"><figcaption class="image-caption">Plastic fragments observed around the surface of seabird eggs become a speculative warning of how persistent plastic exposure may extend beyond the nest itself.</figcaption></figure>
         </div>
         <div class="f02-closing-copy">
           <span>PLASTIC-RELATED EXPOSURE</span>
@@ -3338,7 +3083,7 @@
       <section class="f02-removal-section">
         <div class="f02-section-label"><span>01</span><h2>BEACH CLEANING / REMOVAL</h2></div>
         <div class="f02-removal-grid">
-          <figure><img src="assets/images/future02-beach-cleaning.webp" alt="Marine litter collected during a beach clean" width="736" height="1104" loading="lazy" decoding="async"><figcaption>COMMUNITY COLLECTION / MORAY COAST</figcaption></figure>
+          <figure><img src="assets/images/future02-beach-cleaning.webp" alt="Marine litter collected during a beach clean"><figcaption>COMMUNITY COLLECTION / MORAY COAST</figcaption></figure>
           <div class="f02-removal-copy">
             <p>In response to the growing presence of plastic in coastal habitats, <strong><a href="https://www.morayoceancommunity.co.uk/active-projects" target="_blank" rel="noopener noreferrer">Moray Ocean Community</a></strong> is calling on residents to move beyond observation and take part in regular beach-cleaning programmes. Community collection events now remove more than <strong>2,000 pieces of marine litter each year</strong>, redirecting waste before it can re-enter beaches, nesting areas and coastal food webs.</p>
             <div class="f02-stat"><strong>2,000+</strong><span>ITEMS / YEAR</span><small>REMOVED FROM COASTAL MATERIAL PATHWAYS</small></div>
@@ -3349,8 +3094,8 @@
         <div class="f02-section-label"><span>02</span><h2>REDIRECTION</h2></div>
         <div class="f02-redirection-intro"><p>As seabirds continue to select lightweight, flexible and durable materials, new forms of coastal infrastructure are being proposed to change what becomes available to them. Plans include large communal nesting structures made from recovered plastic, as well as biodegradable one-piece nests produced through PLA 3D printing. These interventions are designed not to force birds away from anthropogenic materials, but to redirect material availability while allowing birds to retain their own nesting choices.</p><strong>ALTERNATIVE<br>NESTING<br>STRUCTURES</strong></div>
         <div class="f02-concept-grid">
-          <figure><div class="f02-concept-image"><img src="assets/images/future02-communal-structure.webp" alt="Speculative communal nesting structure beside the coast" width="1300" height="1815" loading="lazy" decoding="async"></div><figcaption class="image-caption"><strong>Recycled Plastic Bird Structure</strong><em>Proposed nesting structures made from recovered plastic redirect existing waste into controlled forms rather than leaving fragmented material loose within the habitat.</em></figcaption></figure>
-          <figure><div class="f02-concept-image"><img src="assets/images/future02-pla-nest.webp" alt="Biodegradable one-piece nest produced through PLA 3D printing" width="1500" height="1000" loading="lazy" decoding="async"></div><figcaption class="image-caption"><strong>PLA 3D-Printed Nest</strong><em>A biodegradable 3D-printed nesting structure explores whether material availability can be redirected without removing birds’ ability to choose where and how they nest.</em></figcaption></figure>
+          <figure><div class="f02-concept-image"><img src="assets/images/future02-communal-structure.webp" alt="Speculative communal nesting structure beside the coast"></div><figcaption class="image-caption"><strong>Recycled Plastic Bird Structure</strong><em>Proposed nesting structures made from recovered plastic redirect existing waste into controlled forms rather than leaving fragmented material loose within the habitat.</em></figcaption></figure>
+          <figure><div class="f02-concept-image"><img src="assets/images/future02-pla-nest.webp" alt="Biodegradable one-piece nest produced through PLA 3D printing"></div><figcaption class="image-caption"><strong>PLA 3D-Printed Nest</strong><em>A biodegradable 3D-printed nesting structure explores whether material availability can be redirected without removing birds’ ability to choose where and how they nest.</em></figcaption></figure>
         </div>
       </section>
     </div>
